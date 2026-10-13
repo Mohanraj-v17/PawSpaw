@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frequently Asked Questions | PawSpaw & Co.</title>
+  <meta name="description" content="Find answers to common questions about appointments, cage-free safety, senior care, and pricing.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              700: '#1b4332',
+              800: '#0f291e',
+              accent: '#e07a5f'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#FDFBF7] dark:bg-[#121816] text-stone-800 dark:text-stone-100 transition-colors duration-300 antialiased overflow-x-hidden min-h-screen flex flex-col justify-between">
+
+  <div id="navbar-placeholder"></div>
+
+  <main class="pt-24 lg:pt-28 flex-1">
+
+    <!-- ====================================================================
+         SECTION 1: FAQ HERO
+         ==================================================================== -->
+    <section class="max-w-7xl mx-auto px-6 py-12 lg:py-16 text-center">
+      <div class="max-w-2xl mx-auto space-y-4">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-emerald-800 dark:text-emerald-400">Help Center</span>
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-emerald-950 dark:text-white leading-tight">
+          Frequently Asked Questions.
+        </h1>
+        <p class="text-stone-600 dark:text-stone-300 text-sm sm:text-base leading-relaxed">
+          Everything you need to know about our cage-free salon philosophy, hygiene standards, appointment prep, and care routines.
+        </p>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 2: SEARCHABLE FAQ INPUT BAR
+         ==================================================================== -->
+    <section class="max-w-3xl mx-auto px-6 pb-8">
+      <div class="relative group">
+        <i class="fas fa-search absolute left-5 top-1/2 -translate-y-1/2 text-stone-400 group-hover:text-emerald-600 transition-colors text-sm"></i>
+        <input 
+          type="text" 
+          id="faq-search-input" 
+          placeholder="Search keywords (e.g. vaccines, cages, cat, duration, booking)..." 
+          class="w-full text-xs sm:text-sm pl-12 pr-4 py-4 rounded-2xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-[#1A2220] text-stone-900 dark:text-white shadow-sm hover:shadow-md focus:shadow-md focus:outline-none focus:border-emerald-600 transition-all"
+        >
+      </div>
+      <div id="faq-no-results" class="hidden text-center py-6 text-xs text-stone-500">
+        No matching questions found. Try searching for "vaccine", "cat", or "pricing".
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 3: APPOINTMENT & BOOKING QUESTIONS (Accordion 1-4)
+         ==================================================================== -->
+    <section class="max-w-3xl mx-auto px-6 py-6 space-y-4">
+      <h3 class="text-xs font-black uppercase tracking-widest text-emerald-800 dark:text-emerald-400 mb-2">Bookings & Scheduling</h3>
+
+      <!-- FAQ 1 -->
+      <div class="faq-accordion-item bg-white dark:bg-[#1A2220] rounded-2xl border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md hover:border-emerald-600/40 transition-all overflow-hidden">
+        <button class="faq-question-btn w-full p-5 text-left flex items-center justify-between text-sm font-bold text-stone-900 dark:text-white focus:outline-none">
+          <span>How far in advance should I book my pet's appointment?</span>
+          <i class="fas fa-chevron-down text-xs text-stone-400 transition-transform duration-300 faq-chevron"></i>
+        </button>
+        <div class="faq-answer-content hidden px-5 pb-5 text-xs text-stone-600 dark:text-stone-300 leading-relaxed border-t border-stone-100 dark:border-stone-800/80 pt-3">
+          We recommend scheduling 1 to 2 weeks ahead, particularly for weekend slots or specialized master scissor appointments. Our online booking engine displays real-time live availability.
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="faq-accordion-item bg-white dark:bg-[#1A2220] rounded-2xl border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md hover:border-emerald-600/40 transition-all overflow-hidden">
+        <button class="faq-question-btn w-full p-5 text-left flex items-center justify-between text-sm font-bold text-stone-900 dark:text-white focus:outline-none">
+          <span>Can I stay with my pet during the grooming session?</span>
+          <i class="fas fa-chevron-down text-xs text-stone-400 transition-transform duration-300 faq-chevron"></i>
+        </button>
+        <div class="faq-answer-content hidden px-5 pb-5 text-xs text-stone-600 dark:text-stone-300 leading-relaxed border-t border-stone-100 dark:border-stone-800/80 pt-3">
+          You are welcome to relax in our acoustic glass viewing lounge! While pet parents are usually not inside the wet bathing stations (as pets tend to wiggle more trying to reach their humans), you can view everything through the glass.
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="faq-accordion-item bg-white dark:bg-[#1A2220] rounded-2xl border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md hover:border-emerald-600/40 transition-all overflow-hidden">
+        <button class="faq-question-btn w-full p-5 text-left flex items-center justify-between text-sm font-bold text-stone-900 dark:text-white focus:outline-none">
+          <span>How long does an average grooming session take?</span>
+          <i class="fas fa-chevron-down text-xs text-stone-400 transition-transform duration-300 faq-chevron"></i>
+        </button>
+        <div class="faq-answer-content hidden px-5 pb-5 text-xs text-stone-600 dark:text-stone-300 leading-relaxed border-t border-stone-100 dark:border-stone-800/80 pt-3">
+          Standard bath treatments take approximately 60 minutes. Full scissor haircut packages typically require 90 to 120 minutes depending on coat condition and breed size. We never rush the hand-drying process.
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="faq-accordion-item bg-white dark:bg-[#1A2220] rounded-2xl border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md hover:border-emerald-600/40 transition-all overflow-hidden">
+        <button class="faq-question-btn w-full p-5 text-left flex items-center justify-between text-sm font-bold text-stone-900 dark:text-white focus:outline-none">
+          <span>Can I reschedule my appointment through the client portal?</span>
+          <i class="fas fa-chevron-down text-xs text-stone-400 transition-transform duration-300 faq-chevron"></i>
+        </button>
+        <div class="faq-answer-content hidden px-5 pb-5 text-xs text-stone-600 dark:text-stone-300 leading-relaxed border-t border-stone-100 dark:border-stone-800/80 pt-3">
+          Yes! Simply sign in to your Pet Owner Dashboard, navigate to 'My Appointments', and select 'Reschedule' or 'Cancel' with a single click up to 24 hours prior to your slot.
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 4: GROOMING & STYLING QUESTIONS (Accordion 5-8)
+         ==================================================================== -->
+    <section class="max-w-3xl mx-auto px-6 py-6 space-y-4">
+      <h3 class="text-xs font-black uppercase tracking-widest text-emerald-800 dark:text-emerald-400 mb-2">Styling & Techniques</h3>
+
+      <!-- FAQ 5 -->
+      <div class="faq-accordion-item bg-white dark:bg-[#1A2220] rounded-2xl border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md hover:border-emerald-600/40 transition-all overflow-hidden">
+        <button class="faq-question-btn w-full p-5 text-left flex items-center justify-between text-sm font-bold text-stone-900 dark:text-white focus:outline-none">
+          <span>What is Asian Fusion / Teddy Bear styling?</span>
+          <i class="fas fa-chevron-down text-xs text-stone-400 transition-transform duration-300 faq-chevron"></i>
+        </button>
+        <div class="faq-answer-content hidden px-5 pb-5 text-xs text-stone-600 dark:text-stone-300 leading-relaxed border-t border-stone-100 dark:border-stone-800/80 pt-3">
+          Asian Fusion emphasizes rounded, plush, doll-like contours—accentuating expressive eyes, cylindrical legs, and spherical heads. It is extraordinarily popular for Doodles, Poodles, and Shih Tzus.
+        </div>
+      </div>
+
+      <!-- FAQ 6 -->
+      <div class="faq-accordion-item bg-white dark:bg-[#1A2220] rounded-2xl border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md hover:border-emerald-600/40 transition-all overflow-hidden">
+        <button class="faq-question-btn w-full p-5 text-left flex items-center justify-between text-sm font-bold text-stone-900 dark:text-white focus:outline-none">
+          <span>Do you groom cats, and is the feline environment quiet?</span>
+          <i class="fas fa-chevron-down text-xs text-stone-400 transition-transform duration-300 faq-chevron"></i>
+        </button>
+        <div class="faq-answer-content hidden px-5 pb-5 text-xs text-stone-600 dark:text-stone-300 leading-relaxed border-t border-stone-100 dark:border-stone-800/80 pt-3">
+          Yes! We have dedicated feline styling days and acoustic private suites separated from dog grooming areas. Our cat specialist, Marcus Vance, utilizes low-noise blow drying and calming pheromones.
+        </div>
+      </div>
+
+      <!-- FAQ 7 -->
+      <div class="faq-accordion-item bg-white dark:bg-[#1A2220] rounded-2xl border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md hover:border-emerald-600/40 transition-all overflow-hidden">
+        <button class="faq-question-btn w-full p-5 text-left flex items-center justify-between text-sm font-bold text-stone-900 dark:text-white focus:outline-none">
+          <span>What shampoos and cosmetic conditioners do you use?</span>
+          <i class="fas fa-chevron-down text-xs text-stone-400 transition-transform duration-300 faq-chevron"></i>
+        </button>
+        <div class="faq-answer-content hidden px-5 pb-5 text-xs text-stone-600 dark:text-stone-300 leading-relaxed border-t border-stone-100 dark:border-stone-800/80 pt-3">
+          We use exclusively sulfate-free, paraben-free, plant-based botanical formulas made with organic oatmeal, chamomile, aloe vera, and unrefined coconut oils. We also carry hypoallergenic prescription cleansers.
+        </div>
+      </div>
+
+      <!-- FAQ 8 -->
+      <div class="faq-accordion-item bg-white dark:bg-[#1A2220] rounded-2xl border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md hover:border-emerald-600/40 transition-all overflow-hidden">
+        <button class="faq-question-btn w-full p-5 text-left flex items-center justify-between text-sm font-bold text-stone-900 dark:text-white focus:outline-none">
+          <span>Will you shave double-coated breeds like Huskies or Golden Retrievers?</span>
+          <i class="fas fa-chevron-down text-xs text-stone-400 transition-transform duration-300 faq-chevron"></i>
+        </button>
+        <div class="faq-answer-content hidden px-5 pb-5 text-xs text-stone-600 dark:text-stone-300 leading-relaxed border-t border-stone-100 dark:border-stone-800/80 pt-3">
+          Never unless medically mandated by a veterinary surgeon. Shaving double coats ruins thermal insulation and causes post-clipping alopecia. We perform intensive undercoat de-shedding instead.
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 5: PET SAFETY, HYGIENE & HEALTH (Accordion 9-12)
+         ==================================================================== -->
+    <section class="max-w-3xl mx-auto px-6 py-6 space-y-4">
+      <h3 class="text-xs font-black uppercase tracking-widest text-emerald-800 dark:text-emerald-400 mb-2">Safety & Health Protocols</h3>
+
+      <!-- FAQ 9 -->
+      <div class="faq-accordion-item bg-white dark:bg-[#1A2220] rounded-2xl border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md hover:border-emerald-600/40 transition-all overflow-hidden">
+        <button class="faq-question-btn w-full p-5 text-left flex items-center justify-between text-sm font-bold text-stone-900 dark:text-white focus:outline-none">
+          <span>What vaccines are required before attending the salon?</span>
+          <i class="fas fa-chevron-down text-xs text-stone-400 transition-transform duration-300 faq-chevron"></i>
+        </button>
+        <div class="faq-answer-content hidden px-5 pb-5 text-xs text-stone-600 dark:text-stone-300 leading-relaxed border-t border-stone-100 dark:border-stone-800/80 pt-3">
+          For dogs: Rabies, DHPP, and Bordetella (kennel cough). For cats: Rabies and FVRCP. Proof can be quickly uploaded to your Pet Owner profile prior to check-in.
+        </div>
+      </div>
+
+      <!-- FAQ 10 -->
+      <div class="faq-accordion-item bg-white dark:bg-[#1A2220] rounded-2xl border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md hover:border-emerald-600/40 transition-all overflow-hidden">
+        <button class="faq-question-btn w-full p-5 text-left flex items-center justify-between text-sm font-bold text-stone-900 dark:text-white focus:outline-none">
+          <span>What does your 100% cage-free policy mean?</span>
+          <i class="fas fa-chevron-down text-xs text-stone-400 transition-transform duration-300 faq-chevron"></i>
+        </button>
+        <div class="faq-answer-content hidden px-5 pb-5 text-xs text-stone-600 dark:text-stone-300 leading-relaxed border-t border-stone-100 dark:border-stone-800/80 pt-3">
+          We never lock pets in metal cage dryers or stacked holding boxes. Pets rest in spacious glass suites with plush orthopedic bedding, filtered water fountains, and calming music while awaiting pickup.
+        </div>
+      </div>
+
+      <!-- FAQ 11 -->
+      <div class="faq-accordion-item bg-white dark:bg-[#1A2220] rounded-2xl border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md hover:border-emerald-600/40 transition-all overflow-hidden">
+        <button class="faq-question-btn w-full p-5 text-left flex items-center justify-between text-sm font-bold text-stone-900 dark:text-white focus:outline-none">
+          <span>How do you handle highly anxious or elderly pets?</span>
+          <i class="fas fa-chevron-down text-xs text-stone-400 transition-transform duration-300 faq-chevron"></i>
+        </button>
+        <div class="faq-answer-content hidden px-5 pb-5 text-xs text-stone-600 dark:text-stone-300 leading-relaxed border-t border-stone-100 dark:border-stone-800/80 pt-3">
+          We use Fear-Free gentle methods, provide frequent rest breaks on memory foam mats, apply lavender aromatherapy, and avoid loud clippers. We match nervous pets with our most patient senior stylists.
+        </div>
+      </div>
+
+      <!-- FAQ 12 -->
+      <div class="faq-accordion-item bg-white dark:bg-[#1A2220] rounded-2xl border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md hover:border-emerald-600/40 transition-all overflow-hidden">
+        <button class="faq-question-btn w-full p-5 text-left flex items-center justify-between text-sm font-bold text-stone-900 dark:text-white focus:outline-none">
+          <span>How are grooming tools sanitized?</span>
+          <i class="fas fa-chevron-down text-xs text-stone-400 transition-transform duration-300 faq-chevron"></i>
+        </button>
+        <div class="faq-answer-content hidden px-5 pb-5 text-xs text-stone-600 dark:text-stone-300 leading-relaxed border-t border-stone-100 dark:border-stone-800/80 pt-3">
+          We utilize medical autoclave heat sterilization and hospital-grade virucidal solutions between every pet client, ensuring zero risk of cross-contamination or skin infections.
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 6: DIRECT CONTACT & SUPPORT CTA
+         ==================================================================== -->
+    <section class="max-w-7xl mx-auto px-6 py-16 text-center">
+      <div class="bg-white dark:bg-[#1A2220] rounded-[2.5rem] p-10 border border-stone-200 dark:border-stone-800 shadow-lg hover:shadow-xl transition-shadow max-w-3xl mx-auto space-y-4">
+        <h3 class="text-2xl font-bold text-stone-900 dark:text-white">Still have questions about your pet?</h3>
+        <p class="text-xs sm:text-sm text-stone-500 max-w-md mx-auto">Our salon coordinators are available via phone, live chat, or email to discuss customized grooming accommodations.</p>
+        <div class="flex flex-wrap justify-center gap-4 pt-2">
+          <a href="contacts.html" class="px-6 py-3 rounded-full bg-emerald-800 hover:bg-emerald-700 text-white text-xs font-bold shadow-md hover:scale-105 active:scale-95 transition-all">
+            Contact Concierge
+          </a>
+          <a href="sessions.html#booking" class="px-6 py-3 rounded-full border border-stone-300 dark:border-stone-700 hover:border-emerald-600 text-stone-800 dark:text-white text-xs font-bold hover:bg-stone-50 dark:hover:bg-stone-800 hover:scale-105 active:scale-95 transition-all">
+            Book Appointment
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="app.js"></script>
+  <script>
+  if (localStorage.getItem('pawspaw_theme') === 'dark') {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+</script>
+</body>
+</html>

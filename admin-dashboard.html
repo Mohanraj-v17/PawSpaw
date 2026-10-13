@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Management Terminal | PawSpaw & Co.</title>
+  <meta name="description"
+    content="Centralized management console for bookings, customers, services, payments, and staff schedules.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              700: '#1b4332',
+              800: '#0f291e',
+              accent: '#e07a5f'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Browser native dropdown popups & scrollbars dark theme fix */
+    .dark {
+      color-scheme: dark;
+    }
+
+    .light {
+      color-scheme: light;
+    }
+
+    /* Dropdown options dark background */
+    .dark select option {
+      background-color: #16201D;
+      color: #F3F1EB;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body
+  class="bg-[#F3F1EB] dark:bg-[#0B100E] text-stone-800 dark:text-stone-100 min-h-screen transition-colors duration-300 antialiased flex flex-col font-sans">
+
+  <!-- TOP MOBILE ADMIN BAR -->
+  <!-- TOP MOBILE ADMIN BAR (LIGHT & DARK MODE READY) -->
+  <header
+    class="lg:hidden bg-white dark:bg-[#16201D] border-b border-stone-200 dark:border-stone-800 px-4 py-3 flex items-center justify-between sticky top-0 z-30 transition-colors">
+    <div class="flex items-center gap-2">
+      <button id="admin-sidebar-toggle"
+        class="w-9 h-9 rounded-xl bg-stone-100 dark:bg-stone-800 flex items-center justify-center text-stone-700 dark:text-stone-200">
+        <i class="fas fa-bars"></i>
+      </button>
+      <a href="index.html" class="flex items-center gap-2">
+        <div
+          class="w-8 h-8 rounded-full bg-emerald-800 dark:bg-emerald-600 text-white flex items-center justify-center text-xs font-bold">
+          <i class="fas fa-paw"></i>
+        </div>
+        <span class="font-bold text-stone-900 dark:text-white text-sm">PawSpaw Admin</span>
+      </a>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <button onclick="window.PawSpaw.toggleTheme()"
+        class="w-8 h-8 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 flex items-center justify-center text-xs">
+        <i class="fas fa-moon theme-toggle-icon"></i>
+      </button>
+      <button onclick="window.PawSpaw.toggleDirection()"
+        class="w-8 h-8 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 flex items-center justify-center text-[10px] font-bold">
+        <span class="dir-toggle-text">LTR</span>
+      </button>
+      <a href="index.html"
+        class="px-2.5 py-1 rounded-lg bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-200 text-xs font-bold hover:bg-rose-50 hover:text-rose-600 transition">
+        Exit
+      </a>
+    </div>
+  </header>
+
+  <div class="flex-1 flex overflow-hidden">
+
+    <aside id="admin-sidebar"
+      class="fixed inset-y-0 left-0 z-40 w-64 bg-white dark:bg-[#16201D] border-r border-stone-200 dark:border-stone-800 flex flex-col justify-between transform -translate-x-full lg:translate-x-0 transition-transform duration-300 lg:static lg:z-auto">
+
+      <div class="p-6 space-y-6">
+
+        <!-- Brand Logo: Exact User Dashboard Styling + ADMIN PORTAL -->
+        <div class="flex items-center justify-between">
+          <a href="index.html" class="flex flex-col gap-1.5 group focus:outline-none">
+
+            <div class="flex items-center gap-2.5">
+              <div
+                class="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center text-white shadow-md group-hover:scale-110 group-hover:bg-emerald-500 transition-all duration-300">
+                <i class="fas fa-paw text-lg group-hover:rotate-12 transition-transform duration-300"></i>
+              </div>
+              <span
+                class="font-extrabold tracking-tight text-lg sm:text-xl text-emerald-950 dark:text-white leading-tight group-hover:text-emerald-400 transition-colors">
+                PawSpaw<span class="text-amber-500 dark:text-amber-400">.</span>
+              </span>
+            </div>
+
+            <span
+              class="text-[10px] font-extrabold uppercase tracking-widest text-emerald-700 dark:text-emerald-400 pl-0.5">
+              Admin Portal
+            </span>
+          </a>
+
+          <!-- Mobile Sidebar Close Button -->
+          <button id="admin-sidebar-close"
+            class="lg:hidden text-stone-400 hover:text-stone-700 dark:hover:text-white p-1">
+            <i class="fas fa-times text-base"></i>
+          </button>
+        </div>
+
+        <!-- Sidebar Navigation Buttons (Exact User Dashboard Colors & Hovers) -->
+        <nav class="space-y-1 text-xs font-semibold">
+          <button onclick="switchAdminTab('overview')"
+            class="admin-tab-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition bg-emerald-800 text-white font-bold shadow-md"
+            data-target="overview">
+            <i class="fas fa-chart-line w-4 text-center"></i>
+            <span>Overview & Stats</span>
+          </button>
+
+          <button onclick="switchAdminTab('appointments')"
+            class="admin-tab-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800"
+            data-target="appointments">
+            <i class="fas fa-calendar-days w-4 text-center text-amber-500"></i>
+            <span>Appointments</span>
+          </button>
+
+          <button onclick="switchAdminTab('customers')"
+            class="admin-tab-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800"
+            data-target="customers">
+            <i class="fas fa-users w-4 text-center text-blue-500"></i>
+            <span>Customers</span>
+          </button>
+
+          <button onclick="switchAdminTab('pets')"
+            class="admin-tab-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800"
+            data-target="pets">
+            <i class="fas fa-paw w-4 text-center text-teal-500"></i>
+            <span>Pets Directory</span>
+          </button>
+
+          <button onclick="switchAdminTab('services')"
+            class="admin-tab-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800"
+            data-target="services">
+            <i class="fas fa-scissors w-4 text-center text-rose-500"></i>
+            <span>Grooming Services</span>
+          </button>
+
+          <button onclick="switchAdminTab('stylists')"
+            class="admin-tab-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800"
+            data-target="stylists">
+            <i class="fas fa-user-doctor w-4 text-center text-purple-500"></i>
+            <span>Groomers & Staff</span>
+          </button>
+
+          <button onclick="switchAdminTab('payments')"
+            class="admin-tab-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800"
+            data-target="payments">
+            <i class="fas fa-credit-card w-4 text-center text-emerald-600"></i>
+            <span>Payments Ledger</span>
+          </button>
+
+          <button onclick="switchAdminTab('reviews')"
+            class="admin-tab-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800"
+            data-target="reviews">
+            <i class="fas fa-star w-4 text-center text-amber-400"></i>
+            <span>Client Reviews</span>
+          </button>
+
+          <button onclick="switchAdminTab('reports')"
+            class="admin-tab-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800"
+            data-target="reports">
+            <i class="fas fa-file-invoice-dollar w-4 text-center text-indigo-500"></i>
+            <span>Financial Reports</span>
+          </button>
+
+          <button onclick="switchAdminTab('settings')"
+            class="admin-tab-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800"
+            data-target="settings">
+            <i class="fas fa-sliders w-4 text-center text-stone-400"></i>
+            <span>Salon Settings</span>
+          </button>
+        </nav>
+
+      </div>
+
+      <!-- Bottom Profile & Public Link -->
+      <div class="p-6 border-t border-stone-100 dark:border-stone-800 space-y-3">
+        <div class="flex items-center gap-3">
+          <div
+            class="w-9 h-9 rounded-full bg-emerald-800 dark:bg-emerald-600 text-white font-bold flex items-center justify-center text-xs shadow-sm">
+            LD
+          </div>
+          <div class="flex-1 min-w-0">
+            <span class="text-xs font-bold text-stone-900 dark:text-white block truncate">Lead Director</span>
+            <span class="text-[10px] text-stone-400 block truncate">Salon Operations</span>
+          </div>
+        </div>
+
+        <a href="index.html"
+          class="block text-center py-2.5 rounded-xl bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 text-stone-700 dark:text-stone-200 text-xs font-bold transition">
+          <i class="fas fa-arrow-left mr-1"></i> Public Website
+        </a>
+      </div>
+
+    </aside>
+
+    <div id="admin-sidebar-backdrop" class="fixed inset-0 z-30 bg-stone-950/50 backdrop-blur-sm hidden lg:hidden"></div>
+
+    <!-- ====================================================================
+         MAIN ADMIN VIEWPORT
+         ==================================================================== -->
+    <main class="flex-1 overflow-y-auto p-4 sm:p-8 space-y-8">
+
+      <!-- Top Title & Quick Actions -->
+      <div class="hidden lg:flex items-center justify-between pb-4 border-b border-stone-200 dark:border-stone-800">
+        <div>
+          <h1 id="admin-tab-heading" class="text-2xl font-black text-stone-900 dark:text-white">Salon Operations
+            Overview</h1>
+          <p class="text-xs text-stone-500">Live operational ledger for PawSpaw & Co. (Frontend Demo Console)</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <button onclick="window.PawSpaw.toggleTheme()"
+            class="w-9 h-9 rounded-full bg-white dark:bg-[#16201D] border border-stone-200 dark:border-stone-800 text-stone-700 dark:text-stone-300 flex items-center justify-center text-xs shadow-sm">
+            <i class="fas fa-moon theme-toggle-icon"></i>
+          </button>
+          <button onclick="window.PawSpaw.toggleDirection()"
+            class="px-3 py-1.5 rounded-full bg-white dark:bg-[#16201D] border border-stone-200 dark:border-stone-800 text-stone-700 dark:text-stone-300 text-xs font-bold shadow-sm">
+            <span class="dir-toggle-text">LTR</span>
+          </button>
+        </div>
+      </div>
+
+      <section id="admin-tab-overview" class="admin-pane space-y-6">
+        
+        <!-- Primary KPI Metrics -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="bg-white dark:bg-[#16201D] p-5 rounded-2xl border border-stone-200 dark:border-stone-800 shadow-sm space-y-1">
+            <span class="text-[11px] font-bold text-stone-400 uppercase">Total Revenue</span>
+            <div class="text-2xl font-black text-emerald-800 dark:text-emerald-400">$32,840</div>
+            <span class="text-[10px] text-emerald-600 font-bold"><i class="fas fa-arrow-up mr-1"></i>+14.2% this month</span>
+          </div>
+
+          <div class="bg-white dark:bg-[#16201D] p-5 rounded-2xl border border-stone-200 dark:border-stone-800 shadow-sm space-y-1">
+            <span class="text-[11px] font-bold text-stone-400 uppercase">Active Bookings</span>
+            <div class="text-2xl font-black text-stone-900 dark:text-white">18</div>
+            <span class="text-[10px] text-stone-500">6 sessions remaining today</span>
+          </div>
+
+          <div class="bg-white dark:bg-[#16201D] p-5 rounded-2xl border border-stone-200 dark:border-stone-800 shadow-sm space-y-1">
+            <span class="text-[11px] font-bold text-stone-400 uppercase">Registered Pets</span>
+            <div class="text-2xl font-black text-amber-600">412</div>
+            <span class="text-[10px] text-stone-500">324 Dogs • 88 Cats</span>
+          </div>
+
+          <div class="bg-white dark:bg-[#16201D] p-5 rounded-2xl border border-stone-200 dark:border-stone-800 shadow-sm space-y-1">
+            <span class="text-[11px] font-bold text-stone-400 uppercase">Completion Rate</span>
+            <div class="text-2xl font-black text-teal-600">98.4%</div>
+            <span class="text-[10px] text-stone-500">Zero safety incidents</span>
+          </div>
+        </div>
+
+        <!-- Weekly Booking Volume Chart -->
+        <div class="bg-white dark:bg-[#16201D] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 shadow-sm space-y-4">
+          <div class="flex justify-between items-center">
+            <h3 class="text-base font-bold text-stone-900 dark:text-white">Weekly Booking Volume</h3>
+            <span class="text-xs text-stone-400 font-mono">Current Week</span>
+          </div>
+          <div class="h-44 flex items-end justify-between gap-2 pt-6">
+            <div class="flex-1 flex flex-col items-center gap-2">
+              <div class="w-full bg-emerald-800/80 rounded-t-lg transition-all hover:bg-emerald-700" style="height: 65%;"></div>
+              <span class="text-[10px] text-stone-400">Mon</span>
+            </div>
+            <div class="flex-1 flex flex-col items-center gap-2">
+              <div class="w-full bg-emerald-800/80 rounded-t-lg transition-all hover:bg-emerald-700" style="height: 75%;"></div>
+              <span class="text-[10px] text-stone-400">Tue</span>
+            </div>
+            <div class="flex-1 flex flex-col items-center gap-2">
+              <div class="w-full bg-emerald-800/80 rounded-t-lg transition-all hover:bg-emerald-700" style="height: 90%;"></div>
+              <span class="text-[10px] text-stone-400">Wed</span>
+            </div>
+            <div class="flex-1 flex flex-col items-center gap-2">
+              <div class="w-full bg-emerald-800/80 rounded-t-lg transition-all hover:bg-emerald-700" style="height: 80%;"></div>
+              <span class="text-[10px] text-stone-400">Thu</span>
+            </div>
+            <div class="flex-1 flex flex-col items-center gap-2">
+              <div class="w-full bg-emerald-800/80 rounded-t-lg transition-all hover:bg-emerald-700" style="height: 100%;"></div>
+              <span class="text-[10px] text-stone-400 font-bold text-emerald-700">Fri</span>
+            </div>
+            <div class="flex-1 flex flex-col items-center gap-2">
+              <div class="w-full bg-amber-500 rounded-t-lg transition-all hover:bg-amber-400" style="height: 95%;"></div>
+              <span class="text-[10px] text-stone-400 font-bold text-amber-600">Sat</span>
+            </div>
+            <div class="flex-1 flex flex-col items-center gap-2">
+              <div class="w-full bg-emerald-800/60 rounded-t-lg transition-all" style="height: 50%;"></div>
+              <span class="text-[10px] text-stone-400">Sun</span>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- ↑ INGAYODEY OVERVIEW SECTION CLOSE AAYIDUTHU -->
+
+      <!-- ------------------------------------------------------------------
+           TAB 2: APPOINTMENTS MANAGEMENT (Separate Section With 'hidden')
+           ------------------------------------------------------------------ -->
+      <section id="admin-tab-appointments" class="admin-pane hidden space-y-4 sm:space-y-6">
+        
+        <!-- Search & Custom Dropdown Filter -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="relative flex-1 sm:max-w-sm">
+            <i class="fas fa-search absolute left-3.5 top-1/2 -translate-y-1/2 text-stone-400 text-xs"></i>
+            <input type="text" id="admin-apt-search" placeholder="Search by pet, owner or ref..." class="w-full text-xs pl-9 pr-4 py-2.5 rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-[#16201D] text-stone-900 dark:text-white focus:outline-none focus:border-emerald-600">
+          </div>
+
+          <div class="relative w-full sm:w-48" id="custom-status-dropdown-wrapper">
+            <button type="button" id="status-dropdown-btn" class="w-full flex items-center justify-between text-xs px-3.5 py-2.5 rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-[#16201D] text-stone-800 dark:text-stone-200 focus:outline-none shadow-sm">
+              <span id="selected-status-label" class="font-bold">All Statuses</span>
+              <i class="fas fa-chevron-down text-[10px] text-stone-400 transition-transform duration-200" id="status-chevron"></i>
+            </button>
+
+            <div id="status-dropdown-menu" class="hidden absolute left-0 right-0 mt-1 bg-white dark:bg-[#16201D] border border-stone-200 dark:border-stone-700 rounded-xl shadow-xl z-30 py-1 text-xs">
+              <button type="button" class="status-option w-full text-left px-3.5 py-2 hover:bg-stone-100 dark:hover:bg-stone-800 font-semibold text-stone-700 dark:text-stone-200" data-val="all">All Statuses</button>
+              <button type="button" class="status-option w-full text-left px-3.5 py-2 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 font-semibold" data-val="Confirmed">Confirmed</button>
+              <button type="button" class="status-option w-full text-left px-3.5 py-2 hover:bg-blue-50 dark:hover:bg-blue-950/40 text-blue-700 dark:text-blue-400 font-semibold" data-val="Completed">Completed</button>
+              <button type="button" class="status-option w-full text-left px-3.5 py-2 hover:bg-rose-50 dark:hover:bg-rose-950/40 text-rose-600 dark:text-rose-400 font-semibold" data-val="Cancelled">Cancelled</button>
+            </div>
+
+            <input type="hidden" id="admin-status-filter" value="all">
+          </div>
+        </div>
+
+        <!-- Mobile View Cards -->
+        <div id="admin-appts-cards" class="block md:hidden space-y-3 pt-1"></div>
+
+        <!-- Desktop View Table -->
+        <div class="hidden md:block bg-white dark:bg-[#16201D] rounded-3xl border border-stone-200 dark:border-stone-800 overflow-x-auto shadow-sm">
+          <table class="w-full text-left text-xs min-w-[700px]">
+            <thead>
+              <tr class="border-b border-stone-200 dark:border-stone-800 text-stone-400 uppercase tracking-wider text-[11px] bg-stone-50 dark:bg-stone-900/40">
+                <th class="p-4">Ref #</th>
+                <th class="p-4">Pet & Breed</th>
+                <th class="p-4">Service</th>
+                <th class="p-4">Specialist</th>
+                <th class="p-4">Date & Time</th>
+                <th class="p-4">Status</th>
+                <th class="p-4 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-appts-tbody" class="divide-y divide-stone-100 dark:divide-stone-800/60 text-stone-700 dark:text-stone-300"></tbody>
+          </table>
+        </div>
+
+      </section>
+
+      <!-- ------------------------------------------------------------------
+           TAB 3: CUSTOMERS DIRECTORY (RESPONSIVE)
+           ------------------------------------------------------------------ -->
+      <section id="admin-tab-customers" class="admin-pane hidden space-y-4 sm:space-y-6">
+        <!-- Mobile Cards -->
+        <div class="md:hidden space-y-3">
+          <div
+            class="bg-white dark:bg-[#16201D] p-4 rounded-2xl border border-stone-200 dark:border-stone-800 shadow-sm space-y-2">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-sm text-stone-900 dark:text-white">Sarah Chen</h4>
+              <span class="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[10px] font-bold">VIP Gold</span>
+            </div>
+            <p class="text-xs text-stone-500 font-mono"><i
+                class="far fa-envelope mr-1.5 text-stone-400"></i>sarah@petfamily.com</p>
+            <div class="pt-2 border-t border-stone-100 dark:border-stone-800/80 flex justify-between text-xs">
+              <span class="text-stone-500">Pets: <strong class="text-stone-800 dark:text-stone-200">Milo,
+                  Luna</strong></span>
+              <span class="font-bold text-emerald-700 dark:text-emerald-400">7 Sessions</span>
+            </div>
+          </div>
+
+          <div
+            class="bg-white dark:bg-[#16201D] p-4 rounded-2xl border border-stone-200 dark:border-stone-800 shadow-sm space-y-2">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-sm text-stone-900 dark:text-white">David Robertson</h4>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold">Active</span>
+            </div>
+            <p class="text-xs text-stone-500 font-mono"><i
+                class="far fa-envelope mr-1.5 text-stone-400"></i>david.r@example.com</p>
+            <div class="pt-2 border-t border-stone-100 dark:border-stone-800/80 flex justify-between text-xs">
+              <span class="text-stone-500">Pets: <strong class="text-stone-800 dark:text-stone-200">Bella
+                  (Cat)</strong></span>
+              <span class="font-bold text-emerald-700 dark:text-emerald-400">4 Sessions</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop Table -->
+        <div
+          class="hidden md:block bg-white dark:bg-[#16201D] rounded-3xl border border-stone-200 dark:border-stone-800 overflow-x-auto shadow-sm">
+          <table class="w-full text-left text-xs min-w-[650px]">
+            <thead>
+              <tr
+                class="border-b border-stone-200 dark:border-stone-800 text-stone-400 uppercase tracking-wider text-[11px] bg-stone-50 dark:bg-stone-900/40">
+                <th class="p-4">Customer Name</th>
+                <th class="p-4">Email</th>
+                <th class="p-4">Pets Registered</th>
+                <th class="p-4">Total Bookings</th>
+                <th class="p-4">Status</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-stone-100 dark:divide-stone-800/60 text-stone-700 dark:text-stone-300">
+              <tr>
+                <td class="p-4 font-bold text-stone-900 dark:text-white">Sarah Chen</td>
+                <td class="p-4 font-mono text-stone-500">sarah@petfamily.com</td>
+                <td class="p-4">Milo (Retriever), Luna (Ragdoll)</td>
+                <td class="p-4 font-bold text-stone-900 dark:text-white">7 Sessions</td>
+                <td class="p-4"><span
+                    class="px-2.5 py-1 rounded-full bg-amber-100 text-amber-800 text-[10px] font-bold">VIP Gold</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-stone-900 dark:text-white">David Robertson</td>
+                <td class="p-4 font-mono text-stone-500">david.r@example.com</td>
+                <td class="p-4">Bella (Persian Cat)</td>
+                <td class="p-4 font-bold text-stone-900 dark:text-white">4 Sessions</td>
+                <td class="p-4"><span
+                    class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold">Active</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ------------------------------------------------------------------
+           TAB 4: PETS DIRECTORY (RESPONSIVE)
+           ------------------------------------------------------------------ -->
+      <section id="admin-tab-pets" class="admin-pane hidden space-y-4 sm:space-y-6">
+        <!-- Mobile Cards -->
+        <div id="admin-pets-cards" class="md:hidden space-y-3">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <!-- Desktop Table -->
+        <div
+          class="hidden md:block bg-white dark:bg-[#16201D] rounded-3xl border border-stone-200 dark:border-stone-800 overflow-x-auto shadow-sm">
+          <table class="w-full text-left text-xs min-w-[600px]">
+            <thead>
+              <tr
+                class="border-b border-stone-200 dark:border-stone-800 text-stone-400 uppercase tracking-wider text-[11px] bg-stone-50 dark:bg-stone-900/40">
+                <th class="p-4">Pet Name</th>
+                <th class="p-4">Owner</th>
+                <th class="p-4">Breed & Species</th>
+                <th class="p-4">Special Notes</th>
+              </tr>
+            </thead>
+            <tbody id="admin-pets-tbody"
+              class="divide-y divide-stone-100 dark:divide-stone-800/60 text-stone-700 dark:text-stone-300">
+              <!-- Populated dynamically via JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ------------------------------------------------------------------
+           TAB 5: GROOMING SERVICES CRUD
+           ------------------------------------------------------------------ -->
+      <section id="admin-tab-services" class="admin-pane hidden space-y-6">
+        <div class="flex justify-between items-center">
+          <h2 class="text-lg font-bold text-stone-900 dark:text-white">Salon Menu Management</h2>
+          <button onclick="openAddServiceModal()"
+            class="px-4 py-2 rounded-xl bg-emerald-800 text-white text-xs font-bold hover:bg-emerald-700 transition">
+            + Add New Service
+          </button>
+        </div>
+
+        <div id="admin-services-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </section>
+
+      <!-- ------------------------------------------------------------------
+           TAB 6: GROOMERS & STAFF DIRECTORY
+           ------------------------------------------------------------------ -->
+      <section id="admin-tab-stylists" class="admin-pane hidden space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div
+            class="bg-white dark:bg-[#16201D] p-5 rounded-3xl border border-stone-200 dark:border-stone-800 space-y-2">
+            <h4 class="font-bold text-stone-900 dark:text-white">Elena Rostova</h4>
+            <span class="text-xs text-amber-600 font-bold block">Head Master Groomer</span>
+            <p class="text-xs text-stone-500">Specialty: Hand Scissoring & Asian Fusion</p>
+            <span
+              class="inline-block px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold">On
+              Shift Today</span>
+          </div>
+          <div
+            class="bg-white dark:bg-[#16201D] p-5 rounded-3xl border border-stone-200 dark:border-stone-800 space-y-2">
+            <h4 class="font-bold text-stone-900 dark:text-white">Marcus Vance</h4>
+            <span class="text-xs text-amber-600 font-bold block">Feline Care Specialist</span>
+            <p class="text-xs text-stone-500">Specialty: Cat Dematting & Stress Reduction</p>
+            <span
+              class="inline-block px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold">On
+              Shift Today</span>
+          </div>
+          <div
+            class="bg-white dark:bg-[#16201D] p-5 rounded-3xl border border-stone-200 dark:border-stone-800 space-y-2">
+            <h4 class="font-bold text-stone-900 dark:text-white">Liam Davies</h4>
+            <span class="text-xs text-amber-600 font-bold block">Puppy Educator</span>
+            <p class="text-xs text-stone-500">Specialty: Acclimatization & Gentle Baths</p>
+            <span class="inline-block px-2.5 py-0.5 rounded-full bg-stone-100 text-stone-600 text-[10px] font-bold">Off
+              Today</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ------------------------------------------------------------------
+           TAB 7: PAYMENTS LEDGER
+           ------------------------------------------------------------------ -->
+      <section id="admin-tab-payments" class="admin-pane hidden space-y-4 sm:space-y-6">
+        <!-- Mobile Cards -->
+        <div id="admin-payments-cards" class="md:hidden space-y-3">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <!-- Desktop Table -->
+        <div
+          class="hidden md:block bg-white dark:bg-[#16201D] rounded-3xl border border-stone-200 dark:border-stone-800 overflow-x-auto shadow-sm">
+          <table class="w-full text-left text-xs min-w-[650px]">
+            <thead>
+              <tr
+                class="border-b border-stone-200 dark:border-stone-800 text-stone-400 uppercase tracking-wider text-[11px] bg-stone-50 dark:bg-stone-900/40">
+                <th class="p-4">Transaction Ref</th>
+                <th class="p-4">Date</th>
+                <th class="p-4">Customer</th>
+                <th class="p-4">Service</th>
+                <th class="p-4">Amount</th>
+                <th class="p-4">Status</th>
+              </tr>
+            </thead>
+            <tbody id="admin-payments-tbody"
+              class="divide-y divide-stone-100 dark:divide-stone-800/60 text-stone-700 dark:text-stone-300">
+              <!-- Populated dynamically via JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ------------------------------------------------------------------
+           TAB 8: REVIEWS APPROVER
+           ------------------------------------------------------------------ -->
+      <section id="admin-tab-reviews" class="admin-pane hidden space-y-6 max-w-3xl">
+        <div class="space-y-4">
+          <div
+            class="p-5 rounded-3xl bg-white dark:bg-[#16201D] border border-stone-200 dark:border-stone-800 flex items-start justify-between gap-4">
+            <div class="space-y-1 text-xs">
+              <div class="flex text-amber-500 text-xs gap-1">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                  class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <h5 class="font-bold text-stone-900 dark:text-white">Amelia Kingsley on Elena Rostova</h5>
+              <p class="text-stone-500">"Winston’s Bichon head trim was perfect. No stress at all!"</p>
+            </div>
+            <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold">Approved</span>
+          </div>
+
+          <div
+            class="p-5 rounded-3xl bg-white dark:bg-[#16201D] border border-stone-200 dark:border-stone-800 flex items-start justify-between gap-4">
+            <div class="space-y-1 text-xs">
+              <div class="flex text-amber-500 text-xs gap-1">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                  class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <h5 class="font-bold text-stone-900 dark:text-white">Julian Thorne on Marcus Vance</h5>
+              <p class="text-stone-500">"Exceptional care for senior cats with arthritis."</p>
+            </div>
+            <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold">Approved</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ------------------------------------------------------------------
+           TAB 9: REPORTS
+           ------------------------------------------------------------------ -->
+      <section id="admin-tab-reports" class="admin-pane hidden space-y-6 max-w-2xl">
+        <div
+          class="bg-white dark:bg-[#16201D] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 space-y-4 text-xs">
+          <h3 class="text-base font-bold text-stone-900 dark:text-white">Monthly Service Breakdown</h3>
+          <div class="space-y-2">
+            <div class="flex justify-between font-semibold">
+              <span>Full Scissor & Styling</span>
+              <span>45% of total revenue</span>
+            </div>
+            <div class="w-full bg-stone-100 dark:bg-stone-800 h-2 rounded-full overflow-hidden">
+              <div class="bg-emerald-700 h-full w-[45%]"></div>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <div class="flex justify-between font-semibold">
+              <span>Botanical Hydro-Baths</span>
+              <span>32% of total revenue</span>
+            </div>
+            <div class="w-full bg-stone-100 dark:bg-stone-800 h-2 rounded-full overflow-hidden">
+              <div class="bg-teal-600 h-full w-[32%]"></div>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <div class="flex justify-between font-semibold">
+              <span>Spa Wraps & Blueberry Facials</span>
+              <span>23% of total revenue</span>
+            </div>
+            <div class="w-full bg-stone-100 dark:bg-stone-800 h-2 rounded-full overflow-hidden">
+              <div class="bg-amber-500 h-full w-[23%]"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ------------------------------------------------------------------
+           TAB 10: SALON SETTINGS
+           ------------------------------------------------------------------ -->
+      <section id="admin-tab-settings" class="admin-pane hidden space-y-6 max-w-2xl">
+        <div
+          class="bg-white dark:bg-[#16201D] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 space-y-4 text-xs">
+          <h3 class="text-base font-bold text-stone-900 dark:text-white">Salon Operational Rules</h3>
+          <div>
+            <label class="block font-bold mb-1">Max Daily Appointment Capacity</label>
+            <input type="number" value="24"
+              class="w-full px-4 py-2.5 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800">
+          </div>
+          <div>
+            <label class="block font-bold mb-1">Emergency Vet Hospital On-Call</label>
+            <input type="text" value="Sanctuary Central Vet (+1 555-992-0192)"
+              class="w-full px-4 py-2.5 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800">
+          </div>
+          <button onclick="window.PawSpaw.showToast('Salon operational rules saved!', 'success')"
+            class="px-6 py-2.5 rounded-xl bg-emerald-800 text-white font-bold">
+            Save Operational Parameters
+          </button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ADD SERVICE MODAL -->
+  <div id="add-service-modal"
+    class="fixed inset-0 z-50 bg-stone-950/70 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div
+      class="bg-white dark:bg-[#16201D] max-w-md w-full rounded-3xl p-6 sm:p-8 border border-stone-200 dark:border-stone-800 shadow-2xl space-y-4">
+      <div class="flex justify-between items-center">
+        <h3 class="text-lg font-bold text-stone-900 dark:text-white">Add Grooming Service</h3>
+        <button onclick="closeAddServiceModal()" class="text-stone-400 hover:text-stone-700"><i
+            class="fas fa-times"></i></button>
+      </div>
+      <form id="add-service-form" class="space-y-3 text-xs">
+        <div>
+          <label class="block font-bold mb-1">Service Title *</label>
+          <input type="text" id="new-serv-title" required placeholder="e.g. Paw Paraffin Wax"
+            class="w-full px-3 py-2.5 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800">
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold mb-1">Price ($) *</label>
+            <input type="text" id="new-serv-price" required placeholder="$35"
+              class="w-full px-3 py-2.5 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800">
+          </div>
+          <div>
+            <label class="block font-bold mb-1">Duration</label>
+            <input type="text" id="new-serv-duration" placeholder="30 Mins"
+              class="w-full px-3 py-2.5 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800">
+          </div>
+        </div>
+        <div>
+          <label class="block font-bold mb-1">Description</label>
+          <textarea id="new-serv-desc" rows="2"
+            class="w-full px-3 py-2.5 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800"></textarea>
+        </div>
+        <button type="submit" class="w-full py-3 rounded-xl bg-emerald-800 text-white font-bold">Add Service to
+          Menu</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+  if (localStorage.getItem('pawspaw_theme') === 'dark') {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+</script>
+
+</body>
+
+</html>

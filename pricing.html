@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing & Packages | PawSpaw & Co.</title>
+  <meta name="description" content="Transparent, all-inclusive pricing for luxury pet grooming, spa rituals, and breed-specific styling.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              700: '#1b4332',
+              800: '#0f291e',
+              accent: '#e07a5f'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#FDFBF7] dark:bg-[#121816] text-stone-800 dark:text-stone-100 transition-colors duration-300 antialiased overflow-x-hidden min-h-screen flex flex-col justify-between">
+
+  <div id="navbar-placeholder"></div>
+
+  <main class="pt-24 lg:pt-28 flex-1">
+
+    <!-- ====================================================================
+         SECTION 1: PRICING HERO
+         ==================================================================== -->
+    <section class="max-w-7xl mx-auto px-6 py-12 lg:py-16 text-center">
+      <div class="max-w-2xl mx-auto space-y-4">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-emerald-800 dark:text-emerald-400">Honest Pricing</span>
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-emerald-950 dark:text-white leading-tight">
+          Clear Packages. No Surprise Fees.
+        </h1>
+        <p class="text-stone-600 dark:text-stone-300 text-sm sm:text-base leading-relaxed">
+          Every package includes ear cleansing, organic conditioning, nail clipping, and pad buffering. Choose the care level suited for your pet's needs.
+        </p>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 2: BASIC, PREMIUM & LUXURY GROOMING PACKAGES
+         ==================================================================== -->
+    <section class="max-w-7xl mx-auto px-6 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+
+        <!-- Tier 1: Basic -->
+        <div class="group bg-white dark:bg-[#1A2220] rounded-3xl p-8 border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-2xl hover:-translate-y-2 hover:border-emerald-700/40 transition-all duration-300 flex flex-col justify-between">
+          <div class="space-y-4">
+            <span class="text-xs font-black uppercase tracking-wider text-stone-400">Essential Care</span>
+            <h3 class="text-2xl font-bold text-stone-900 dark:text-white group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">Hydro-Cleanse Bath</h3>
+            <div class="flex items-baseline gap-1">
+              <span class="text-4xl font-black text-emerald-800 dark:text-emerald-400">$45</span>
+              <span class="text-xs text-stone-400">/ session</span>
+            </div>
+            <p class="text-xs text-stone-600 dark:text-stone-300">Perfect for smooth-coated breeds needing deep cleansing and coat nourishment.</p>
+            <div class="text-[11px] text-stone-500"><i class="far fa-clock mr-1 text-emerald-600"></i> Approx. 60 mins • Small to Medium Breeds</div>
+            <ul class="space-y-2.5 text-xs text-stone-700 dark:text-stone-300 pt-4 border-t border-stone-100 dark:border-stone-800">
+              <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-600"></i> Warm hydro-massage bath</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-600"></i> Organic oatmeal & aloe lather</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-600"></i> Nail trimming & soft buffering</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-600"></i> Gentle ear flush & hygiene check</li>
+              <li class="flex items-center gap-2 text-stone-400"><i class="fas fa-times text-stone-300"></i> Hand scissor haircut</li>
+            </ul>
+          </div>
+          <a href="sessions.html#booking" class="mt-8 block text-center py-3 rounded-xl bg-stone-100 dark:bg-stone-800 hover:bg-emerald-800 hover:text-white dark:hover:bg-emerald-700 text-stone-800 dark:text-white text-xs font-bold hover:scale-105 active:scale-95 transition-all">
+            Book Hydro-Cleanse
+          </a>
+        </div>
+
+        <!-- Tier 2: Premium (Highlighted) -->
+        <div class="group bg-emerald-900 text-white rounded-3xl p-8 border border-emerald-800 shadow-2xl relative flex flex-col justify-between transform md:-translate-y-4 hover:-translate-y-6 hover:shadow-emerald-900/50 transition-all duration-300">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-500 text-stone-950 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-wider shadow">
+            Most Popular
+          </div>
+          <div class="space-y-4">
+            <span class="text-xs font-black uppercase tracking-wider text-amber-400">Artisan Styling</span>
+            <h3 class="text-2xl font-bold text-white">Full Scissor & Spa</h3>
+            <div class="flex items-baseline gap-1">
+              <span class="text-4xl font-black text-amber-400">$75</span>
+              <span class="text-xs text-stone-300">/ session</span>
+            </div>
+            <p class="text-xs text-stone-200">Our signature head-to-tail styling, customized hand scissoring, and paw pad butter conditioning.</p>
+            <div class="text-[11px] text-stone-300"><i class="far fa-clock mr-1 text-amber-400"></i> Approx. 90-120 mins • All Breeds</div>
+            <ul class="space-y-2.5 text-xs text-stone-100 pt-4 border-t border-emerald-800">
+              <li class="flex items-center gap-2"><i class="fas fa-check text-amber-400"></i> Everything in Hydro-Cleanse</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-amber-400"></i> Full precision hand scissor styling</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-amber-400"></i> Blueberry facial brightening lather</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-amber-400"></i> Sanitary & paw pad perimeter trim</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-amber-400"></i> Fresh botanical aroma mist</li>
+            </ul>
+          </div>
+          <a href="sessions.html#booking" class="mt-8 block text-center py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 text-xs font-black shadow-lg hover:scale-105 active:scale-95 transition-all">
+            Book Full Styling
+          </a>
+        </div>
+
+        <!-- Tier 3: Luxury -->
+        <div class="group bg-white dark:bg-[#1A2220] rounded-3xl p-8 border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-2xl hover:-translate-y-2 hover:border-emerald-700/40 transition-all duration-300 flex flex-col justify-between">
+          <div class="space-y-4">
+            <span class="text-xs font-black uppercase tracking-wider text-stone-400">Holistic Wellness</span>
+            <h3 class="text-2xl font-bold text-stone-900 dark:text-white group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">Royal Thalasso Spa</h3>
+            <div class="flex items-baseline gap-1">
+              <span class="text-4xl font-black text-emerald-800 dark:text-emerald-400">$125</span>
+              <span class="text-xs text-stone-400">/ session</span>
+            </div>
+            <p class="text-xs text-stone-600 dark:text-stone-300">Complete therapeutic skin detox with Dead Sea mineral mud and ozone microbubble water.</p>
+            <div class="text-[11px] text-stone-500"><i class="far fa-clock mr-1 text-emerald-600"></i> Approx. 120-150 mins • Luxury VIP</div>
+            <ul class="space-y-2.5 text-xs text-stone-700 dark:text-stone-300 pt-4 border-t border-stone-100 dark:border-stone-800">
+              <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-600"></i> Everything in Full Scissor & Spa</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-600"></i> Dead Sea mineral mud coat wrap</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-600"></i> Chamomile paw soak & shea butter balm</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-600"></i> Enzymatic oral gel & foam cleansing</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-600"></i> Digital photoshoot portrait takeaway</li>
+            </ul>
+          </div>
+          <a href="sessions.html#booking" class="mt-8 block text-center py-3 rounded-xl bg-stone-100 dark:bg-stone-800 hover:bg-emerald-800 hover:text-white dark:hover:bg-emerald-700 text-stone-800 dark:text-white text-xs font-bold hover:scale-105 active:scale-95 transition-all">
+            Book Royal Spa
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 3: DETAILED SERVICE COMPARISON TABLE
+         ==================================================================== -->
+    <section class="max-w-7xl mx-auto px-6 py-12">
+      <div class="bg-white dark:bg-[#1A2220] rounded-3xl p-6 sm:p-10 border border-stone-200 dark:border-stone-800 shadow-md space-y-6">
+        <div>
+          <span class="text-xs font-extrabold uppercase tracking-widest text-emerald-800 dark:text-emerald-400">Full Matrix</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-stone-900 dark:text-white">Package Feature Comparison</h2>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs sm:text-sm">
+            <thead>
+              <tr class="border-b border-stone-200 dark:border-stone-800 text-stone-400 uppercase tracking-wider text-[11px]">
+                <th class="py-4">Service Inclusions</th>
+                <th class="py-4 font-bold text-stone-900 dark:text-white">Hydro-Cleanse ($45)</th>
+                <th class="py-4 font-bold text-amber-600">Full Scissor ($75)</th>
+                <th class="py-4 font-bold text-emerald-700 dark:text-emerald-400">Royal Spa ($125)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-stone-100 dark:divide-stone-800/60 text-stone-700 dark:text-stone-300">
+              <tr class="hover:bg-stone-50 dark:hover:bg-stone-800/50 transition-colors">
+                <td class="py-3.5 font-medium text-stone-900 dark:text-white">Botanical Hydro-Bath</td>
+                <td class="py-3.5"><i class="fas fa-check text-emerald-600"></i></td>
+                <td class="py-3.5"><i class="fas fa-check text-emerald-600"></i></td>
+                <td class="py-3.5"><i class="fas fa-check text-emerald-600"></i></td>
+              </tr>
+              <tr class="hover:bg-stone-50 dark:hover:bg-stone-800/50 transition-colors">
+                <td class="py-3.5 font-medium text-stone-900 dark:text-white">Fluff Blow Drying (Cage-Free)</td>
+                <td class="py-3.5"><i class="fas fa-check text-emerald-600"></i></td>
+                <td class="py-3.5"><i class="fas fa-check text-emerald-600"></i></td>
+                <td class="py-3.5"><i class="fas fa-check text-emerald-600"></i></td>
+              </tr>
+              <tr class="hover:bg-stone-50 dark:hover:bg-stone-800/50 transition-colors">
+                <td class="py-3.5 font-medium text-stone-900 dark:text-white">Nail Clip & Dremel Filing</td>
+                <td class="py-3.5"><i class="fas fa-check text-emerald-600"></i></td>
+                <td class="py-3.5"><i class="fas fa-check text-emerald-600"></i></td>
+                <td class="py-3.5"><i class="fas fa-check text-emerald-600"></i></td>
+              </tr>
+              <tr class="hover:bg-stone-50 dark:hover:bg-stone-800/50 transition-colors">
+                <td class="py-3.5 font-medium text-stone-900 dark:text-white">Ear Pluck & Sanitization</td>
+                <td class="py-3.5"><i class="fas fa-check text-emerald-600"></i></td>
+                <td class="py-3.5"><i class="fas fa-check text-emerald-600"></i></td>
+                <td class="py-3.5"><i class="fas fa-check text-emerald-600"></i></td>
+              </tr>
+              <tr class="hover:bg-stone-50 dark:hover:bg-stone-800/50 transition-colors">
+                <td class="py-3.5 font-medium text-stone-900 dark:text-white">Full Body Hand Scissoring</td>
+                <td class="py-3.5 text-stone-400">—</td>
+                <td class="py-3.5"><i class="fas fa-check text-emerald-600"></i></td>
+                <td class="py-3.5"><i class="fas fa-check text-emerald-600"></i></td>
+              </tr>
+              <tr class="hover:bg-stone-50 dark:hover:bg-stone-800/50 transition-colors">
+                <td class="py-3.5 font-medium text-stone-900 dark:text-white">Blueberry Brightening Scrub</td>
+                <td class="py-3.5 text-stone-400">—</td>
+                <td class="py-3.5"><i class="fas fa-check text-emerald-600"></i></td>
+                <td class="py-3.5"><i class="fas fa-check text-emerald-600"></i></td>
+              </tr>
+              <tr class="hover:bg-stone-50 dark:hover:bg-stone-800/50 transition-colors">
+                <td class="py-3.5 font-medium text-stone-900 dark:text-white">Dead Sea Mud Thermal Wrap</td>
+                <td class="py-3.5 text-stone-400">—</td>
+                <td class="py-3.5 text-stone-400">—</td>
+                <td class="py-3.5"><i class="fas fa-check text-emerald-600"></i></td>
+              </tr>
+              <tr class="hover:bg-stone-50 dark:hover:bg-stone-800/50 transition-colors">
+                <td class="py-3.5 font-medium text-stone-900 dark:text-white">Enzymatic Teeth Cleansing</td>
+                <td class="py-3.5 text-stone-400">—</td>
+                <td class="py-3.5 text-stone-400">—</td>
+                <td class="py-3.5"><i class="fas fa-check text-emerald-600"></i></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 4: ADD-ON À LA CARTE SERVICES
+         ==================================================================== -->
+    <section class="max-w-7xl mx-auto px-6 py-12">
+      <div class="text-center max-w-xl mx-auto mb-10 space-y-2">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-emerald-800 dark:text-emerald-400">Custom Enhancements</span>
+        <h2 class="text-3xl font-extrabold text-stone-900 dark:text-white">À La Carte Spa Add-Ons</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:border-amber-600 transition-all duration-300 space-y-2">
+          <div class="flex justify-between items-center">
+            <h4 class="font-bold text-stone-900 dark:text-white text-sm">Blueberry Facial</h4>
+            <span class="font-black text-amber-600 text-sm">$18</span>
+          </div>
+          <p class="text-xs text-stone-500">Tear-stain clearing organic wash with chamomile scent.</p>
+        </div>
+
+        <div class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:border-amber-600 transition-all duration-300 space-y-2">
+          <div class="flex justify-between items-center">
+            <h4 class="font-bold text-stone-900 dark:text-white text-sm">Paw Balm Massage</h4>
+            <span class="font-black text-amber-600 text-sm">$12</span>
+          </div>
+          <p class="text-xs text-stone-500">Shea butter and beeswax pad nourishment for cracked pads.</p>
+        </div>
+
+        <div class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:border-amber-600 transition-all duration-300 space-y-2">
+          <div class="flex justify-between items-center">
+            <h4 class="font-bold text-stone-900 dark:text-white text-sm">Teeth Brushing Gel</h4>
+            <span class="font-black text-amber-600 text-sm">$15</span>
+          </div>
+          <p class="text-xs text-stone-500">Enzymatic plaque-dissolving treatment and breath spray.</p>
+        </div>
+
+        <div class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:border-amber-600 transition-all duration-300 space-y-2">
+          <div class="flex justify-between items-center">
+            <h4 class="font-bold text-stone-900 dark:text-white text-sm">De-Matting Care</h4>
+            <span class="font-black text-amber-600 text-sm">$25</span>
+          </div>
+          <p class="text-xs text-stone-500">Gentle hand dematting per 20 minutes with conditioning spray.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 5: FREQUENTLY ASKED PRICING QUESTIONS
+         ==================================================================== -->
+    <section class="max-w-4xl mx-auto px-6 py-12">
+      <div class="text-center mb-8">
+        <h3 class="text-2xl font-bold text-stone-900 dark:text-white">Pricing Policies & Transparency</h3>
+      </div>
+      <div class="space-y-4">
+        <div class="bg-white dark:bg-[#1A2220] p-6 rounded-2xl border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md hover:border-emerald-600/40 transition-all space-y-1">
+          <h4 class="font-bold text-stone-900 dark:text-white text-sm">Do prices vary by breed or weight?</h4>
+          <p class="text-xs text-stone-600 dark:text-stone-300">Base prices reflect small to medium companions (up to 30 lbs). Giant breeds (over 65 lbs) or thick double coats (such as Newfoundlands) have slight adjustments due to extra drying and styling time.</p>
+        </div>
+        <div class="bg-white dark:bg-[#1A2220] p-6 rounded-2xl border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md hover:border-emerald-600/40 transition-all space-y-1">
+          <h4 class="font-bold text-stone-900 dark:text-white text-sm">What is your cancellation policy?</h4>
+          <p class="text-xs text-stone-600 dark:text-stone-300">We request at least 24 hours advance notice to reschedule without penalty. Cancellations made within 24 hours can be easily adjusted through your client portal.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 6: VIP MEMBERSHIP & PROMOTIONAL CTA
+         ==================================================================== -->
+    <section class="max-w-7xl mx-auto px-6 py-16 text-center">
+      <div class="bg-emerald-950 text-white rounded-[2.5rem] p-10 sm:p-14 max-w-4xl mx-auto space-y-4 shadow-2xl">
+        <span class="px-3.5 py-1 rounded-full bg-amber-400 text-stone-900 text-xs font-black uppercase tracking-wider">VIP Care Plan</span>
+        <h3 class="text-3xl font-extrabold">Save 15% With Regular Monthly Bookings</h3>
+        <p class="text-xs sm:text-sm text-stone-300 max-w-md mx-auto">Keep your pet mat-free year round. Pets on our standing 4-week cycle receive priority slots and complimentary spa upgrades.</p>
+        <div class="pt-2">
+          <a href="sessions.html#booking" class="inline-block px-8 py-3.5 rounded-full bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-xs shadow-xl hover:scale-105 active:scale-95 transition-all">
+            Schedule Your Next Session
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="app.js"></script>
+  <script>
+  if (localStorage.getItem('pawspaw_theme') === 'dark') {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+</script>
+</body>
+</html>

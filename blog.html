@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet Care Journal & Grooming Wisdom | PawSpaw & Co.</title>
+  <meta name="description" content="Veterinary-backed pet grooming guides, line brushing tutorials, puppy desensitization tips, and breed-specific coat care.">
+  
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f2f8f5',
+              100: '#e1efe8',
+              600: '#2d6a4f',
+              700: '#1b4332',
+              800: '#0f291e',
+              accent: '#e07a5f'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#FDFBF7] dark:bg-[#121816] text-stone-800 dark:text-stone-100 transition-colors duration-300 antialiased overflow-x-hidden min-h-screen flex flex-col justify-between">
+
+  <!-- Shared Global Navbar Anchor -->
+  <div id="navbar-placeholder"></div>
+
+  <main class="pt-24 lg:pt-28 flex-1">
+
+    <!-- ====================================================================
+         SECTION 1: BLOG HERO & EDITORIAL INTRO
+         ==================================================================== -->
+    <section class="max-w-7xl mx-auto px-6 py-12 lg:py-16 text-center">
+      <div class="max-w-3xl mx-auto space-y-4">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300 text-xs font-black uppercase tracking-widest shadow-sm hover:shadow transition-shadow">
+          <i class="fas fa-feather-pointed text-amber-500"></i>
+          <span>Holistic Wellness Journal</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-emerald-950 dark:text-white leading-[1.12]">
+          Expert Grooming Insights & <span class="text-amber-600 italic font-serif">Pet Care Wisdom.</span>
+        </h1>
+        <p class="text-stone-600 dark:text-stone-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+          From line-brushing tutorials to veterinary coat nutrition, our certified master groomers share practical wisdom to keep your companions healthy, relaxed, and radiant between salon visits.
+        </p>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 2: FEATURED COVER STORY
+         ==================================================================== -->
+    <section class="max-w-7xl mx-auto px-6 py-4">
+      <div class="group bg-white dark:bg-[#1A2220] rounded-[2.5rem] overflow-hidden border border-stone-200 dark:border-stone-800 shadow-xl hover:shadow-2xl hover:border-emerald-700/40 dark:hover:border-emerald-600/40 transition-all duration-500 grid grid-cols-1 lg:grid-cols-12 items-center">
+        
+        <div class="lg:col-span-7 h-72 sm:h-96 lg:h-[460px] overflow-hidden relative">
+          <img 
+            src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1000&q=80" 
+            alt="Beagle enjoying professional brushing" 
+            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          >
+          <div class="absolute top-4 left-4 bg-stone-900/80 backdrop-blur-md text-amber-400 px-3.5 py-1.5 rounded-full text-xs font-black tracking-wider uppercase flex items-center gap-1.5 shadow-md">
+            <i class="fas fa-star text-[10px]"></i>
+            <span>Featured Masterclass</span>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 p-8 sm:p-12 space-y-4">
+          <div class="flex items-center gap-3 text-xs text-stone-500 dark:text-stone-400">
+            <span class="font-bold text-emerald-800 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-3 py-1 rounded-full uppercase text-[10px] tracking-wider">Coat Health</span>
+            <span>•</span>
+            <span><i class="far fa-clock mr-1"></i> 7 Min Read</span>
+          </div>
+
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-stone-900 dark:text-white leading-tight group-hover:text-emerald-800 dark:group-hover:text-emerald-400 transition-colors">
+            The Ultimate Line-Brushing Routine: Eliminating Hidden Mats at Skin Level
+          </h2>
+
+          <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
+            Surface brushing leaves the dense undercoat packed tight against delicate skin, causing painful friction and irritation. Learn the certified Scandinavian technique to safely comb down to the skin without pulling.
+          </p>
+
+          <div class="pt-2 flex items-center justify-between border-t border-stone-100 dark:border-stone-800/80">
+            <div class="flex items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80" alt="Elena Rostova" class="w-10 h-10 rounded-full object-cover border-2 border-emerald-600">
+              <div>
+                <span class="text-xs font-bold text-stone-900 dark:text-white block">Elena Rostova</span>
+                <span class="text-[10px] text-stone-400">Master Groomer & Stylist</span>
+              </div>
+            </div>
+
+            <button 
+              data-title="The Ultimate Line-Brushing Routine: Eliminating Hidden Mats at Skin Level" 
+              data-content="Line brushing requires separating the coat layer by layer right down to the skin with a metal greyhound comb. Using a slicker brush on the outer surface without reaching the undercoat leaves dense knots right next to delicate epidermis. Begin at the bottom of the pet's leg, hold up the hair above, and brush down small sections at a time. Pair every 2 minutes of calm cooperation with high-value freeze-dried treats to turn line brushing into a reassuring bonding ritual." 
+              class="blog-read-btn inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-800 hover:bg-emerald-700 text-white font-bold text-xs shadow-md hover:shadow-emerald-900/30 hover:scale-105 active:scale-95 transition-all"
+            >
+              <span>Read Full Article</span>
+              <i class="fas fa-arrow-right text-[10px]"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 3: LIVE CATEGORY NAVIGATION BAR
+         ==================================================================== -->
+    <section class="max-w-7xl mx-auto px-6 py-8">
+      <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5">
+        <button data-category="all" class="blog-filter-btn px-6 py-2.5 rounded-full text-xs font-bold bg-emerald-800 text-white shadow-md hover:scale-105 transition-all">
+          All Guides (6)
+        </button>
+        <button data-category="tips" class="blog-filter-btn px-6 py-2.5 rounded-full text-xs font-bold bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 hover:bg-emerald-800 hover:text-white dark:hover:bg-emerald-700 transition-all">
+          Grooming Tips
+        </button>
+        <button data-category="health" class="blog-filter-btn px-6 py-2.5 rounded-full text-xs font-bold bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 hover:bg-emerald-800 hover:text-white dark:hover:bg-emerald-700 transition-all">
+          Pet Health & Skin
+        </button>
+        <button data-category="puppy" class="blog-filter-btn px-6 py-2.5 rounded-full text-xs font-bold bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 hover:bg-emerald-800 hover:text-white dark:hover:bg-emerald-700 transition-all">
+          Puppy Care
+        </button>
+        <button data-category="breeds" class="blog-filter-btn px-6 py-2.5 rounded-full text-xs font-bold bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 hover:bg-emerald-800 hover:text-white dark:hover:bg-emerald-700 transition-all">
+          Breed Guides
+        </button>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 4: LATEST ARTICLES GRID
+         ==================================================================== -->
+    <section class="max-w-7xl mx-auto px-6 py-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Post 1 -->
+        <article data-category="tips" class="blog-card-item group bg-white dark:bg-[#1A2220] rounded-3xl overflow-hidden border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:border-emerald-700/30 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="h-52 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=600&q=80" alt="Dog enjoying gentle bath" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              <span class="absolute top-3 right-3 bg-stone-900/80 backdrop-blur-sm text-emerald-400 text-[10px] font-black px-3 py-1 rounded-full uppercase">Grooming Tips</span>
+            </div>
+            <div class="p-6 space-y-2.5">
+              <div class="text-[11px] text-stone-400 flex items-center gap-2">
+                <span>Oct 08, 2026</span> • <span>4 min read</span>
+              </div>
+              <h3 class="font-bold text-stone-900 dark:text-white text-lg leading-snug group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
+                The Science of Bath Water Temperature for Canine Skin
+              </h3>
+              <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+                Why hot water strips protective lipid oils, induces contact eczema, and triggers excessive post-bath itching.
+              </p>
+            </div>
+          </div>
+          <div class="p-6 pt-0 border-t border-stone-100 dark:border-stone-800/80 mt-4 flex items-center justify-between">
+            <span class="text-[11px] text-stone-400 font-semibold">By Aria Montgomery</span>
+            <button 
+              data-title="The Science of Bath Water Temperature for Canine Skin" 
+              data-content="Dogs possess an epidermis that is only 3 to 5 cells thick (compared to 10-15 cells in humans). Water that feels comfortably hot to a human hand triggers vasodilation and dissolves the vital acid mantle on canine dermis. Always maintain bath water at lukewarm room temperature (~98°F / 36.5°C). Following the bath with a chamomile botanical leave-in rinse preserves skin flora and leaves coats shiny without oiliness." 
+              class="blog-read-btn text-xs font-bold text-amber-600 hover:text-amber-700 dark:hover:text-amber-400 flex items-center gap-1 group/btn"
+            >
+              <span>Read Guide</span>
+              <i class="fas fa-chevron-right text-[10px] group-hover/btn:translate-x-1 transition-transform"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- Post 2 -->
+        <article data-category="health" class="blog-card-item group bg-white dark:bg-[#1A2220] rounded-3xl overflow-hidden border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:border-emerald-700/30 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="h-52 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=600&q=80" alt="Senior cat grooming care" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              <span class="absolute top-3 right-3 bg-stone-900/80 backdrop-blur-sm text-teal-400 text-[10px] font-black px-3 py-1 rounded-full uppercase">Pet Health</span>
+            </div>
+            <div class="p-6 space-y-2.5">
+              <div class="text-[11px] text-stone-400 flex items-center gap-2">
+                <span>Sep 29, 2026</span> • <span>6 min read</span>
+              </div>
+              <h3 class="font-bold text-stone-900 dark:text-white text-lg leading-snug group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
+                Signs Your Senior Cat Needs Professional Feline Grooming
+              </h3>
+              <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+                Arthritis prevents elderly cats from twisting their spine to self-groom, causing severe pelt matting near tail bases.
+              </p>
+            </div>
+          </div>
+          <div class="p-6 pt-0 border-t border-stone-100 dark:border-stone-800/80 mt-4 flex items-center justify-between">
+            <span class="text-[11px] text-stone-400 font-semibold">By Marcus Vance</span>
+            <button 
+              data-title="Signs Your Senior Cat Needs Professional Feline Grooming" 
+              data-content="When senior cats develop spinal arthritis or spondylosis, their grooming flexibility plummets. Critical warning signs include: greasy spikes along the spine, thick mats forming behind the hind legs, and circular ingrown claws curling into digital pads. At PawSpaw, feline appointments utilize low-decibel specialized blowers, warm fleece supports, and silent clipper guards to relieve discomfort without sedation." 
+              class="blog-read-btn text-xs font-bold text-amber-600 hover:text-amber-700 dark:hover:text-amber-400 flex items-center gap-1 group/btn"
+            >
+              <span>Read Guide</span>
+              <i class="fas fa-chevron-right text-[10px] group-hover/btn:translate-x-1 transition-transform"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- Post 3 -->
+        <article data-category="puppy" class="blog-card-item group bg-white dark:bg-[#1A2220] rounded-3xl overflow-hidden border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:border-emerald-700/30 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="h-52 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=600&q=80" alt="Puppy socialization exercise" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              <span class="absolute top-3 right-3 bg-stone-900/80 backdrop-blur-sm text-amber-400 text-[10px] font-black px-3 py-1 rounded-full uppercase">Puppy Care</span>
+            </div>
+            <div class="p-6 space-y-2.5">
+              <div class="text-[11px] text-stone-400 flex items-center gap-2">
+                <span>Sep 18, 2026</span> • <span>5 min read</span>
+              </div>
+              <h3 class="font-bold text-stone-900 dark:text-white text-lg leading-snug group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
+                Acclimatizing Young Pups to Paw & Nail Trimming
+              </h3>
+              <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+                60-second counter-conditioning routines you can practice during evening cuddle times to eliminate clipper fear.
+              </p>
+            </div>
+          </div>
+          <div class="p-6 pt-0 border-t border-stone-100 dark:border-stone-800/80 mt-4 flex items-center justify-between">
+            <span class="text-[11px] text-stone-400 font-semibold">By Liam Davies</span>
+            <button 
+              data-title="Acclimatizing Young Pups to Paw & Nail Trimming" 
+              data-content="Gently squeeze each toe pad for two seconds while offering a lick of organic peanut butter or wet food. Once the pup anticipates treats upon paw handling, introduce the buzz of a vibrating electric toothbrush near their toes to mimic the rotary dremel. By week three, your puppy will associate nail care with calm indulgence rather than restraint." 
+              class="blog-read-btn text-xs font-bold text-amber-600 hover:text-amber-700 dark:hover:text-amber-400 flex items-center gap-1 group/btn"
+            >
+              <span>Read Guide</span>
+              <i class="fas fa-chevron-right text-[10px] group-hover/btn:translate-x-1 transition-transform"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- Post 4 -->
+        <article data-category="breeds" class="blog-card-item group bg-white dark:bg-[#1A2220] rounded-3xl overflow-hidden border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:border-emerald-700/30 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="h-52 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&fit=crop&w=600&q=80" alt="Poodle teddy bear trim" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              <span class="absolute top-3 right-3 bg-stone-900/80 backdrop-blur-sm text-purple-400 text-[10px] font-black px-3 py-1 rounded-full uppercase">Breed Guides</span>
+            </div>
+            <div class="p-6 space-y-2.5">
+              <div class="text-[11px] text-stone-400 flex items-center gap-2">
+                <span>Aug 24, 2026</span> • <span>6 min read</span>
+              </div>
+              <h3 class="font-bold text-stone-900 dark:text-white text-lg leading-snug group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
+                Understanding Wool vs. Fleece Coats in Doodles & Poodles
+              </h3>
+              <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+                Why standard pet store brushes snap curly hair shafts and how to pick the right pin length for curl types.
+              </p>
+            </div>
+          </div>
+          <div class="p-6 pt-0 border-t border-stone-100 dark:border-stone-800/80 mt-4 flex items-center justify-between">
+            <span class="text-[11px] text-stone-400 font-semibold">By Elena Rostova</span>
+            <button 
+              data-title="Understanding Wool vs. Fleece Coats in Doodles & Poodles" 
+              data-content="Fleece coats are wavy and soft, needing pin brushes twice weekly. Wool coats mirror sheep fleece and curl tightly in dense spirals, requiring daily metal greyhound combing down to the base to avert pelt mats. Never dry curly coats with towel friction, as this tangles delicate curls; instead, blot moisture with microfiber wraps before velocity fluff-drying." 
+              class="blog-read-btn text-xs font-bold text-amber-600 hover:text-amber-700 dark:hover:text-amber-400 flex items-center gap-1 group/btn"
+            >
+              <span>Read Guide</span>
+              <i class="fas fa-chevron-right text-[10px] group-hover/btn:translate-x-1 transition-transform"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- Post 5 -->
+        <article data-category="health" class="blog-card-item group bg-white dark:bg-[#1A2220] rounded-3xl overflow-hidden border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:border-emerald-700/30 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="h-52 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=600&q=80" alt="French bulldog facial wrinkles" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              <span class="absolute top-3 right-3 bg-stone-900/80 backdrop-blur-sm text-teal-400 text-[10px] font-black px-3 py-1 rounded-full uppercase">Pet Health</span>
+            </div>
+            <div class="p-6 space-y-2.5">
+              <div class="text-[11px] text-stone-400 flex items-center gap-2">
+                <span>Aug 12, 2026</span> • <span>4 min read</span>
+              </div>
+              <h3 class="font-bold text-stone-900 dark:text-white text-lg leading-snug group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
+                Treating Facial Skin Folds in French Bulldogs & Pugs
+              </h3>
+              <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+                Preventing stubborn yeast accumulation, friction burns, and odor in flat-faced companion breeds.
+              </p>
+            </div>
+          </div>
+          <div class="p-6 pt-0 border-t border-stone-100 dark:border-stone-800/80 mt-4 flex items-center justify-between">
+            <span class="text-[11px] text-stone-400 font-semibold">By Aria Montgomery</span>
+            <button 
+              data-title="Treating Facial Skin Folds in French Bulldogs & Pugs" 
+              data-content="Dark, humid moisture trapped inside brachycephalic facial folds creates a fertile ecosystem for Malassezia yeast. Clean the fold daily with a non-alcoholic chlorhexidine or witch hazel wipe. Crucially, dry the fold completely with a clean organic cotton pad immediately afterward. Follow with an organic zinc-free barrier balm containing shea butter and calendula to shield delicate skin." 
+              class="blog-read-btn text-xs font-bold text-amber-600 hover:text-amber-700 dark:hover:text-amber-400 flex items-center gap-1 group/btn"
+            >
+              <span>Read Guide</span>
+              <i class="fas fa-chevron-right text-[10px] group-hover/btn:translate-x-1 transition-transform"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- Post 6 -->
+        <article data-category="tips" class="blog-card-item group bg-white dark:bg-[#1A2220] rounded-3xl overflow-hidden border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:border-emerald-700/30 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="h-52 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=600&q=80" alt="Ear cleaning procedure" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              <span class="absolute top-3 right-3 bg-stone-900/80 backdrop-blur-sm text-emerald-400 text-[10px] font-black px-3 py-1 rounded-full uppercase">Grooming Tips</span>
+            </div>
+            <div class="p-6 space-y-2.5">
+              <div class="text-[11px] text-stone-400 flex items-center gap-2">
+                <span>Jul 30, 2026</span> • <span>5 min read</span>
+              </div>
+              <h3 class="font-bold text-stone-900 dark:text-white text-lg leading-snug group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
+                The Safe Way to Clean Ear Canals Without Cotton Swabs
+              </h3>
+              <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+                Why inserting cotton swabs into the canine L-shaped canal compacts debris against the delicate eardrum.
+              </p>
+            </div>
+          </div>
+          <div class="p-6 pt-0 border-t border-stone-100 dark:border-stone-800/80 mt-4 flex items-center justify-between">
+            <span class="text-[11px] text-stone-400 font-semibold">By Elena Rostova</span>
+            <button 
+              data-title="The Safe Way to Clean Ear Canals Without Cotton Swabs" 
+              data-content="Canine ear canals make a sharp 90-degree right turn (L-shaped). Inserting Q-tips packs wax against the horizontal canal wall and risks rupturing the tympanic membrane. The correct method: Fill the canal with a natural drying ear flush, massage the cartilaginous base for 30 seconds until you hear a squelching sound, allow the dog to shake their head, and gently wipe away dislodged debris from the outer ear flap." 
+              class="blog-read-btn text-xs font-bold text-amber-600 hover:text-amber-700 dark:hover:text-amber-400 flex items-center gap-1 group/btn"
+            >
+              <span>Read Guide</span>
+              <i class="fas fa-chevron-right text-[10px] group-hover/btn:translate-x-1 transition-transform"></i>
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 5: SEASONAL COAT WELLNESS CHECKLIST
+         ==================================================================== -->
+ <!-- ====================================================================
+         SECTION 5: SEASONAL COAT WELLNESS CHECKLIST (HOVER ENHANCED)
+         ==================================================================== -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 py-12">
+      <div class="bg-white dark:bg-[#1A2220] p-6 sm:p-10 lg:p-12 rounded-[2.5rem] border border-stone-200 dark:border-stone-800 shadow-md hover:shadow-xl transition-shadow duration-300 space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <span class="text-xs font-black uppercase tracking-widest text-emerald-800 dark:text-emerald-400">At-Home Regimen</span>
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-stone-900 dark:text-white">Quarterly Coat Maintenance Checklist</h3>
+          </div>
+          <span class="text-xs font-bold text-stone-400">Published by PawSpaw Clinical Team</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-stone-600 dark:text-stone-300">
+          
+          <!-- Spring/Summer -->
+          <div class="group p-6 rounded-2xl bg-stone-50 dark:bg-stone-800/60 border border-stone-200/70 dark:border-stone-800 space-y-3 hover:border-emerald-500 hover:bg-emerald-50/40 dark:hover:bg-emerald-950/20 hover:-translate-y-2 hover:shadow-xl hover:shadow-emerald-900/10 transition-all duration-300 cursor-pointer">
+            <span class="font-black text-emerald-800 dark:text-emerald-400 text-sm flex items-center gap-2.5">
+              <span class="w-8 h-8 rounded-xl bg-emerald-100 dark:bg-emerald-950/80 flex items-center justify-center group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
+                <i class="fas fa-seedling text-emerald-700 dark:text-emerald-400 group-hover:text-white group-hover:rotate-12 transition-transform duration-300"></i>
+              </span>
+              <span>Spring / Summer</span>
+            </span>
+            <p class="leading-relaxed group-hover:text-stone-800 dark:group-hover:text-stone-200 transition-colors">
+              Inspect paw webs for fox-tail grass burrs after every outdoor stroll. Schedule double de-shedding baths as seasonal undercoats blow out.
+            </p>
+          </div>
+
+          <!-- Autumn -->
+          <div class="group p-6 rounded-2xl bg-stone-50 dark:bg-stone-800/60 border border-stone-200/70 dark:border-stone-800 space-y-3 hover:border-amber-500 hover:bg-amber-50/40 dark:hover:bg-amber-950/20 hover:-translate-y-2 hover:shadow-xl hover:shadow-amber-900/10 transition-all duration-300 cursor-pointer">
+            <span class="font-black text-amber-600 dark:text-amber-400 text-sm flex items-center gap-2.5">
+              <span class="w-8 h-8 rounded-xl bg-amber-100 dark:bg-amber-950/80 flex items-center justify-center group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white transition-all duration-300">
+                <i class="fas fa-leaf text-amber-600 dark:text-amber-400 group-hover:text-white group-hover:rotate-12 transition-transform duration-300"></i>
+              </span>
+              <span>Autumn Transition</span>
+            </span>
+            <p class="leading-relaxed group-hover:text-stone-800 dark:group-hover:text-stone-200 transition-colors">
+              Hydrate paw pads with organic shea butter balm before cold ground exposure. Maintain coat length slightly longer for natural thermal balance.
+            </p>
+          </div>
+
+          <!-- Winter -->
+          <div class="group p-6 rounded-2xl bg-stone-50 dark:bg-stone-800/60 border border-stone-200/70 dark:border-stone-800 space-y-3 hover:border-teal-500 hover:bg-teal-50/40 dark:hover:bg-teal-950/20 hover:-translate-y-2 hover:shadow-xl hover:shadow-teal-900/10 transition-all duration-300 cursor-pointer">
+            <span class="font-black text-teal-600 dark:text-teal-400 text-sm flex items-center gap-2.5">
+              <span class="w-8 h-8 rounded-xl bg-teal-100 dark:bg-teal-950/80 flex items-center justify-center group-hover:scale-110 group-hover:bg-teal-600 group-hover:text-white transition-all duration-300">
+                <i class="fas fa-snowflake text-teal-600 dark:text-teal-400 group-hover:text-white group-hover:rotate-12 transition-transform duration-300"></i>
+              </span>
+              <span>Winter Protection</span>
+            </span>
+            <p class="leading-relaxed group-hover:text-stone-800 dark:group-hover:text-stone-200 transition-colors">
+              Flush sidewalk de-icer salt immediately after winter walks. Use Dead Sea mineral mud masks to prevent flaky winter heating dryness.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         BLOG EXTRA 1: PET GROOMING MYTHBUSTERS (HOVER ENHANCED)
+         ==================================================================== -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
+      <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14 space-y-3">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-100 dark:bg-rose-950/70 text-rose-800 dark:text-rose-300 text-[11px] font-extrabold uppercase tracking-widest hover:scale-105 transition-transform duration-200">
+          <i class="fas fa-triangle-exclamation text-rose-500"></i>
+          <span>Vet-Backed Truths</span>
+        </span>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-stone-900 dark:text-white">
+          Pet Care Mythbusters: Fact vs. Fiction
+        </h2>
+        <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed max-w-lg mx-auto">
+          Common grooming misconceptions that unintentionally harm your pet's skin and coat. Here is what veterinary science actually proves.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Myth Card 1 -->
+        <div class="group bg-white dark:bg-[#1A2220] rounded-3xl p-6 sm:p-7 border border-stone-200 dark:border-stone-800 shadow-sm hover:border-rose-400 dark:hover:border-rose-500/60 hover:-translate-y-2 hover:shadow-xl hover:shadow-rose-900/10 transition-all duration-300 cursor-pointer space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-1 rounded-full bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300 text-[10px] font-black uppercase group-hover:scale-105 transition-transform">Myth #1</span>
+            <span class="text-xs font-bold text-rose-500 flex items-center gap-1 group-hover:rotate-6 transition-transform">
+              <i class="fas fa-circle-xmark"></i> BUSTED
+            </span>
+          </div>
+          <h3 class="text-base font-bold text-stone-900 dark:text-white group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors leading-snug">
+            "Shaving a double-coated dog cools them off in summer."
+          </h3>
+          <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+            <strong class="text-emerald-700 dark:text-emerald-400 font-bold">The Reality:</strong> Double coats act as thermal insulation. Shaving strips heat reflection, causing sunstroke, sunburns, and permanent coat alopecia. Use high-velocity de-shedding instead!
+          </p>
+        </div>
+
+        <!-- Myth Card 2 -->
+        <div class="group bg-white dark:bg-[#1A2220] rounded-3xl p-6 sm:p-7 border border-stone-200 dark:border-stone-800 shadow-sm hover:border-rose-400 dark:hover:border-rose-500/60 hover:-translate-y-2 hover:shadow-xl hover:shadow-rose-900/10 transition-all duration-300 cursor-pointer space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-1 rounded-full bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300 text-[10px] font-black uppercase group-hover:scale-105 transition-transform">Myth #2</span>
+            <span class="text-xs font-bold text-rose-500 flex items-center gap-1 group-hover:rotate-6 transition-transform">
+              <i class="fas fa-circle-xmark"></i> BUSTED
+            </span>
+          </div>
+          <h3 class="text-base font-bold text-stone-900 dark:text-white group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors leading-snug">
+            "Cats groom themselves, so they never need salon care."
+          </h3>
+          <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+            <strong class="text-emerald-700 dark:text-emerald-400 font-bold">The Reality:</strong> Cats lick themselves with barbed tongues, swallowing loose fur that turns into dangerous intestinal hairballs. Professional dematting and nail trim prevent arthritis discomfort.
+          </p>
+        </div>
+
+        <!-- Myth Card 3 -->
+        <div class="group bg-white dark:bg-[#1A2220] rounded-3xl p-6 sm:p-7 border border-stone-200 dark:border-stone-800 shadow-sm hover:border-rose-400 dark:hover:border-rose-500/60 hover:-translate-y-2 hover:shadow-xl hover:shadow-rose-900/10 transition-all duration-300 cursor-pointer space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-1 rounded-full bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300 text-[10px] font-black uppercase group-hover:scale-105 transition-transform">Myth #3</span>
+            <span class="text-xs font-bold text-rose-500 flex items-center gap-1 group-hover:rotate-6 transition-transform">
+              <i class="fas fa-circle-xmark"></i> BUSTED
+            </span>
+          </div>
+          <h3 class="text-base font-bold text-stone-900 dark:text-white group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors leading-snug">
+            "Bathing dogs too frequently always ruins their natural oils."
+          </h3>
+          <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+            <strong class="text-emerald-700 dark:text-emerald-400 font-bold">The Reality:</strong> With modern sulfate-free organic hydro-baths, weekly cleansing is completely safe. Modern botanical formulas hydrate rather than strip natural skin lipids.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         BLOG EXTRA 2: THE GROOMER'S TOOLKIT (HOVER ENHANCED)
+         ==================================================================== -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
+      <div class="bg-white dark:bg-[#1A2220] rounded-[2.5rem] p-6 sm:p-10 border border-stone-200 dark:border-stone-800 shadow-xl space-y-8">
+        
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <span class="text-[11px] font-black uppercase tracking-widest text-emerald-800 dark:text-emerald-400">Home Care Equipment</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-stone-900 dark:text-white">The Stylist-Approved Home Kit</h2>
+          </div>
+          <span class="text-xs text-stone-400">What every pet parent should have at home</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Tool 1 -->
+          <div class="group p-5 rounded-2xl bg-stone-50 dark:bg-stone-800/60 border border-stone-200/80 dark:border-stone-800 space-y-3 hover:border-amber-500 hover:bg-white dark:hover:bg-[#16201D] hover:-translate-y-2 hover:shadow-xl hover:shadow-amber-900/10 transition-all duration-300 cursor-pointer">
+            <div class="w-11 h-11 rounded-xl bg-amber-100 dark:bg-amber-950/80 text-amber-600 flex items-center justify-center font-bold text-lg group-hover:scale-110 group-hover:rotate-6 group-hover:bg-amber-500 group-hover:text-white transition-all duration-300">
+              <i class="fas fa-brush"></i>
+            </div>
+            <h4 class="font-bold text-sm text-stone-900 dark:text-white group-hover:text-amber-600 transition-colors">Long-Pin Slicker Brush</h4>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+              Bended wire pins penetrate curly fleece and dense undercoats without scratching fragile skin. Essential for Doodles.
+            </p>
+          </div>
+
+          <!-- Tool 2 -->
+          <div class="group p-5 rounded-2xl bg-stone-50 dark:bg-stone-800/60 border border-stone-200/80 dark:border-stone-800 space-y-3 hover:border-emerald-500 hover:bg-white dark:hover:bg-[#16201D] hover:-translate-y-2 hover:shadow-xl hover:shadow-emerald-900/10 transition-all duration-300 cursor-pointer">
+            <div class="w-11 h-11 rounded-xl bg-emerald-100 dark:bg-emerald-950/80 text-emerald-600 flex items-center justify-center font-bold text-lg group-hover:scale-110 group-hover:rotate-6 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
+              <i class="fas fa-grip-lines-vertical"></i>
+            </div>
+            <h4 class="font-bold text-sm text-stone-900 dark:text-white group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">Steel Greyhound Comb</h4>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+              The gold-standard check tool. If this comb glides from skin to tip without catching, your pet is 100% mat-free.
+            </p>
+          </div>
+
+          <!-- Tool 3 -->
+          <div class="group p-5 rounded-2xl bg-stone-50 dark:bg-stone-800/60 border border-stone-200/80 dark:border-stone-800 space-y-3 hover:border-teal-500 hover:bg-white dark:hover:bg-[#16201D] hover:-translate-y-2 hover:shadow-xl hover:shadow-teal-900/10 transition-all duration-300 cursor-pointer">
+            <div class="w-11 h-11 rounded-xl bg-teal-100 dark:bg-teal-950/80 text-teal-600 flex items-center justify-center font-bold text-lg group-hover:scale-110 group-hover:rotate-6 group-hover:bg-teal-600 group-hover:text-white transition-all duration-300">
+              <i class="fas fa-spray-can"></i>
+            </div>
+            <h4 class="font-bold text-sm text-stone-900 dark:text-white group-hover:text-teal-600 transition-colors">Botanical Detangling Mist</h4>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+              Never brush dry hair! A light organic aloe mist lubricates hair shafts, preventing split ends and breakage during brushing.
+            </p>
+          </div>
+
+          <!-- Tool 4 -->
+          <div class="group p-5 rounded-2xl bg-stone-50 dark:bg-stone-800/60 border border-stone-200/80 dark:border-stone-800 space-y-3 hover:border-purple-500 hover:bg-white dark:hover:bg-[#16201D] hover:-translate-y-2 hover:shadow-xl hover:shadow-purple-900/10 transition-all duration-300 cursor-pointer">
+            <div class="w-11 h-11 rounded-xl bg-purple-100 dark:bg-purple-950/80 text-purple-600 flex items-center justify-center font-bold text-lg group-hover:scale-110 group-hover:rotate-6 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300">
+              <i class="fas fa-scissors"></i>
+            </div>
+            <h4 class="font-bold text-sm text-stone-900 dark:text-white group-hover:text-purple-600 transition-colors">Rotary Diamond Dremel</h4>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+              Much safer than guillotine clippers. Grinds down claw edges smoothly without crushing the inner sensitive blood quick.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         BLOG EXTRA 3: ASK A MASTER STYLIST (HOVER ENHANCED)
+         ==================================================================== -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
+      <div class="group relative bg-gradient-to-br from-stone-900 via-[#182320] to-emerald-950 rounded-[2.5rem] p-6 sm:p-10 lg:p-14 text-white border border-stone-800 shadow-2xl hover:border-emerald-600/50 hover:shadow-emerald-950/40 transition-all duration-500 overflow-hidden">
+        
+        <!-- Ambient Glow -->
+        <div class="absolute -top-24 -right-24 w-80 h-80 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none group-hover:scale-125 transition-transform duration-700"></div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+          
+          <div class="lg:col-span-6 space-y-4">
+            <span class="inline-block px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-black uppercase tracking-wider border border-emerald-500/30 hover:scale-105 transition-transform">
+              Community Wisdom
+            </span>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-serif leading-tight">
+              Got a Tough Coat Question? Ask Our Master Groomers.
+            </h2>
+            <p class="text-xs sm:text-sm text-stone-300 leading-relaxed">
+              Dealing with persistent tear stains, matting behind ears, or extreme nail-trimming anxiety? Submit your question and our editorial team will answer it in next month's published care journal.
+            </p>
+          </div>
+
+          <div class="lg:col-span-6">
+            <form onsubmit="event.preventDefault(); window.PawSpaw.showToast('Question received! Elena will answer in the next edition.', 'success'); this.reset();" class="space-y-3 bg-white/5 p-5 sm:p-6 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-emerald-500/40 transition-colors duration-300">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <input type="text" required placeholder="Your Pet's Breed" class="w-full text-xs bg-stone-900/80 border border-stone-700 rounded-xl px-3.5 py-2.5 text-stone-200 placeholder-stone-500 focus:outline-none focus:border-emerald-500 hover:border-stone-500 transition-colors">
+                <input type="email" required placeholder="Your Email Address" class="w-full text-xs bg-stone-900/80 border border-stone-700 rounded-xl px-3.5 py-2.5 text-stone-200 placeholder-stone-500 focus:outline-none focus:border-emerald-500 hover:border-stone-500 transition-colors">
+              </div>
+              <textarea required rows="3" placeholder="What grooming challenge are you facing? (e.g. How to stop matted paws)" class="w-full text-xs bg-stone-900/80 border border-stone-700 rounded-xl p-3 text-stone-200 placeholder-stone-500 focus:outline-none focus:border-emerald-500 hover:border-stone-500 transition-colors resize-none"></textarea>
+              <button type="submit" class="w-full py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-xs uppercase tracking-wider hover:-translate-y-0.5 hover:shadow-lg hover:shadow-amber-500/30 active:scale-95 active:translate-y-0 transition-all shadow-md">
+                Submit Question to Groomers
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 6: NEWSLETTER & VIP SALON CTA (HOVER ENHANCED)
+         ==================================================================== -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-16 text-center">
+      <div class="group relative bg-gradient-to-r from-emerald-950 via-emerald-900 to-teal-950 text-white rounded-[2.5rem] p-8 sm:p-12 lg:p-14 max-w-4xl mx-auto space-y-5 shadow-2xl hover:shadow-emerald-900/50 transition-all duration-500 overflow-hidden border border-emerald-800/40">
+        
+        <!-- Interactive Ambient Glow -->
+        <div class="absolute -top-24 -left-24 w-72 h-72 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none group-hover:scale-125 transition-transform duration-700"></div>
+        <div class="absolute -bottom-24 -right-24 w-72 h-72 bg-amber-500/15 rounded-full blur-3xl pointer-events-none group-hover:scale-125 transition-transform duration-700"></div>
+
+        <div class="relative z-10 space-y-4">
+          <span class="inline-block px-3.5 py-1 rounded-full bg-amber-400 hover:bg-amber-300 text-stone-900 text-[10px] font-black uppercase tracking-wider shadow-md hover:scale-105 transition-transform duration-200 cursor-default">
+            Join 6,400+ Pet Parents
+          </span>
+          
+          <h3 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight">
+            Empower Your Companion's Wellness
+          </h3>
+          
+          <p class="text-xs sm:text-sm text-stone-300 max-w-md mx-auto leading-relaxed">
+            Receive our bi-weekly coat care guides, holistic product recommendations, and priority access to seasonal salon reservations.
+          </p>
+
+          <div class="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3.5">
+            <a href="sessions.html#booking" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-amber-500 hover:bg-amber-400 text-stone-950 font-black text-xs shadow-xl shadow-amber-500/20 hover:-translate-y-1 hover:shadow-2xl hover:shadow-amber-500/40 active:translate-y-0 active:scale-95 transition-all duration-200">
+              Schedule a Grooming Session
+            </a>
+            <a href="faq.html" class="w-full sm:w-auto px-8 py-3.5 rounded-full border border-stone-500/80 hover:border-stone-300 hover:bg-white/10 text-stone-200 hover:text-white font-bold text-xs hover:-translate-y-1 active:translate-y-0 active:scale-95 transition-all duration-200">
+              Browse Care FAQs
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====================================================================
+       INTERACTIVE ARTICLE READING MODAL
+       ==================================================================== -->
+  <div id="blog-read-modal" class="fixed inset-0 z-50 bg-stone-950/70 backdrop-blur-sm hidden items-center justify-center p-4 transition-opacity">
+    <div class="bg-white dark:bg-[#1A2220] max-w-xl w-full rounded-3xl p-6 sm:p-8 border border-stone-200 dark:border-stone-800 shadow-2xl space-y-4 transform transition-transform">
+      <div class="flex items-center justify-between border-b border-stone-100 dark:border-stone-800 pb-3">
+        <span class="text-xs font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+          <i class="fas fa-paw"></i> PawSpaw Care Journal
+        </span>
+        <button id="close-blog-modal" class="w-8 h-8 rounded-full bg-stone-100 dark:bg-stone-800 flex items-center justify-center text-stone-500 hover:text-stone-900 dark:hover:text-white transition">
+          <i class="fas fa-times text-xs"></i>
+        </button>
+      </div>
+
+      <h3 id="modal-blog-title" class="text-xl sm:text-2xl font-extrabold text-stone-900 dark:text-white leading-tight"></h3>
+
+      <div class="max-h-72 overflow-y-auto pr-2">
+        <p id="modal-blog-body" class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed"></p>
+      </div>
+
+      <div class="pt-4 border-t border-stone-100 dark:border-stone-800 flex items-center justify-between gap-4">
+        <span class="text-[11px] text-stone-400">Need personal grooming advice?</span>
+        <a href="sessions.html#booking" class="px-5 py-2.5 rounded-xl bg-emerald-800 hover:bg-emerald-700 text-white text-xs font-bold shadow-md hover:scale-105 active:scale-95 transition-all">
+          Book Session with Author
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer-placeholder"></div>
+  <script src="app.js"></script>
+  <script>
+  if (localStorage.getItem('pawspaw_theme') === 'dark') {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+</script>
+</body>
+</html>

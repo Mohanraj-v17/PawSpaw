@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sessions & Experts | PawSpaw & Co.</title>
+  <meta name="description"
+    content="Discover our specialized grooming sessions, choose your master groomer, and book online.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              700: '#1b4332',
+              800: '#0f291e',
+              accent: '#e07a5f'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body
+  class="bg-[#FDFBF7] dark:bg-[#121816] text-stone-800 dark:text-stone-100 transition-colors duration-300 antialiased overflow-x-hidden">
+
+  <div id="navbar-placeholder"></div>
+
+  <main class="pt-24 lg:pt-28">
+
+    <!-- SECTION 1: SESSIONS HERO -->
+    <section class="max-w-7xl mx-auto px-6 py-12 lg:py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7 space-y-6">
+          <div
+            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 text-amber-700 dark:text-amber-400 text-xs font-bold uppercase tracking-wider hover:scale-105 transition-transform duration-200">
+            <i class="fas fa-paw"></i>
+            <span>Tailored Experiences</span>
+          </div>
+          <h1 class="text-4xl sm:text-5xl font-extrabold text-emerald-950 dark:text-white leading-tight">
+            Curated Sessions for Every Breed & Stage of Life.
+          </h1>
+          <p class="text-stone-600 dark:text-stone-300 text-base leading-relaxed">
+            From playful puppy acclimatization to soothing senior orthopedic care, every session is matched with an
+            experienced grooming expert.
+          </p>
+          <a href="#booking"
+            class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-emerald-800 hover:bg-emerald-700 text-white font-bold text-xs shadow-xl btn-hover">
+            <span>Jump to Appointment Booking</span>
+            <i class="fas fa-arrow-down text-[10px]"></i>
+          </a>
+        </div>
+        <div class="lg:col-span-5">
+          <div
+            class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-stone-800 img-zoom-wrapper">
+            <img src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&fit=crop&w=800&q=80"
+              alt="Session puppy grooming" class="w-full h-80 sm:h-96 object-cover">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: SESSION CATEGORIES -->
+    <section class="max-w-7xl mx-auto px-6 py-16">
+      <div class="text-center max-w-xl mx-auto mb-14 space-y-2">
+        <span
+          class="text-xs font-extrabold uppercase tracking-widest text-emerald-800 dark:text-emerald-400">Appointment
+          Types</span>
+        <h2 class="text-3xl font-extrabold text-emerald-950 dark:text-white">Specialized Grooming Sessions</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div
+          class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 space-y-3 card-hover">
+          <div
+            class="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-950 text-amber-600 flex items-center justify-center font-bold">
+            <i class="fas fa-baby"></i>
+          </div>
+          <h4 class="text-lg font-bold text-stone-900 dark:text-white">Puppy First Groom</h4>
+          <p class="text-xs text-stone-600 dark:text-stone-300">Gentle sound desensitization, warm water introduction,
+            scissor games, and positive treats.</p>
+        </div>
+
+        <div
+          class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 space-y-3 card-hover">
+          <div
+            class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 flex items-center justify-center font-bold">
+            <i class="fas fa-cut"></i>
+          </div>
+          <h4 class="text-lg font-bold text-stone-900 dark:text-white">Full Grooming Session</h4>
+          <p class="text-xs text-stone-600 dark:text-stone-300">Complete styling, ear sanitizing, precision trimming,
+            pad moisturizing, and botanical mist.</p>
+        </div>
+
+        <div
+          class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 space-y-3 card-hover">
+          <div
+            class="w-10 h-10 rounded-xl bg-teal-100 dark:bg-teal-950 text-teal-600 flex items-center justify-center font-bold">
+            <i class="fas fa-shower"></i>
+          </div>
+          <h4 class="text-lg font-bold text-stone-900 dark:text-white">Bath & Spa Session</h4>
+          <p class="text-xs text-stone-600 dark:text-stone-300">Deep hydro-massage bath, Dead Sea facial scrub, ear
+            flush, and gentle fluff dry.</p>
+        </div>
+
+        <div
+          class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 space-y-3 card-hover">
+          <div
+            class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-950 text-blue-600 flex items-center justify-center font-bold">
+            <i class="fas fa-medal"></i>
+          </div>
+          <h4 class="text-lg font-bold text-stone-900 dark:text-white">Breed-Specific Grooming</h4>
+          <p class="text-xs text-stone-600 dark:text-stone-300">Tailored hand-scissoring adhering to breed standards or
+            creative Asian teddy trims.</p>
+        </div>
+
+        <div
+          class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 space-y-3 card-hover">
+          <div
+            class="w-10 h-10 rounded-xl bg-rose-100 dark:bg-rose-950 text-rose-600 flex items-center justify-center font-bold">
+            <i class="fas fa-heart-pulse"></i>
+          </div>
+          <h4 class="text-lg font-bold text-stone-900 dark:text-white">Senior Pet Care</h4>
+          <p class="text-xs text-stone-600 dark:text-stone-300">Extra orthopedic support pads, frequent rest pauses,
+            low-noise drying, and joint care.</p>
+        </div>
+
+        <div
+          class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 space-y-3 card-hover">
+          <div
+            class="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-950 text-purple-600 flex items-center justify-center font-bold">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h4 class="text-lg font-bold text-stone-900 dark:text-white">Express Grooming</h4>
+          <p class="text-xs text-stone-600 dark:text-stone-300">Dedicated single-stylist accelerated workflow for active
+            dogs who prefer minimal salon time.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: MEET YOUR PET'S GROOMING EXPERT -->
+    <section class="max-w-7xl mx-auto px-6 py-16">
+      <div class="text-center max-w-xl mx-auto mb-14 space-y-2">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-emerald-800 dark:text-emerald-400">Certified
+          Stylists</span>
+        <h2 class="text-3xl font-extrabold text-emerald-950 dark:text-white">Meet Your Pet's Grooming Expert</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <div
+          class="bg-white dark:bg-[#1A2220] rounded-3xl border border-stone-200 dark:border-stone-800 p-6 flex flex-col justify-between card-hover">
+          <div class="space-y-4">
+            <div class="h-56 rounded-2xl overflow-hidden img-zoom-wrapper">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80"
+                alt="Elena Rostova" class="w-full h-full object-cover">
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-stone-900 dark:text-white">Elena Rostova</h3>
+              <span class="text-xs font-bold text-amber-600 uppercase">Master Stylist & Scissor Specialist</span>
+            </div>
+            <div class="text-xs text-stone-500">
+              <i class="fas fa-award mr-1 text-emerald-600"></i> 9 Years Experience • Certified Master Groomer
+            </div>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+              Trained in Tokyo and Paris, Elena specializes in Asian fusion teddy trims, intricate hand-scissoring, and
+              coat restoration.
+            </p>
+          </div>
+          <button onclick="prefillSpecialist('Elena Rostova (Master Groomer)')"
+            class="mt-6 w-full py-2.5 rounded-xl bg-emerald-800 hover:bg-emerald-700 text-white text-xs font-bold btn-hover">
+            Book with Elena
+          </button>
+        </div>
+
+        <div
+          class="bg-white dark:bg-[#1A2220] rounded-3xl border border-stone-200 dark:border-stone-800 p-6 flex flex-col justify-between card-hover">
+          <div class="space-y-4">
+            <div class="h-56 rounded-2xl overflow-hidden img-zoom-wrapper">
+              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80"
+                alt="Marcus Vance" class="w-full h-full object-cover">
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-stone-900 dark:text-white">Marcus Vance</h3>
+              <span class="text-xs font-bold text-amber-600 uppercase">Feline Stylist & Gentle Dematting</span>
+            </div>
+            <div class="text-xs text-stone-500">
+              <i class="fas fa-award mr-1 text-emerald-600"></i> 7 Years Experience • Fear-Free Certified
+            </div>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+              Marcus excels at soothing nervous cats, handling long-haired Persians and Maine Coons without restraints
+              or loud equipment.
+            </p>
+          </div>
+          <button onclick="prefillSpecialist('Marcus Vance (Feline Stylist)')"
+            class="mt-6 w-full py-2.5 rounded-xl bg-emerald-800 hover:bg-emerald-700 text-white text-xs font-bold btn-hover">
+            Book with Marcus
+          </button>
+        </div>
+
+        <div
+          class="bg-white dark:bg-[#1A2220] rounded-3xl border border-stone-200 dark:border-stone-800 p-6 flex flex-col justify-between card-hover">
+          <div class="space-y-4">
+            <div class="h-56 rounded-2xl overflow-hidden img-zoom-wrapper">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80"
+                alt="Liam Davies" class="w-full h-full object-cover">
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-stone-900 dark:text-white">Liam Davies</h3>
+              <span class="text-xs font-bold text-amber-600 uppercase">Certified Puppy Handling Specialist</span>
+            </div>
+            <div class="text-xs text-stone-500">
+              <i class="fas fa-award mr-1 text-emerald-600"></i> 5 Years Experience • Canine Educator
+            </div>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+              Liam focuses exclusively on early coat habituation, ensuring young puppies develop lifelong positive
+              memories of grooming.
+            </p>
+          </div>
+          <button onclick="prefillSpecialist('Liam Davies (Puppy Specialist)')"
+            class="mt-6 w-full py-2.5 rounded-xl bg-emerald-800 hover:bg-emerald-700 text-white text-xs font-bold btn-hover">
+            Book with Liam
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 4: SESSION PROCESS -->
+    <section class="max-w-7xl mx-auto px-6 py-16">
+      <div
+        class="bg-white dark:bg-[#1A2220] rounded-3xl p-8 sm:p-12 border border-stone-200 dark:border-stone-800 space-y-8">
+        <div>
+          <span class="text-xs font-extrabold uppercase tracking-widest text-emerald-800 dark:text-emerald-400">Step by
+            Step</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-stone-900 dark:text-white">What Happens During an
+            Appointment</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div class="space-y-2 card-hover p-4 rounded-2xl">
+            <span class="text-xs font-bold text-amber-600 uppercase">Step 01</span>
+            <h4 class="font-bold text-base text-stone-900 dark:text-white">Health & Coat Check</h4>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">We examine skin hydration, ear canal
+              condition, and paws while giving gentle head scratches.</p>
+          </div>
+          <div class="space-y-2 card-hover p-4 rounded-2xl">
+            <span class="text-xs font-bold text-amber-600 uppercase">Step 02</span>
+            <h4 class="font-bold text-base text-stone-900 dark:text-white">Hydro-Therapy Bath</h4>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">Temperature-controlled pressurized
+              water infuses organic botanicals down to the follicle level.</p>
+          </div>
+          <div class="space-y-2 card-hover p-4 rounded-2xl">
+            <span class="text-xs font-bold text-amber-600 uppercase">Step 03</span>
+            <h4 class="font-bold text-base text-stone-900 dark:text-white">Calm Fluff Dry & Scissor</h4>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">Low-decibel hand drying followed by
+              precision scissor work according to your aesthetic preference.</p>
+          </div>
+          <div class="space-y-2 card-hover p-4 rounded-2xl">
+            <span class="text-xs font-bold text-amber-600 uppercase">Step 04</span>
+            <h4 class="font-bold text-base text-stone-900 dark:text-white">Report Card & Pickup</h4>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">Pet parent receives a detailed
+              wellness summary report and a freshly groomed, happy companion.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====================================================================
+         EXTRA SECTION 1: PRE-SESSION PARENT CHECKLIST
+         ==================================================================== -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
+      <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14 space-y-3">
+        <span
+          class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300 text-[11px] font-extrabold uppercase tracking-widest">
+          <i class="fas fa-clipboard-check text-amber-500"></i>
+          <span>Smooth Arrival Guide</span>
+        </span>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-emerald-950 dark:text-white">
+          How to Prepare Your Pet for Spa Day
+        </h2>
+        <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed max-w-lg mx-auto">
+          A few thoughtful steps at home before heading to the salon makes the entire grooming retreat relaxed,
+          cooperative, and joyful.
+        </p>
+      </div>
+
+      <!-- Responsive Grid: 1 col on mobile, 2 on tablet, 4 on desktop -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- Checklist Card 1 -->
+        <div
+          class="bg-white dark:bg-[#1A2220] rounded-3xl p-6 border border-stone-200 dark:border-stone-800 shadow-sm card-hover flex flex-col justify-between">
+          <div class="space-y-4">
+            <div
+              class="w-12 h-12 rounded-2xl bg-amber-100 dark:bg-amber-950/60 text-amber-600 flex items-center justify-center text-xl font-black">
+              <i class="fas fa-person-walking"></i>
+            </div>
+            <div class="space-y-1">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-amber-600">Step 01 • Energy Burn</span>
+              <h3 class="text-base sm:text-lg font-bold text-stone-900 dark:text-white">Pre-Visit Potty Walk</h3>
+            </div>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+              Take a brisk 15-minute sniff stroll right before arrival to relieve bladder tension and expend excess
+              hyperactivity.
+            </p>
+          </div>
+          <div
+            class="pt-4 mt-4 border-t border-stone-100 dark:border-stone-800 text-[11px] font-semibold text-emerald-700 dark:text-emerald-400">
+            <i class="fas fa-check-circle mr-1"></i> Prevents Restroom Urges
+          </div>
+        </div>
+
+        <!-- Checklist Card 2 -->
+        <div
+          class="bg-white dark:bg-[#1A2220] rounded-3xl p-6 border border-stone-200 dark:border-stone-800 shadow-sm card-hover flex flex-col justify-between">
+          <div class="space-y-4">
+            <div
+              class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 flex items-center justify-center text-xl font-black">
+              <i class="fas fa-bowl-food"></i>
+            </div>
+            <div class="space-y-1">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-600">Step 02 • Digestion</span>
+              <h3 class="text-base sm:text-lg font-bold text-stone-900 dark:text-white">Light Meal Timing</h3>
+            </div>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+              Avoid feeding heavy meals within 2 hours of bathing to avert bloated tummies, motion nausea, or warm bath
+              restlessness.
+            </p>
+          </div>
+          <div
+            class="pt-4 mt-4 border-t border-stone-100 dark:border-stone-800 text-[11px] font-semibold text-emerald-700 dark:text-emerald-400">
+            <i class="fas fa-check-circle mr-1"></i> 2-Hour Fasting Recommended
+          </div>
+        </div>
+
+        <!-- Checklist Card 3 -->
+        <div
+          class="bg-white dark:bg-[#1A2220] rounded-3xl p-6 border border-stone-200 dark:border-stone-800 shadow-sm card-hover flex flex-col justify-between">
+          <div class="space-y-4">
+            <div
+              class="w-12 h-12 rounded-2xl bg-teal-100 dark:bg-teal-950/60 text-teal-700 dark:text-teal-400 flex items-center justify-center text-xl font-black">
+              <i class="fas fa-bone"></i>
+            </div>
+            <div class="space-y-1">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-teal-600">Step 03 • Security</span>
+              <h3 class="text-base sm:text-lg font-bold text-stone-900 dark:text-white">Bring a Scent Blanket</h3>
+            </div>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+              Bring a small home towel or favorite plush toy. Familiar home scents lower stress cortisol during coat
+              check-ins by 40%.
+            </p>
+          </div>
+          <div
+            class="pt-4 mt-4 border-t border-stone-100 dark:border-stone-800 text-[11px] font-semibold text-teal-600">
+            <i class="fas fa-check-circle mr-1"></i> Home Pheromone Comfort
+          </div>
+        </div>
+
+        <!-- Checklist Card 4 -->
+        <div
+          class="bg-white dark:bg-[#1A2220] rounded-3xl p-6 border border-stone-200 dark:border-stone-800 shadow-sm card-hover flex flex-col justify-between">
+          <div class="space-y-4">
+            <div
+              class="w-12 h-12 rounded-2xl bg-rose-100 dark:bg-rose-950/60 text-rose-600 flex items-center justify-center text-xl font-black">
+              <i class="fas fa-file-medical"></i>
+            </div>
+            <div class="space-y-1">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-rose-600">Step 04 • Transparency</span>
+              <h3 class="text-base sm:text-lg font-bold text-stone-900 dark:text-white">Flag Sensitivities</h3>
+            </div>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+              Tell our receptionist about skin allergies, ear hematomas, recent vaccine injection spots, or hip joint
+              stiffness.
+            </p>
+          </div>
+          <div
+            class="pt-4 mt-4 border-t border-stone-100 dark:border-stone-800 text-[11px] font-semibold text-rose-600">
+            <i class="fas fa-check-circle mr-1"></i> Tailored Handling Note
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         EXTRA SECTION 2: A LA CARTE ADD-ON RITUALS (UPGRADE MENU)
+         ==================================================================== -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
+      <div
+        class="bg-white dark:bg-[#16201D] rounded-[2.5rem] p-6 sm:p-10 lg:p-12 border border-stone-200 dark:border-stone-800 shadow-xl space-y-8">
+
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div class="space-y-2">
+            <span class="text-[11px] font-black uppercase tracking-widest text-amber-600">Custom Enhancements</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-stone-900 dark:text-white">
+              A La Carte Session Upgrades
+            </h2>
+            <p class="text-xs sm:text-sm text-stone-500 dark:text-stone-400 max-w-xl">
+              Elevate any core bath or scissor styling session with targeted organic therapies designed for paw, coat,
+              and facial wellness.
+            </p>
+          </div>
+          <a href="#booking"
+            class="whitespace-nowrap px-6 py-3 rounded-full bg-emerald-800 hover:bg-emerald-700 text-white font-bold text-xs shadow-md transition-all self-start sm:self-auto">
+            Add to Appointment
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+          <div
+            class="p-5 rounded-2xl bg-stone-50 dark:bg-stone-800/60 border border-stone-100 dark:border-stone-800 space-y-3 card-hover flex flex-col justify-between">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <i class="fas fa-paw text-amber-500 text-lg"></i>
+                <span class="text-base font-black text-emerald-800 dark:text-emerald-400 font-mono">+$15</span>
+              </div>
+              <h4 class="font-bold text-stone-900 dark:text-white text-sm">Organic Paw Butter Balm</h4>
+              <p class="text-[11px] text-stone-600 dark:text-stone-300 leading-relaxed">
+                Raw mango and shea butter massage restoring dry, cracked digital pads and soothing salt burns.
+              </p>
+            </div>
+            <span class="text-[10px] font-extrabold uppercase text-amber-600 tracking-wider">Fast 10-Min Add-On</span>
+          </div>
+
+          <div
+            class="p-5 rounded-2xl bg-stone-50 dark:bg-stone-800/60 border border-stone-100 dark:border-stone-800 space-y-3 card-hover flex flex-col justify-between">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <i class="fas fa-sparkles text-emerald-600 text-lg"></i>
+                <span class="text-base font-black text-emerald-800 dark:text-emerald-400 font-mono">+$22</span>
+              </div>
+              <h4 class="font-bold text-stone-900 dark:text-white text-sm">Blueberry Tear Cleanser</h4>
+              <p class="text-[11px] text-stone-600 dark:text-stone-300 leading-relaxed">
+                Antioxidant foam facial that lifts stubborn reddish eye stains and deodorizes muzzle beard hairs gently.
+              </p>
+            </div>
+            <span class="text-[10px] font-extrabold uppercase text-emerald-600 tracking-wider">Most Popular</span>
+          </div>
+
+          <div
+            class="p-5 rounded-2xl bg-stone-50 dark:bg-stone-800/60 border border-stone-100 dark:border-stone-800 space-y-3 card-hover flex flex-col justify-between">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <i class="fas fa-spa text-teal-600 text-lg"></i>
+                <span class="text-base font-black text-emerald-800 dark:text-emerald-400 font-mono">+$35</span>
+              </div>
+              <h4 class="font-bold text-stone-900 dark:text-white text-sm">Dead Sea Mud Detox Mask</h4>
+              <p class="text-[11px] text-stone-600 dark:text-stone-300 leading-relaxed">
+                Full-body thermal mud wrap drawing out allergens, relieving hot spots, and easing canine stiffness.
+              </p>
+            </div>
+            <span class="text-[10px] font-extrabold uppercase text-teal-600 tracking-wider">Deep Dermatological</span>
+          </div>
+
+          <div
+            class="p-5 rounded-2xl bg-stone-50 dark:bg-stone-800/60 border border-stone-100 dark:border-stone-800 space-y-3 card-hover flex flex-col justify-between">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <i class="fas fa-wind text-purple-600 text-lg"></i>
+                <span class="text-base font-black text-emerald-800 dark:text-emerald-400 font-mono">+$18</span>
+              </div>
+              <h4 class="font-bold text-stone-900 dark:text-white text-sm">Aromatherapy Blowout</h4>
+              <p class="text-[11px] text-stone-600 dark:text-stone-300 leading-relaxed">
+                French lavender and chamomile floral vapor infused during velocity fluff drying to reduce anxiety.
+              </p>
+            </div>
+            <span class="text-[10px] font-extrabold uppercase text-purple-600 tracking-wider">Stress-Relief</span>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         EXTRA SECTION 3: ZERO-DISTRESS & FEAR-FREE GUARANTEE
+         ==================================================================== -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
+      <div
+        class="bg-gradient-to-br from-emerald-950 via-[#142D24] to-stone-900 rounded-[2.5rem] p-6 sm:p-10 lg:p-14 text-white border border-emerald-800/70 shadow-2xl relative overflow-hidden">
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+
+          <div class="lg:col-span-6 space-y-5">
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-400/20 text-amber-300 text-[10px] font-black uppercase tracking-wider border border-amber-400/30">
+              <i class="fas fa-shield-cat text-amber-400"></i>
+              <span>Our Emotional Health Commitment</span>
+            </div>
+
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-serif leading-tight">
+              The PawSpaw Zero-Distress Acclimatization Guarantee.
+            </h2>
+
+            <p class="text-stone-300 text-xs sm:text-sm leading-relaxed">
+              We promise your companion will never be pushed past their emotional threshold for the sake of speed.
+              Grooming should build confidence, not fear.
+            </p>
+
+            <div class="flex flex-wrap gap-4 pt-2">
+              <div class="flex items-center gap-2 text-xs font-bold text-amber-400">
+                <i class="fas fa-ban"></i> Zero Sedation Ever
+              </div>
+              <div class="flex items-center gap-2 text-xs font-bold text-emerald-400">
+                <i class="fas fa-pause-circle"></i> Pause & Treat Protocol
+              </div>
+              <div class="flex items-center gap-2 text-xs font-bold text-teal-400">
+                <i class="fas fa-video"></i> 100% Transparent Viewing
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 space-y-3.5">
+            <div
+              class="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm flex items-start gap-3.5 card-hover">
+              <div
+                class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0 text-base">
+                <i class="fas fa-heart-pulse"></i>
+              </div>
+              <div>
+                <h4 class="text-xs sm:text-sm font-bold text-white">Stress-Signal Monitoring</h4>
+                <p class="text-[11px] text-stone-300 leading-relaxed pt-0.5">Stylists are trained to read subtle canine
+                  lip-licking and feline tail-swishing, pausing treatments before panic occurs.</p>
+              </div>
+            </div>
+
+            <div
+              class="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm flex items-start gap-3.5 card-hover">
+              <div
+                class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center flex-shrink-0 text-base">
+                <i class="fas fa-cookie-bite"></i>
+              </div>
+              <div>
+                <h4 class="text-xs sm:text-sm font-bold text-white">High-Value Treat Conditioning</h4>
+                <p class="text-[11px] text-stone-300 leading-relaxed pt-0.5">We pair scissor sensations and water sounds
+                  with organic freeze-dried single-ingredient treats for positive memory reinforcement.</p>
+              </div>
+            </div>
+
+            <div
+              class="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm flex items-start gap-3.5 card-hover">
+              <div
+                class="w-10 h-10 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center flex-shrink-0 text-base">
+                <i class="fas fa-phone-volume"></i>
+              </div>
+              <div>
+                <h4 class="text-xs sm:text-sm font-bold text-white">Live Parent Check-In</h4>
+                <p class="text-[11px] text-stone-300 leading-relaxed pt-0.5">Receive immediate SMS updates and webcam
+                  lounge access so you always know your pet is resting in good hands.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 5: SESSION GALLERY -->
+    <section class="max-w-7xl mx-auto px-6 py-16">
+      <div class="text-center max-w-xl mx-auto mb-10 space-y-2">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-emerald-800 dark:text-emerald-400">Live
+          Moments</span>
+        <h2 class="text-3xl font-extrabold text-emerald-950 dark:text-white">In the Salon Suites</h2>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="rounded-2xl overflow-hidden h-48 shadow-md img-zoom-wrapper">
+          <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=400&q=80"
+            alt="Bath session" class="w-full h-full object-cover">
+        </div>
+        <div class="rounded-2xl overflow-hidden h-48 shadow-md img-zoom-wrapper">
+          <img src="https://images.unsplash.com/photo-1541599540903-216a46ca1dc0?auto=format&fit=crop&w=400&q=80"
+            alt="Corgi session" class="w-full h-full object-cover">
+        </div>
+        <div class="rounded-2xl overflow-hidden h-48 shadow-md img-zoom-wrapper">
+          <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=400&q=80"
+            alt="Cat session" class="w-full h-full object-cover">
+        </div>
+        <div class="rounded-2xl overflow-hidden h-48 shadow-md img-zoom-wrapper">
+          <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=400&q=80"
+            alt="Golden session" class="w-full h-full object-cover">
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: BOOK YOUR SESSION -->
+    <section id="booking" class="max-w-4xl mx-auto px-6 py-16">
+      <div
+        class="bg-white dark:bg-[#1A2220] rounded-[2.5rem] p-8 sm:p-12 border border-stone-200 dark:border-stone-800 shadow-xl space-y-6">
+
+        <div class="space-y-2 text-center max-w-lg mx-auto">
+          <span class="text-xs font-black uppercase tracking-widest text-emerald-800 dark:text-emerald-400">Appointment
+            Portal</span>
+          <h2 class="text-3xl font-extrabold text-stone-900 dark:text-white">Reserve Your Pet's Spa Time</h2>
+          <p class="text-xs text-stone-500">Live booking demo. Appointments persist locally to your Pet Owner & Admin
+            portals.</p>
+        </div>
+
+        <div id="booking-confirmation-msg"
+          class="hidden p-4 rounded-2xl bg-emerald-100 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 text-xs font-bold text-center">
+          <i class="fas fa-check-circle mr-1 text-sm"></i> Booking confirmed! You can view this reservation in your <a
+            href="user-dashboard.html" class="underline hover:text-emerald-600">Pet Owner Dashboard</a>.
+        </div>
+
+        <form id="appointment-booking-form" class="space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-stone-700 dark:text-stone-300 mb-1">Your Full Name *</label>
+              <input type="text" id="book-owner-name" required placeholder="e.g. Rachel Adams"
+                class="w-full text-xs px-4 py-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-emerald-600 hover:border-stone-400 transition-colors">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-stone-700 dark:text-stone-300 mb-1">Email Address *</label>
+              <input type="email" id="book-owner-email" required placeholder="rachel@example.com"
+                class="w-full text-xs px-4 py-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-emerald-600 hover:border-stone-400 transition-colors">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-stone-700 dark:text-stone-300 mb-1">Pet Name *</label>
+              <input type="text" id="book-pet-name" required placeholder="e.g. Milo"
+                class="w-full text-xs px-4 py-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-emerald-600 hover:border-stone-400 transition-colors">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-stone-700 dark:text-stone-300 mb-1">Breed & Species</label>
+              <input type="text" id="book-pet-breed" placeholder="e.g. Golden Retriever (Dog)"
+                class="w-full text-xs px-4 py-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-emerald-600 hover:border-stone-400 transition-colors">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-stone-700 dark:text-stone-300 mb-1">Select Service Package
+                *</label>
+              <select id="book-service" required
+                class="w-full text-xs px-4 py-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-emerald-600 hover:border-stone-400 transition-colors">
+                <option value="Hydro-Bath & Blow Dry">Hydro-Bath & Blow Dry ($45)</option>
+                <option value="Full Haircut & Styling">Full Haircut & Styling ($75)</option>
+                <option value="Nail Trim & Pawdicure">Nail Trim & Pawdicure ($25)</option>
+                <option value="Luxury Spa & Blueberry Facial">Luxury Spa & Blueberry Facial ($95)</option>
+                <option value="Thalasso Mineral Mud Spa">Thalasso Mineral Mud Spa ($145)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-stone-700 dark:text-stone-300 mb-1">Preferred
+                Specialist</label>
+              <select id="book-specialist"
+                class="w-full text-xs px-4 py-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-emerald-600 hover:border-stone-400 transition-colors">
+                <option value="Elena Rostova (Master Groomer)">Elena Rostova (Master Groomer)</option>
+                <option value="Marcus Vance (Feline Stylist)">Marcus Vance (Feline Stylist)</option>
+                <option value="Liam Davies (Puppy Specialist)">Liam Davies (Puppy Specialist)</option>
+                <option value="First Available Master Stylist">First Available Specialist</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-stone-700 dark:text-stone-300 mb-1">Preferred Date *</label>
+              <input type="date" id="book-date" required
+                class="w-full text-xs px-4 py-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-emerald-600 hover:border-stone-400 transition-colors">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-stone-700 dark:text-stone-300 mb-1">Preferred Time *</label>
+              <select id="book-time" required
+                class="w-full text-xs px-4 py-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-emerald-600 hover:border-stone-400 transition-colors">
+                <option value="09:00 AM">09:00 AM</option>
+                <option value="11:00 AM">11:00 AM</option>
+                <option value="01:30 PM">01:30 PM</option>
+                <option value="03:30 PM">03:30 PM</option>
+                <option value="05:30 PM">05:30 PM</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit"
+            class="w-full py-3.5 rounded-xl bg-emerald-800 hover:bg-emerald-700 text-white font-extrabold text-xs shadow-xl btn-hover">
+            Confirm & Reserve Session
+          </button>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="app.js"></script>
+  <script>
+    function prefillSpecialist(name) {
+      const select = document.getElementById('book-specialist');
+      if (select) {
+        select.value = name;
+        document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+        window.PawSpaw.showToast(`Selected specialist: ${name}`, 'info');
+      }
+    }
+
+    if (localStorage.getItem('pawspaw_theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+  </script>
+</body>
+
+</html>

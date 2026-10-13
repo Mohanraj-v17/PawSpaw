@@ -1,0 +1,144 @@
+/* ==========================================================================
+   PAWSPAW & CO. - GLOBAL STYLESHEET
+   Vanilla CSS additions complementing Tailwind CSS utility classes
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
+
+:root {
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --color-primary: #1b4332;
+  --color-accent: #e07a5f;
+  --color-cream: #fdfbf7;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #f1ede4;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #121816;
+}
+::-webkit-scrollbar-thumb {
+  background: #52796f;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1b4332;
+}
+
+/* Floating Glassmorphic Navbar */
+.glass-nav {
+  background: rgba(253, 251, 247, 0.90);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.dark .glass-nav {
+  background: rgba(26, 34, 32, 0.90);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* RTL Helpers */
+[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1);
+}
+[dir="rtl"] .space-x-reverse > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+[dir="rtl"] .footer-link:hover {
+  transform: translateX(-4px) !important;
+}
+
+/* Micro-interaction Hover Classes */
+.card-hover {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+}
+.dark .card-hover:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+}
+
+.btn-hover {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background-color 0.2s ease;
+}
+.btn-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(27, 67, 50, 0.2);
+}
+.btn-hover:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Image zoom effect */
+.img-zoom-wrapper {
+  overflow: hidden;
+}
+.img-zoom-wrapper img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.img-zoom-wrapper:hover img {
+  transform: scale(1.07);
+}
+
+/* Footer link micro-slide */
+.footer-link {
+  transition: transform 0.25s ease, color 0.2s ease;
+  display: inline-block;
+}
+.footer-link:hover {
+  transform: translateX(4px);
+  color: #f59e0b;
+}
+
+/* Animations */
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: floatGentle 4.5s ease-in-out infinite;
+}
+
+/* Printing styles for payment receipts */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-receipt, #printable-receipt * {
+    visibility: visible;
+  }
+  #printable-receipt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}
+
+#navbar-placeholder {
+  position: fixed !important;
+  top: 0.75rem !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 50 !important;
+  pointer-events: none !important;
+}
+
+#navbar-placeholder > * {
+  pointer-events: auto !important;
+}
