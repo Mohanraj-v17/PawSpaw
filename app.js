@@ -15,6 +15,23 @@
 
   const pageCache = new Map();
 
+  function getPetImageByBreed(breed = '', species = '') {
+    const b = (breed || '').toLowerCase();
+    const s = (species || '').toLowerCase();
+
+    if (b.includes('golden') || b.includes('retriever')) return 'public/golden-2.avif';
+    if (b.includes('corgi')) return 'public/bordercollie.avif';
+    if (b.includes('beagle')) return 'public/Beagle.avif';
+    if (b.includes('pembroke') || b.includes('doodle') || b.includes('bichon')) return 'public/pembroke.avif';
+    if (b.includes('pitbull') || b.includes('pug')) return 'public/pitbull.avif';
+    if (b.includes('cat') || s.includes('cat') || b.includes('ragdoll') || b.includes('persian')) return 'public/cat.avif';
+    if (s.includes('hamster') || b.includes('hamster')) return 'public/hamster-2.jpeg';
+    if (b.includes('puppy')) return 'public/pit-2.avif';
+
+    if (s.includes('cat')) return 'public/cat-2.avif';
+    return 'public/pit-3.avif';
+  }
+
   function seedInitialDemoData() {
     if (!localStorage.getItem(SEED_KEY_PETS)) {
       const defaultPets = [
@@ -25,7 +42,7 @@
           breed: 'Golden Retriever',
           age: '3 Years',
           notes: 'Sensitive skin, loves blueberry facial scrub.',
-          image: 'https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=600&q=80'
+          image: 'public/gallery-golden.jpg'
         },
         {
           id: 'p-2',
@@ -34,7 +51,7 @@
           breed: 'Ragdoll',
           age: '2 Years',
           notes: 'Needs calm, low-noise blow drying.',
-          image: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=600&q=80'
+          image: 'public/gallery-cat.jpg'
         }
       ];
       localStorage.setItem(SEED_KEY_PETS, JSON.stringify(defaultPets));
@@ -139,7 +156,7 @@
     if (!container) {
       container = document.createElement('div');
       container.id = 'toast-container';
-      container.className = 'fixed bottom-6 right-6 z-50 flex flex-col space-y-3 pointer-events-none';
+      container.className = 'fixed bottom-6 right-6 z-50 flex flex-col space-y-3 pointer-events-none max-w-[90vw]';
       document.body.appendChild(container);
     }
 
@@ -150,9 +167,9 @@
         ? 'bg-rose-700 text-white border-rose-600'
         : 'bg-amber-600 text-white border-amber-500';
 
-    toast.className = `pointer-events-auto flex items-center gap-3 px-5 py-3.5 rounded-2xl shadow-xl border text-sm font-medium transition-all duration-300 transform translate-y-4 opacity-0 ${colorClass}`;
+    toast.className = `pointer-events-auto flex items-center gap-3 px-4 py-3 rounded-2xl shadow-xl border text-xs sm:text-sm font-medium transition-all duration-300 transform translate-y-4 opacity-0 ${colorClass}`;
     toast.innerHTML = `
-      <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'} text-lg"></i>
+      <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'} text-base"></i>
       <span>${message}</span>
     `;
 
@@ -164,7 +181,7 @@
     setTimeout(() => {
       toast.classList.add('opacity-0', 'translate-y-2');
       setTimeout(() => toast.remove(), 350);
-    }, 3800);
+    }, 3500);
   }
 
   function initTheme() {
@@ -189,9 +206,9 @@
     const icons = document.querySelectorAll('.theme-toggle-icon');
     icons.forEach(icon => {
       if (theme === 'dark') {
-        icon.className = 'fas fa-sun text-amber-400 theme-toggle-icon transition-transform duration-300 hover:rotate-45';
+        icon.className = 'fas fa-sun text-amber-400 theme-toggle-icon';
       } else {
-        icon.className = 'fas fa-moon text-emerald-800 theme-toggle-icon transition-transform duration-300 hover:-rotate-12';
+        icon.className = 'fas fa-moon text-emerald-800 theme-toggle-icon';
       }
     });
   }
@@ -218,6 +235,40 @@
     });
   }
 
+  function closeMobileMenu() {
+    const drawer = document.getElementById('mobile-drawer');
+    const backdrop = document.getElementById('mobile-drawer-backdrop');
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    if (drawer) drawer.classList.add('hidden');
+    if (backdrop) backdrop.classList.add('hidden');
+    if (mobileBtn) {
+      const icon = mobileBtn.querySelector('i');
+      if (icon) {
+        icon.className = 'fas fa-bars text-sm';
+      }
+    }
+  }
+
+  function toggleMobileMenu() {
+    const drawer = document.getElementById('mobile-drawer');
+    const backdrop = document.getElementById('mobile-drawer-backdrop');
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    if (!drawer || !mobileBtn) return;
+
+    const isOpen = !drawer.classList.contains('hidden');
+    const icon = mobileBtn.querySelector('i');
+
+    if (isOpen) {
+      drawer.classList.add('hidden');
+      if (backdrop) backdrop.classList.add('hidden');
+      if (icon) icon.className = 'fas fa-bars text-sm';
+    } else {
+      drawer.classList.remove('hidden');
+      if (backdrop) backdrop.classList.remove('hidden');
+      if (icon) icon.className = 'fas fa-xmark text-sm';
+    }
+  }
+
   function updateNavbarActiveLinks() {
     let curPage = window.location.pathname.split('/').pop() || 'index.html';
     if (curPage === 'home2.html') curPage = 'home-2.html';
@@ -234,7 +285,7 @@
       }
     }
 
-    const navLinks = document.querySelectorAll('#navbar-placeholder nav a[href]');
+    const navLinks = document.querySelectorAll('#navbar-placeholder a[href]');
     navLinks.forEach(link => {
       const href = link.getAttribute('href');
       const isMatch = (curPage === href || (curPage === '' && href === 'index.html'));
@@ -245,7 +296,7 @@
         } else {
           link.className = 'py-2 px-3 rounded-xl transition-all flex items-center justify-between text-stone-700 dark:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-800/70 font-medium';
         }
-      } else if (!link.querySelector('.fa-paw') && !link.closest('.group')) {
+      } else if (!link.querySelector('.fa-paw') && !link.closest('.group') && !link.classList.contains('no-nav-highlight')) {
         if (isMatch) {
           link.className = 'text-emerald-700 dark:text-emerald-400 font-extrabold border-b-2 border-emerald-600 dark:border-emerald-400 pb-0.5';
         } else {
@@ -261,6 +312,7 @@
 
     if (mount.children.length > 0) {
       updateNavbarActiveLinks();
+      closeMobileMenu();
       return;
     }
 
@@ -292,19 +344,19 @@
     const isHome = curPage.startsWith('index') || curPage.startsWith('home') || curPage === '';
 
     mount.innerHTML = `
-      <header class="fixed top-2.5 sm:top-4 left-0 right-0 z-50 px-3 sm:px-6 pointer-events-none">
-        <nav class="max-w-7xl mx-auto glass-nav bg-white/95 dark:bg-[#1A2220]/95 backdrop-blur-md rounded-full px-4 sm:px-6 py-2 sm:py-2.5 shadow-xl border border-stone-200/80 dark:border-stone-800 flex items-center justify-between pointer-events-auto transition-all">
+      <header class="fixed top-2 sm:top-4 left-0 right-0 z-50 px-2 sm:px-6 pointer-events-none">
+        <nav class="max-w-7xl mx-auto glass-nav bg-white/95 dark:bg-[#1A2220]/95 backdrop-blur-md rounded-full px-3 sm:px-6 py-1.5 sm:py-2.5 shadow-xl border border-stone-200/80 dark:border-stone-800 flex items-center justify-between pointer-events-auto transition-all">
           
-          <a href="index.html" class="flex items-center gap-2.5 group focus:outline-none">
-            <div class="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center text-white shadow-md group-hover:scale-110 group-hover:bg-emerald-500 transition-all duration-300">
-              <i class="fas fa-paw text-lg group-hover:rotate-12 transition-transform duration-300"></i>
+          <a href="index.html" class="flex items-center gap-2 group focus:outline-none flex-shrink-0">
+            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-emerald-600 flex items-center justify-center text-white shadow-md group-hover:scale-110 group-hover:bg-emerald-500 transition-all duration-300">
+              <i class="fas fa-paw text-sm sm:text-base group-hover:rotate-12 transition-transform duration-300"></i>
             </div>
             <div class="flex flex-col">
-              <span class="font-extrabold tracking-tight text-lg sm:text-xl text-emerald-950 dark:text-white leading-tight group-hover:text-emerald-400 transition-colors">PawSpaw<span class="text-amber-500 dark:text-amber-400">.</span></span>
+              <span class="font-extrabold tracking-tight text-base sm:text-xl text-emerald-950 dark:text-white leading-tight group-hover:text-emerald-400 transition-colors">PawSpaw<span class="text-amber-500 dark:text-amber-400">.</span></span>
             </div>
           </a>
 
-          <div class="hidden lg:flex items-center space-x-7 text-sm">
+          <div class="hidden lg:flex items-center gap-7 text-sm">
             <div class="relative group">
               <button class="flex items-center gap-1.5 py-1 text-sm font-bold ${isHome ? 'text-emerald-700 dark:text-emerald-400 border-b-2 border-emerald-600 dark:border-emerald-400 pb-0.5' : 'text-stone-700 dark:text-stone-200 hover:text-emerald-700 dark:hover:text-emerald-400'} focus:outline-none transition-all duration-200">
                 <span>Home</span>
@@ -348,31 +400,31 @@
             </div>
           </div>
 
-          <div class="flex items-center space-x-2 sm:space-x-3">
-            <button id="rtl-toggle-btn" title="Toggle Direction" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-200 flex items-center justify-center text-xs font-bold hover:bg-stone-200 dark:hover:bg-stone-700 transition">
+          <div class="flex items-center gap-1.5 sm:gap-2.5">
+            <button id="rtl-toggle-btn" title="Toggle Direction" class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-200 flex items-center justify-center text-[10px] sm:text-xs font-bold hover:bg-stone-200 dark:hover:bg-stone-700 transition">
               <span class="dir-toggle-text">LTR</span>
             </button>
 
-            <button id="theme-toggle-btn" title="Toggle Theme" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-200 flex items-center justify-center hover:bg-stone-200 dark:hover:bg-stone-700 transition">
+            <button id="theme-toggle-btn" title="Toggle Theme" class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-200 flex items-center justify-center hover:bg-stone-200 dark:hover:bg-stone-700 transition">
               <i class="fas fa-moon theme-toggle-icon"></i>
             </button>
 
-            <a href="login.html" class="hidden sm:inline-flex items-center text-xs font-bold px-3.5 py-2 rounded-full text-stone-700 dark:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-800 transition">
+            <a href="login.html" class="no-nav-highlight hidden sm:inline-flex items-center text-xs font-bold px-3 py-1.5 rounded-full text-stone-700 dark:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-800 transition">
               Sign In
             </a>
 
-            <a href="sessions.html#booking" class="hidden md:inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-extrabold bg-gradient-to-r from-emerald-800 to-emerald-700 text-white shadow-md hover:shadow-emerald-900/30 hover:-translate-y-0.5 transition">
+            <a href="sessions.html#booking" class="no-nav-highlight hidden md:inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-extrabold bg-gradient-to-r from-emerald-800 to-emerald-700 text-white shadow-md hover:shadow-emerald-900/30 hover:-translate-y-0.5 transition">
               <i class="fas fa-calendar-check text-[11px]"></i>
               <span>Book Appointment</span>
             </a>
 
-            <button id="mobile-menu-btn" aria-label="Toggle Navigation" class="lg:hidden w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-stone-100 dark:bg-stone-800 flex items-center justify-center text-stone-800 dark:text-stone-200 focus:outline-none hover:bg-stone-200 transition">
+            <button id="mobile-menu-btn" aria-label="Toggle Navigation" class="lg:hidden w-8 h-8 rounded-full bg-stone-100 dark:bg-stone-800 flex items-center justify-center text-stone-800 dark:text-stone-200 focus:outline-none hover:bg-stone-200 transition">
               <i class="fas fa-bars text-sm"></i>
             </button>
           </div>
         </nav>
 
-        <div id="mobile-drawer" class="lg:hidden hidden mt-2 mx-auto max-w-xl bg-white/98 dark:bg-[#1A2220]/98 backdrop-blur-2xl rounded-3xl p-4 sm:p-5 shadow-2xl border border-stone-200 dark:border-stone-800 transition-all pointer-events-auto max-h-[75vh] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        <div id="mobile-drawer" class="lg:hidden hidden mt-2 mx-auto max-w-sm sm:max-w-md w-full bg-white dark:bg-[#1A2220] backdrop-blur-2xl rounded-3xl p-4 sm:p-5 shadow-2xl border border-stone-200 dark:border-stone-800 transition-all pointer-events-auto max-h-[75vh] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           <div class="flex flex-col space-y-1 text-xs sm:text-sm">
             <div class="text-[10px] uppercase tracking-wider text-emerald-800 dark:text-emerald-400 font-black px-2 py-1">Main Pages</div>
             
@@ -441,26 +493,21 @@
           </div>
         </div>
       </header>
+      <div id="mobile-drawer-backdrop" class="fixed inset-0 bg-stone-950/40 backdrop-blur-xs z-40 hidden lg:hidden"></div>
     `;
 
     document.getElementById('theme-toggle-btn')?.addEventListener('click', toggleTheme);
     document.getElementById('rtl-toggle-btn')?.addEventListener('click', toggleDirection);
+    document.getElementById('mobile-menu-btn')?.addEventListener('click', toggleMobileMenu);
+    document.getElementById('mobile-drawer-backdrop')?.addEventListener('click', closeMobileMenu);
 
-    const mobileBtn = document.getElementById('mobile-menu-btn');
-    const drawer = document.getElementById('mobile-drawer');
-    if (mobileBtn && drawer) {
-      mobileBtn.addEventListener('click', () => {
-        drawer.classList.toggle('hidden');
-        const icon = mobileBtn.querySelector('i');
-        if (icon) {
-          icon.classList.toggle('fa-bars');
-          icon.classList.toggle('fa-xmark');
-        }
-      });
-    }
+    document.querySelectorAll('#mobile-drawer a').forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
 
     updateThemeIcon(localStorage.getItem('pawspaw_theme') || 'light');
     updateDirectionBadge(localStorage.getItem('pawspaw_direction') || 'ltr');
+    updateNavbarActiveLinks();
   }
 
   function renderFooter() {
@@ -568,7 +615,7 @@
   }
 
   function prefetchUrl(url) {
-    if (!url || pageCache.has(url) || url.startsWith('#') || url.startsWith('http') || url.includes('dashboard') || url.includes('login')) return;
+    if (!url || pageCache.has(url) || url.startsWith('#') || url.startsWith('http') || url.includes('dashboard') || url.includes('login') || url.includes('register') || url.includes('signup')) return;
     fetch(url)
       .then(res => {
         if (res.ok) return res.text();
@@ -578,22 +625,17 @@
       .catch(() => {});
   }
 
- function setupSpaNavigation() {
+  function setupSpaNavigation() {
     document.addEventListener('mouseover', (e) => {
       const link = e.target.closest('a');
       const href = link?.getAttribute('href');
-      if (
-        href &&
-        !pageCache.has(href) &&
-        !href.startsWith('#') &&
-        !href.startsWith('http') &&
-        !href.includes('dashboard') &&
-        !href.includes('login') &&
-        !href.includes('register') &&
-        !href.includes('signup')
-      ) {
-        fetch(href).then(r => r.ok ? r.text() : '').then(h => { if(h) pageCache.set(href, h); }).catch(() => {});
-      }
+      if (href) prefetchUrl(href);
+    }, { passive: true });
+
+    document.addEventListener('touchstart', (e) => {
+      const link = e.target.closest('a');
+      const href = link?.getAttribute('href');
+      if (href) prefetchUrl(href);
     }, { passive: true });
 
     document.addEventListener('click', (e) => {
@@ -601,6 +643,8 @@
       if (!link) return;
       const href = link.getAttribute('href');
       if (!href) return;
+
+      closeMobileMenu();
 
       const curPath = window.location.pathname;
       if (
@@ -614,6 +658,12 @@
       }
 
       e.preventDefault();
+      const currentUrl = curPath.split('/').pop() || 'index.html';
+      const targetUrl = href.split('#')[0];
+      const targetHash = href.split('#')[1] || '';
+
+      if (currentUrl === targetUrl && !targetHash) return;
+
       navigateToPage(href);
     });
 
@@ -628,10 +678,12 @@
   }
 
   async function navigateToPage(url, pushState = true) {
+    closeMobileMenu();
+
     const mainEl = document.querySelector('main');
     if (mainEl) {
       mainEl.style.willChange = 'opacity';
-      mainEl.style.transition = 'opacity 100ms ease-out';
+      mainEl.style.transition = 'opacity 90ms ease-out';
       mainEl.style.opacity = '0.5';
     }
 
@@ -682,7 +734,7 @@
           mainEl.style.opacity = '1';
           setTimeout(() => {
             mainEl.style.willChange = 'auto';
-          }, 150);
+          }, 120);
         });
       }
     }
@@ -727,11 +779,12 @@
     container.innerHTML = '';
 
     pets.forEach((pet, index) => {
+      const petImg = pet.image || getPetImageByBreed(pet.breed, pet.species);
       const card = document.createElement('div');
       card.className = 'bg-white dark:bg-[#16201D] p-5 rounded-3xl border border-stone-200 dark:border-stone-800 flex gap-4 items-start shadow-sm card-hover';
       card.innerHTML = `
         <div class="img-zoom-wrapper rounded-2xl w-20 h-20 flex-shrink-0">
-          <img src="${pet.image || 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=300&q=80'}" alt="${pet.name}" class="w-full h-full object-cover">
+          <img src="${petImg}" alt="${pet.name}" class="w-full h-full object-cover">
         </div>
         <div class="flex-1 space-y-1">
           <div class="flex justify-between items-start">
@@ -923,7 +976,7 @@
           breed,
           age,
           notes,
-          image: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=300&q=80'
+          image: getPetImageByBreed(breed, species)
         });
         localStorage.setItem(SEED_KEY_PETS, JSON.stringify(pets));
         renderUserPets();

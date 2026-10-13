@@ -28,32 +28,30 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body
-  class="bg-[#FDFBF7] dark:bg-[#121816] text-stone-800 dark:text-stone-100 min-h-screen flex flex-col justify-between transition-colors duration-300">
+<body class="bg-[#FDFBF7] dark:bg-[#121816] text-stone-800 dark:text-stone-100 min-h-screen flex flex-col justify-between pt-16 sm:pt-20 px-3 sm:px-6 pb-6 transition-colors duration-300">
 
-  <!-- Screen-oda exact Top-Left corner-la lock aagura fix -->
-<!-- LTR-la Left, RTL-la Right-ku auto-flip aagura setup -->
-<header class="fixed top-4 end-4 z-50 flex items-center gap-2.5">
-  <!-- Theme Toggle -->
-  <button onclick="window.PawSpaw.toggleTheme()"
-    class="w-9 h-9 rounded-full bg-white dark:bg-[#16201D] text-stone-700 dark:text-stone-200 border border-stone-200 dark:border-stone-800 shadow-md flex items-center justify-center hover:scale-105 active:scale-95 transition-all">
-    <i class="fas fa-moon theme-toggle-icon"></i>
-  </button>
+  <!-- FIXED TOGGLE BUTTONS OUTSIDE CARD -->
+  <div class="fixed top-3 end-3 sm:top-4 sm:end-4 z-50 flex items-center gap-2">
+    <!-- Theme Toggle -->
+    <button type="button" onclick="window.PawSpaw.toggleTheme()"
+      class="w-8 h-8 rounded-full bg-white dark:bg-[#1A2220] text-stone-700 dark:text-stone-200 border border-stone-200 dark:border-stone-800 shadow-sm flex items-center justify-center text-xs hover:scale-105 active:scale-95 transition-all">
+      <i class="fas fa-moon theme-toggle-icon"></i>
+    </button>
 
-  <!-- LTR / RTL Direction Toggle -->
-  <button onclick="window.PawSpaw.toggleDirection()"
-    class="w-9 h-9 rounded-full bg-white dark:bg-[#16201D] text-stone-700 dark:text-stone-200 border border-stone-200 dark:border-stone-800 shadow-md flex items-center justify-center text-xs font-bold hover:scale-105 active:scale-95 transition-all">
-    <span class="dir-toggle-text">LTR</span>
-  </button>
-</header>
+    <!-- LTR / RTL Toggle -->
+    <button type="button" onclick="window.PawSpaw.toggleDirection()"
+      class="h-8 px-2.5 rounded-full bg-white dark:bg-[#1A2220] text-stone-700 dark:text-stone-200 border border-stone-200 dark:border-stone-800 shadow-sm flex items-center justify-center text-[11px] font-bold hover:scale-105 active:scale-95 transition-all">
+      <span class="dir-toggle-text">LTR</span>
+    </button>
+  </div>
 
-  <main class="flex-1 flex items-center justify-center px-4 py-8">
+  <main class="flex-1 flex items-center justify-center w-full">
     <div
       class="max-w-4xl w-full bg-white dark:bg-[#1A2220] rounded-[2.5rem] border border-stone-200 dark:border-stone-800 shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-12">
 
       <!-- Left Visual (5 Cols) -->
       <div class="md:col-span-5 relative hidden md:block">
-        <img src="https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=700&q=80"
+        <img src="public/hamster.avif"
           alt="Pet grooming love" class="w-full h-full object-cover">
         <div
           class="absolute inset-0 bg-gradient-to-t from-emerald-950/90 via-emerald-950/40 to-transparent p-8 flex flex-col justify-end text-white">
@@ -115,7 +113,7 @@
 
         <div class="text-center text-xs text-stone-500 pt-2">
           New to PawSpaw?
-          <a href="register.html" class="text-amber-600 font-bold hover:underline">Create a free pet parent profile</a>
+          <a href="register.html" class="text-amber-600 font-bold hover:underline">Sign Up Here </a>
         </div>
 
         <div
@@ -129,7 +127,7 @@
     </div>
   </main>
 
-  <footer class="p-6 text-center text-xs text-stone-500">
+  <footer class="pt-6 text-center text-xs text-stone-400">
     © 2026 PawSpaw & Co. Luxury Pet Care Sanctuary. All rights reserved.
   </footer>
 
