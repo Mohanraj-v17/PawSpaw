@@ -1,7 +1,4 @@
-/* ==========================================================================
-   PAWSPAW & CO. - GLOBAL STYLESHEET
-   Vanilla CSS additions complementing Tailwind CSS utility classes
-   ========================================================================== */
+
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
 
@@ -24,7 +21,6 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 9px;
   height: 9px;
@@ -43,7 +39,6 @@ body {
   background: #1b4332;
 }
 
-/* Floating Glassmorphic Navbar */
 .glass-nav {
   background: rgba(253, 251, 247, 0.90);
   backdrop-filter: blur(14px);
@@ -55,7 +50,6 @@ body {
   -webkit-backdrop-filter: blur(14px);
 }
 
-/* RTL Helpers */
 [dir="rtl"] .rtl-flip {
   transform: scaleX(-1);
 }
@@ -66,7 +60,6 @@ body {
   transform: translateX(-4px) !important;
 }
 
-/* Micro-interaction Hover Classes */
 .card-hover {
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
 }
@@ -89,7 +82,6 @@ body {
   transform: translateY(0) scale(0.98);
 }
 
-/* Image zoom effect */
 .img-zoom-wrapper {
   overflow: hidden;
 }
@@ -100,7 +92,6 @@ body {
   transform: scale(1.07);
 }
 
-/* Footer link micro-slide */
 .footer-link {
   transition: transform 0.25s ease, color 0.2s ease;
   display: inline-block;
@@ -110,7 +101,6 @@ body {
   color: #f59e0b;
 }
 
-/* Animations */
 @keyframes floatGentle {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-8px); }
@@ -120,7 +110,6 @@ body {
   animation: floatGentle 4.5s ease-in-out infinite;
 }
 
-/* Printing styles for payment receipts */
 @media print {
   body * {
     visibility: hidden;

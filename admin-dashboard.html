@@ -25,7 +25,6 @@
     }
   </script>
   <style>
-    /* Browser native dropdown popups & scrollbars dark theme fix */
     .dark {
       color-scheme: dark;
     }
@@ -34,7 +33,6 @@
       color-scheme: light;
     }
 
-    /* Dropdown options dark background */
     .dark select option {
       background-color: #16201D;
       color: #F3F1EB;
@@ -47,8 +45,6 @@
 <body
   class="bg-[#F3F1EB] dark:bg-[#0B100E] text-stone-800 dark:text-stone-100 min-h-screen transition-colors duration-300 antialiased flex flex-col font-sans">
 
-  <!-- TOP MOBILE ADMIN BAR -->
-  <!-- TOP MOBILE ADMIN BAR (LIGHT & DARK MODE READY) -->
   <header
     class="lg:hidden bg-white dark:bg-[#16201D] border-b border-stone-200 dark:border-stone-800 px-4 py-3 flex items-center justify-between sticky top-0 z-30 transition-colors">
     <div class="flex items-center gap-2">
@@ -87,8 +83,6 @@
       class="fixed inset-y-0 left-0 z-40 w-64 bg-white dark:bg-[#16201D] border-r border-stone-200 dark:border-stone-800 flex flex-col justify-between transform -translate-x-full lg:translate-x-0 transition-transform duration-300 lg:static lg:z-auto">
 
       <div class="p-6 space-y-6">
-
-        <!-- Brand Logo: Exact User Dashboard Styling + ADMIN PORTAL -->
         <div class="flex items-center justify-between">
           <a href="index.html" class="flex flex-col gap-1.5 group focus:outline-none">
 
@@ -109,14 +103,12 @@
             </span>
           </a>
 
-          <!-- Mobile Sidebar Close Button -->
           <button id="admin-sidebar-close"
             class="lg:hidden text-stone-400 hover:text-stone-700 dark:hover:text-white p-1">
             <i class="fas fa-times text-base"></i>
           </button>
         </div>
 
-        <!-- Sidebar Navigation Buttons (Exact User Dashboard Colors & Hovers) -->
         <nav class="space-y-1 text-xs font-semibold">
           <button onclick="switchAdminTab('overview')"
             class="admin-tab-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition bg-emerald-800 text-white font-bold shadow-md"
@@ -191,7 +183,6 @@
 
       </div>
 
-      <!-- Bottom Profile & Public Link -->
       <div class="p-6 border-t border-stone-100 dark:border-stone-800 space-y-3">
         <div class="flex items-center gap-3">
           <div
@@ -214,12 +205,8 @@
 
     <div id="admin-sidebar-backdrop" class="fixed inset-0 z-30 bg-stone-950/50 backdrop-blur-sm hidden lg:hidden"></div>
 
-    <!-- ====================================================================
-         MAIN ADMIN VIEWPORT
-         ==================================================================== -->
     <main class="flex-1 overflow-y-auto p-4 sm:p-8 space-y-8">
 
-      <!-- Top Title & Quick Actions -->
       <div class="hidden lg:flex items-center justify-between pb-4 border-b border-stone-200 dark:border-stone-800">
         <div>
           <h1 id="admin-tab-heading" class="text-2xl font-black text-stone-900 dark:text-white">Salon Operations
@@ -240,7 +227,6 @@
 
       <section id="admin-tab-overview" class="admin-pane space-y-6">
         
-        <!-- Primary KPI Metrics -->
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
           <div class="bg-white dark:bg-[#16201D] p-5 rounded-2xl border border-stone-200 dark:border-stone-800 shadow-sm space-y-1">
             <span class="text-[11px] font-bold text-stone-400 uppercase">Total Revenue</span>
@@ -267,7 +253,6 @@
           </div>
         </div>
 
-        <!-- Weekly Booking Volume Chart -->
         <div class="bg-white dark:bg-[#16201D] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 shadow-sm space-y-4">
           <div class="flex justify-between items-center">
             <h3 class="text-base font-bold text-stone-900 dark:text-white">Weekly Booking Volume</h3>
@@ -306,14 +291,9 @@
         </div>
 
       </section>
-      <!-- ↑ INGAYODEY OVERVIEW SECTION CLOSE AAYIDUTHU -->
-
-      <!-- ------------------------------------------------------------------
-           TAB 2: APPOINTMENTS MANAGEMENT (Separate Section With 'hidden')
-           ------------------------------------------------------------------ -->
+  
       <section id="admin-tab-appointments" class="admin-pane hidden space-y-4 sm:space-y-6">
         
-        <!-- Search & Custom Dropdown Filter -->
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div class="relative flex-1 sm:max-w-sm">
             <i class="fas fa-search absolute left-3.5 top-1/2 -translate-y-1/2 text-stone-400 text-xs"></i>
@@ -337,10 +317,8 @@
           </div>
         </div>
 
-        <!-- Mobile View Cards -->
         <div id="admin-appts-cards" class="block md:hidden space-y-3 pt-1"></div>
 
-        <!-- Desktop View Table -->
         <div class="hidden md:block bg-white dark:bg-[#16201D] rounded-3xl border border-stone-200 dark:border-stone-800 overflow-x-auto shadow-sm">
           <table class="w-full text-left text-xs min-w-[700px]">
             <thead>
@@ -360,11 +338,7 @@
 
       </section>
 
-      <!-- ------------------------------------------------------------------
-           TAB 3: CUSTOMERS DIRECTORY (RESPONSIVE)
-           ------------------------------------------------------------------ -->
       <section id="admin-tab-customers" class="admin-pane hidden space-y-4 sm:space-y-6">
-        <!-- Mobile Cards -->
         <div class="md:hidden space-y-3">
           <div
             class="bg-white dark:bg-[#16201D] p-4 rounded-2xl border border-stone-200 dark:border-stone-800 shadow-sm space-y-2">
@@ -398,7 +372,6 @@
           </div>
         </div>
 
-        <!-- Desktop Table -->
         <div
           class="hidden md:block bg-white dark:bg-[#16201D] rounded-3xl border border-stone-200 dark:border-stone-800 overflow-x-auto shadow-sm">
           <table class="w-full text-left text-xs min-w-[650px]">
@@ -436,16 +409,10 @@
         </div>
       </section>
 
-      <!-- ------------------------------------------------------------------
-           TAB 4: PETS DIRECTORY (RESPONSIVE)
-           ------------------------------------------------------------------ -->
       <section id="admin-tab-pets" class="admin-pane hidden space-y-4 sm:space-y-6">
-        <!-- Mobile Cards -->
         <div id="admin-pets-cards" class="md:hidden space-y-3">
-          <!-- Populated dynamically via JS -->
         </div>
 
-        <!-- Desktop Table -->
         <div
           class="hidden md:block bg-white dark:bg-[#16201D] rounded-3xl border border-stone-200 dark:border-stone-800 overflow-x-auto shadow-sm">
           <table class="w-full text-left text-xs min-w-[600px]">
@@ -460,15 +427,11 @@
             </thead>
             <tbody id="admin-pets-tbody"
               class="divide-y divide-stone-100 dark:divide-stone-800/60 text-stone-700 dark:text-stone-300">
-              <!-- Populated dynamically via JS -->
             </tbody>
           </table>
         </div>
       </section>
 
-      <!-- ------------------------------------------------------------------
-           TAB 5: GROOMING SERVICES CRUD
-           ------------------------------------------------------------------ -->
       <section id="admin-tab-services" class="admin-pane hidden space-y-6">
         <div class="flex justify-between items-center">
           <h2 class="text-lg font-bold text-stone-900 dark:text-white">Salon Menu Management</h2>
@@ -479,13 +442,9 @@
         </div>
 
         <div id="admin-services-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <!-- Populated dynamically via JS -->
         </div>
       </section>
 
-      <!-- ------------------------------------------------------------------
-           TAB 6: GROOMERS & STAFF DIRECTORY
-           ------------------------------------------------------------------ -->
       <section id="admin-tab-stylists" class="admin-pane hidden space-y-6">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div
@@ -517,16 +476,10 @@
         </div>
       </section>
 
-      <!-- ------------------------------------------------------------------
-           TAB 7: PAYMENTS LEDGER
-           ------------------------------------------------------------------ -->
       <section id="admin-tab-payments" class="admin-pane hidden space-y-4 sm:space-y-6">
-        <!-- Mobile Cards -->
         <div id="admin-payments-cards" class="md:hidden space-y-3">
-          <!-- Populated dynamically via JS -->
         </div>
 
-        <!-- Desktop Table -->
         <div
           class="hidden md:block bg-white dark:bg-[#16201D] rounded-3xl border border-stone-200 dark:border-stone-800 overflow-x-auto shadow-sm">
           <table class="w-full text-left text-xs min-w-[650px]">
@@ -549,9 +502,6 @@
         </div>
       </section>
 
-      <!-- ------------------------------------------------------------------
-           TAB 8: REVIEWS APPROVER
-           ------------------------------------------------------------------ -->
       <section id="admin-tab-reviews" class="admin-pane hidden space-y-6 max-w-3xl">
         <div class="space-y-4">
           <div
@@ -582,9 +532,6 @@
         </div>
       </section>
 
-      <!-- ------------------------------------------------------------------
-           TAB 9: REPORTS
-           ------------------------------------------------------------------ -->
       <section id="admin-tab-reports" class="admin-pane hidden space-y-6 max-w-2xl">
         <div
           class="bg-white dark:bg-[#16201D] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 space-y-4 text-xs">
@@ -619,9 +566,6 @@
         </div>
       </section>
 
-      <!-- ------------------------------------------------------------------
-           TAB 10: SALON SETTINGS
-           ------------------------------------------------------------------ -->
       <section id="admin-tab-settings" class="admin-pane hidden space-y-6 max-w-2xl">
         <div
           class="bg-white dark:bg-[#16201D] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 space-y-4 text-xs">
@@ -646,7 +590,6 @@
     </main>
   </div>
 
-  <!-- ADD SERVICE MODAL -->
   <div id="add-service-modal"
     class="fixed inset-0 z-50 bg-stone-950/70 backdrop-blur-sm hidden items-center justify-center p-4">
     <div

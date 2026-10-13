@@ -343,7 +343,6 @@
 
     const isHome = curPage.startsWith('index') || curPage.startsWith('home') || curPage === '';
 
-    // app.js -> renderNavbar() kulla indha header tag-ah replace pannu:
     mount.innerHTML = `
   <header class="fixed left-0 right-0 z-50 px-2.5 sm:px-6 pointer-events-none" style="position: fixed !important; top: 0.5rem !important; z-index: 99999 !important;">
     <nav class="max-w-7xl mx-auto glass-nav bg-white/95 dark:bg-[#1A2220]/95 backdrop-blur-md rounded-full px-3.5 sm:px-6 py-2 sm:py-2.5 shadow-xl border border-stone-200/80 dark:border-stone-800 flex items-center justify-between pointer-events-auto transition-all">
@@ -360,7 +359,7 @@
       <!-- Desktop Links -->
       <div class="hidden lg:flex items-center gap-7 text-sm">
         <div class="relative group">
-          <button class="flex items-center gap-1.5 py-1 text-sm font-bold ${isHome ? 'text-emerald-700 dark:text-emerald-400 border-b-2 border-emerald-600 dark:border-emerald-400 pb-0.5' : 'text-stone-700 dark:text-stone-200 hover:text-emerald-700 dark:hover:text-emerald-400'} focus:outline-none transition-all duration-200">
+          <button class="flex items-center gap-1.5 py-1 text-sm font-medium ${isHome ? 'text-emerald-700 dark:text-emerald-400 border-b-2 border-emerald-600 dark:border-emerald-400 pb-0.5' : 'text-stone-700 dark:text-stone-200 hover:text-emerald-700 dark:hover:text-emerald-400'} focus:outline-none transition-all duration-200">
             <span>Home</span>
             <i class="fas fa-chevron-down text-[10px] group-hover:rotate-180 transition-transform duration-300"></i>
           </button>
@@ -386,7 +385,7 @@
         <a href="contacts.html" class="${isLinkActive('contacts.html')}">Contacts</a>
 
         <div class="relative group">
-          <button class="flex items-center gap-1.5 py-1 text-stone-700 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 font-medium focus:outline-none transition-all duration-200 hover:scale-105">
+          <button class="flex items-center gap-1.5 py-1 text-stone-700 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 font-bold focus:outline-none transition-all duration-200 hover:scale-105">
             <span>Portals</span>
             <i class="fas fa-shield-cat text-xs text-amber-500"></i>
             <i class="fas fa-chevron-down text-[10px] group-hover:rotate-180 transition-transform duration-300"></i>
