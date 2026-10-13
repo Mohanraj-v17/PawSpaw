@@ -14,8 +14,14 @@
 }
 
 html {
+  overflow-x: hidden;
   scroll-behavior: smooth;
-  font-family: var(--font-sans);
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Custom scrollbar */
@@ -130,13 +136,12 @@ html {
   }
 }
 
-#navbar-placeholder {
+#navbar-placeholder header {
   position: fixed !important;
-  top: 0.75rem !important;
+  top: 0.5rem !important;
   left: 0 !important;
   right: 0 !important;
-  z-index: 50 !important;
-  pointer-events: none !important;
+  z-index: 99999 !important;
 }
 
 #navbar-placeholder > * {

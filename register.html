@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" class="light">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Create Pet Parent Account | PawSpaw & Co.</title>
-  <meta name="description" content="Register your profile and pet details for priority grooming bookings and care records.">
+  <meta name="description"
+    content="Register your profile and pet details for priority grooming bookings and care records.">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -25,7 +27,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-[#FDFBF7] dark:bg-[#121816] text-stone-800 dark:text-stone-100 min-h-screen flex flex-col justify-between pt-16 sm:pt-20 px-3 sm:px-6 pb-6 transition-colors duration-300">
+
+<body
+  class="bg-[#FDFBF7] dark:bg-[#121816] text-stone-800 dark:text-stone-100 min-h-screen flex flex-col justify-between pt-16 sm:pt-20 px-3 sm:px-6 pb-6 transition-colors duration-300">
 
   <!-- FIXED TOGGLE BUTTONS OUTSIDE CARD -->
   <div class="fixed top-3 end-3 sm:top-4 sm:end-4 z-50 flex items-center gap-2">
@@ -44,55 +48,67 @@
 
 
   <main class="flex-1 flex items-center justify-center w-full">
-    <div class="max-w-4xl w-full bg-white dark:bg-[#1A2220] rounded-[2.5rem] border border-stone-200 dark:border-stone-800 shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-12">
+    <div
+      class="max-w-4xl w-full bg-white dark:bg-[#1A2220] rounded-[2.5rem] border border-stone-200 dark:border-stone-800 shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-12">
 
       <!-- Left Visual (5 Cols) -->
       <div class="md:col-span-5 relative hidden md:block">
         <img src="public/cat.avif" alt="Pampered cat" class="w-full h-full object-cover">
-        <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/90 via-emerald-950/40 to-transparent p-8 flex flex-col justify-end text-white">
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-emerald-950/90 via-emerald-950/40 to-transparent p-8 flex flex-col justify-end text-white">
           <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Join Sanctuary</span>
           <h3 class="text-xl font-extrabold leading-snug">Personalized care plans for your beloved pets.</h3>
-          <p class="text-xs text-stone-300 mt-2">Enjoy seamless reservations, digital health records, and VIP member perks.</p>
+          <p class="text-xs text-stone-300 mt-2">Enjoy seamless reservations, digital health records, and VIP member
+            perks.</p>
         </div>
       </div>
 
       <!-- Right Form (7 Cols) -->
       <div class="md:col-span-7 p-8 sm:p-12 space-y-6">
-        <a href="index.html" class="flex items-center gap-2.5 justify-center group focus:outline-none">
-            <div class="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center text-white shadow-md group-hover:scale-110 group-hover:bg-emerald-500 transition-all duration-300">
-              <i class="fas fa-paw text-lg group-hover:rotate-12 transition-transform duration-300"></i>
-            </div>
-            <div class="flex flex-col">
-              <span class="font-extrabold tracking-tight text-lg sm:text-xl text-emerald-950 dark:text-white leading-tight group-hover:text-emerald-400 transition-colors">PawSpaw<span class="text-amber-500 dark:text-amber-400">.</span></span>
-            </div>
-          </a>
+        <a href="index.html" class="flex items-center justify-center gap-2.5 group focus:outline-none flex-shrink-0">
+          <div
+            class="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center text-white shadow-md group-hover:scale-110 group-hover:bg-emerald-500 transition-all duration-300">
+            <i class="fas fa-paw text-lg group-hover:rotate-12 transition-transform duration-300"></i>
+          </div>
+          <div class="flex flex-col">
+            <span
+              class="font-extrabold tracking-tight text-xl text-emerald-950 dark:text-white leading-tight group-hover:text-emerald-400 transition-colors">PawSpaw<span
+                class="text-amber-500 dark:text-amber-400">.</span></span>
+          </div>
+        </a>
         <div>
           <h2 class="text-2xl sm:text-3xl font-extrabold text-stone-900 dark:text-white">Create Account</h2>
-          <p class="text-xs text-stone-500 mt-1">Register today and receive a 15% discount on your first appointment.</p>
+          <p class="text-xs text-stone-500 mt-1">Register today and receive a 15% discount on your first appointment.
+          </p>
         </div>
 
         <form id="register-form" class="space-y-4">
           <div>
             <label class="block text-xs font-bold text-stone-700 dark:text-stone-300 mb-1">Full Name *</label>
-            <input type="text" id="reg-name" required placeholder="Elena Vance" class="w-full text-xs px-4 py-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-emerald-600">
+            <input type="text" id="reg-name" required placeholder="Elena Vance"
+              class="w-full text-xs px-4 py-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-emerald-600">
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label class="block text-xs font-bold text-stone-700 dark:text-stone-300 mb-1">Email Address *</label>
-              <input type="email" id="reg-email" required placeholder="elena@example.com" class="w-full text-xs px-4 py-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-emerald-600">
+              <input type="email" id="reg-email" required placeholder="elena@example.com"
+                class="w-full text-xs px-4 py-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-emerald-600">
             </div>
             <div>
               <label class="block text-xs font-bold text-stone-700 dark:text-stone-300 mb-1">Phone Number *</label>
-              <input type="tel" id="reg-phone" required placeholder="+1 (555) 392-1084" class="w-full text-xs px-4 py-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-emerald-600">
+              <input type="tel" id="reg-phone" required placeholder="+1 (555) 392-1084"
+                class="w-full text-xs px-4 py-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-emerald-600">
             </div>
           </div>
 
           <div>
             <label class="block text-xs font-bold text-stone-700 dark:text-stone-300 mb-1">Password *</label>
             <div class="relative">
-              <input type="password" id="reg-password" required placeholder="At least 6 characters" class="w-full text-xs px-4 py-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-emerald-600 pr-10">
-              <button type="button" class="password-toggle-trigger absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600">
+              <input type="password" id="reg-password" required placeholder="At least 6 characters"
+                class="w-full text-xs px-4 py-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-emerald-600 pr-10">
+              <button type="button"
+                class="password-toggle-trigger absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600">
                 <i class="fas fa-eye text-xs"></i>
               </button>
             </div>
@@ -100,14 +116,17 @@
             <div class="mt-2 h-1.5 w-full bg-stone-200 dark:bg-stone-700 rounded-full overflow-hidden">
               <div id="password-strength-bar" class="h-full w-0 bg-rose-500 transition-all duration-300"></div>
             </div>
-            <span id="password-strength-text" class="text-[10px] text-stone-400 mt-1 block">Strength: Enter a password</span>
+            <span id="password-strength-text" class="text-[10px] text-stone-400 mt-1 block">Strength: Enter a
+              password</span>
           </div>
 
           <div>
             <label class="block text-xs font-bold text-stone-700 dark:text-stone-300 mb-1">Confirm Password *</label>
             <div class="relative">
-              <input type="password" id="reg-confirm-password" required placeholder="Repeat password" class="w-full text-xs px-4 py-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-emerald-600 pr-10">
-              <button type="button" class="password-toggle-trigger absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600">
+              <input type="password" id="reg-confirm-password" required placeholder="Repeat password"
+                class="w-full text-xs px-4 py-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-emerald-600 pr-10">
+              <button type="button"
+                class="password-toggle-trigger absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600">
                 <i class="fas fa-eye text-xs"></i>
               </button>
             </div>
@@ -115,16 +134,19 @@
 
           <div class="flex items-start gap-2 text-xs text-stone-600 dark:text-stone-300">
             <input type="checkbox" id="terms-agree" required class="rounded mt-0.5 text-emerald-700 focus:ring-0">
-            <label for="terms-agree">I agree to the <a href="#" class="underline text-emerald-700 dark:text-emerald-400">Terms of Service</a> and <a href="#" class="underline text-emerald-700 dark:text-emerald-400">Pet Safety Protocols</a>.</label>
+            <label for="terms-agree">I agree to the <a href="#"
+                class="underline text-emerald-700 dark:text-emerald-400">Terms of Service</a> and <a href="#"
+                class="underline text-emerald-700 dark:text-emerald-400">Pet Safety Protocols</a>.</label>
           </div>
 
-          <button type="submit" class="w-full py-3.5 rounded-xl bg-emerald-800 hover:bg-emerald-700 text-white font-extrabold text-xs shadow-xl transition-all">
+          <button type="submit"
+            class="w-full py-3.5 rounded-xl bg-emerald-800 hover:bg-emerald-700 text-white font-extrabold text-xs shadow-xl transition-all">
             Create Pet Parent Profile
           </button>
         </form>
 
         <div class="text-center text-xs text-stone-500 pt-2">
-          Already registered? 
+          Already registered?
           <a href="login.html" class="text-amber-600 font-bold hover:underline">Sign In here</a>
         </div>
       </div>
@@ -143,7 +165,7 @@
     const bar = document.getElementById('password-strength-bar');
     const text = document.getElementById('password-strength-text');
 
-    passInput?.addEventListener('input', function() {
+    passInput?.addEventListener('input', function () {
       const val = this.value;
       if (val.length === 0) {
         bar.style.width = '0%';
@@ -166,7 +188,7 @@
     });
 
     // Registration Handler
-    document.getElementById('register-form')?.addEventListener('submit', function(e) {
+    document.getElementById('register-form')?.addEventListener('submit', function (e) {
       e.preventDefault();
       const p1 = document.getElementById('reg-password').value;
       const p2 = document.getElementById('reg-confirm-password').value;
@@ -186,13 +208,14 @@
         window.location.href = 'user-dashboard.html';
       }, 1200);
     });
-  
-  if (localStorage.getItem('pawspaw_theme') === 'dark') {
-    document.documentElement.classList.add('dark');
-  } else {
-    document.documentElement.classList.remove('dark');
-  }
+
+    if (localStorage.getItem('pawspaw_theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
 
   </script>
 </body>
+
 </html>

@@ -343,158 +343,153 @@
 
     const isHome = curPage.startsWith('index') || curPage.startsWith('home') || curPage === '';
 
+    // app.js -> renderNavbar() kulla indha header tag-ah replace pannu:
     mount.innerHTML = `
-      <header class="fixed top-2 sm:top-4 left-0 right-0 z-50 px-2 sm:px-6 pointer-events-none">
-        <nav class="max-w-7xl mx-auto glass-nav bg-white/95 dark:bg-[#1A2220]/95 backdrop-blur-md rounded-full px-3 sm:px-6 py-1.5 sm:py-2.5 shadow-xl border border-stone-200/80 dark:border-stone-800 flex items-center justify-between pointer-events-auto transition-all">
+  <header class="fixed left-0 right-0 z-50 px-2.5 sm:px-6 pointer-events-none" style="position: fixed !important; top: 0.5rem !important; z-index: 99999 !important;">
+    <nav class="max-w-7xl mx-auto glass-nav bg-white/95 dark:bg-[#1A2220]/95 backdrop-blur-md rounded-full px-3.5 sm:px-6 py-2 sm:py-2.5 shadow-xl border border-stone-200/80 dark:border-stone-800 flex items-center justify-between pointer-events-auto transition-all">
+      
+      <a href="index.html" class="flex items-center gap-2.5 group focus:outline-none flex-shrink-0">
+  <div class="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center text-white shadow-md group-hover:scale-110 group-hover:bg-emerald-500 transition-all duration-300">
+    <i class="fas fa-paw text-lg group-hover:rotate-12 transition-transform duration-300"></i>
+  </div>
+  <div class="flex flex-col">
+    <span class="font-extrabold tracking-tight text-xl text-emerald-950 dark:text-white leading-tight group-hover:text-emerald-400 transition-colors">PawSpaw<span class="text-amber-500 dark:text-amber-400">.</span></span>
+  </div>
+</a>
+
+      <!-- Desktop Links -->
+      <div class="hidden lg:flex items-center gap-7 text-sm">
+        <div class="relative group">
+          <button class="flex items-center gap-1.5 py-1 text-sm font-bold ${isHome ? 'text-emerald-700 dark:text-emerald-400 border-b-2 border-emerald-600 dark:border-emerald-400 pb-0.5' : 'text-stone-700 dark:text-stone-200 hover:text-emerald-700 dark:hover:text-emerald-400'} focus:outline-none transition-all duration-200">
+            <span>Home</span>
+            <i class="fas fa-chevron-down text-[10px] group-hover:rotate-180 transition-transform duration-300"></i>
+          </button>
           
-          <a href="index.html" class="flex items-center gap-2 group focus:outline-none flex-shrink-0">
-            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-emerald-600 flex items-center justify-center text-white shadow-md group-hover:scale-110 group-hover:bg-emerald-500 transition-all duration-300">
-              <i class="fas fa-paw text-sm sm:text-base group-hover:rotate-12 transition-transform duration-300"></i>
-            </div>
-            <div class="flex flex-col">
-              <span class="font-extrabold tracking-tight text-base sm:text-xl text-emerald-950 dark:text-white leading-tight group-hover:text-emerald-400 transition-colors">PawSpaw<span class="text-amber-500 dark:text-amber-400">.</span></span>
-            </div>
-          </a>
-
-          <div class="hidden lg:flex items-center gap-7 text-sm">
-            <div class="relative group">
-              <button class="flex items-center gap-1.5 py-1 text-sm font-bold ${isHome ? 'text-emerald-700 dark:text-emerald-400 border-b-2 border-emerald-600 dark:border-emerald-400 pb-0.5' : 'text-stone-700 dark:text-stone-200 hover:text-emerald-700 dark:hover:text-emerald-400'} focus:outline-none transition-all duration-200">
-                <span>Home</span>
-                <i class="fas fa-chevron-down text-[10px] group-hover:rotate-180 transition-transform duration-300"></i>
-              </button>
-              
-              <div class="absolute left-0 mt-2 w-44 bg-white dark:bg-[#1A2220] rounded-2xl shadow-xl border border-stone-200 dark:border-stone-800 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50 flex flex-col gap-1">
-                <a href="index.html" class="flex items-center px-4 py-2 text-xs rounded-xl mx-1.5 transition-all duration-200 hover:translate-x-1 ${isDropdownActive('index.html')}">
-                  <i class="fas fa-store-alt mr-2.5 text-emerald-600"></i>
-                  <span>Home 1</span>
-                </a>
-                <a href="home-2.html" class="flex items-center px-4 py-2 text-xs rounded-xl mx-1.5 transition-all duration-200 hover:translate-x-1 ${isDropdownActive('home-2.html')}">
-                  <i class="fas fa-gem mr-2.5 text-amber-600"></i>
-                  <span>Home 2</span>
-                </a>
-              </div>
-            </div>
-
-            <a href="about.html" class="${isLinkActive('about.html')}">About</a>
-            <a href="sessions.html" class="${isLinkActive('sessions.html')}">Sessions</a>
-            <a href="services.html" class="${isLinkActive('services.html')}">Services</a>
-            <a href="pricing.html" class="${isLinkActive('pricing.html')}">Pricing</a>
-            <a href="blog.html" class="${isLinkActive('blog.html')}">Blog</a>
-            <a href="faq.html" class="${isLinkActive('faq.html')}">FAQ</a>
-            <a href="contacts.html" class="${isLinkActive('contacts.html')}">Contacts</a>
-
-            <div class="relative group">
-              <button class="flex items-center gap-1.5 py-1 text-stone-700 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 font-medium focus:outline-none transition-all duration-200 hover:scale-105">
-                <span>Portals</span>
-                <i class="fas fa-shield-cat text-xs text-amber-500"></i>
-                <i class="fas fa-chevron-down text-[10px] group-hover:rotate-180 transition-transform duration-300"></i>
-              </button>
-              <div class="absolute right-0 mt-2 w-52 bg-white dark:bg-[#1A2220] rounded-2xl shadow-xl border border-stone-200 dark:border-stone-800 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50 flex flex-col gap-1">
-                <a href="user-dashboard.html" class="flex items-center px-4 py-2 hover:bg-emerald-50 dark:hover:bg-stone-800/80 text-xs font-semibold rounded-xl mx-1.5 transition-all duration-200 hover:translate-x-1">
-                  <i class="fas fa-user-circle mr-2 text-emerald-600"></i> Pet Owner Portal
-                </a>
-                <a href="admin-dashboard.html" class="flex items-center px-4 py-2 hover:bg-emerald-50 dark:hover:bg-stone-800/80 text-xs font-semibold rounded-xl mx-1.5 transition-all duration-200 hover:translate-x-1">
-                  <i class="fas fa-sliders mr-2 text-rose-600"></i> Admin Management
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex items-center gap-1.5 sm:gap-2.5">
-            <button id="rtl-toggle-btn" title="Toggle Direction" class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-200 flex items-center justify-center text-[10px] sm:text-xs font-bold hover:bg-stone-200 dark:hover:bg-stone-700 transition">
-              <span class="dir-toggle-text">LTR</span>
-            </button>
-
-            <button id="theme-toggle-btn" title="Toggle Theme" class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-200 flex items-center justify-center hover:bg-stone-200 dark:hover:bg-stone-700 transition">
-              <i class="fas fa-moon theme-toggle-icon"></i>
-            </button>
-
-            <a href="login.html" class="no-nav-highlight hidden sm:inline-flex items-center text-xs font-bold px-3 py-1.5 rounded-full text-stone-700 dark:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-800 transition">
-              Sign In
-            </a>
-
-            <a href="sessions.html#booking" class="no-nav-highlight hidden md:inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-extrabold bg-gradient-to-r from-emerald-800 to-emerald-700 text-white shadow-md hover:shadow-emerald-900/30 hover:-translate-y-0.5 transition">
-              <i class="fas fa-calendar-check text-[11px]"></i>
-              <span>Book Appointment</span>
-            </a>
-
-            <button id="mobile-menu-btn" aria-label="Toggle Navigation" class="lg:hidden w-8 h-8 rounded-full bg-stone-100 dark:bg-stone-800 flex items-center justify-center text-stone-800 dark:text-stone-200 focus:outline-none hover:bg-stone-200 transition">
-              <i class="fas fa-bars text-sm"></i>
-            </button>
-          </div>
-        </nav>
-
-        <div id="mobile-drawer" class="lg:hidden hidden mt-2 mx-auto max-w-sm sm:max-w-md w-full bg-white dark:bg-[#1A2220] backdrop-blur-2xl rounded-3xl p-4 sm:p-5 shadow-2xl border border-stone-200 dark:border-stone-800 transition-all pointer-events-auto max-h-[75vh] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-          <div class="flex flex-col space-y-1 text-xs sm:text-sm">
-            <div class="text-[10px] uppercase tracking-wider text-emerald-800 dark:text-emerald-400 font-black px-2 py-1">Main Pages</div>
-            
-            <a href="index.html" class="py-2 px-3 rounded-xl transition-all flex items-center justify-between ${isMobileActive('index.html')}">
+          <div class="absolute start-0 mt-2 w-44 bg-white dark:bg-[#1A2220] rounded-2xl shadow-xl border border-stone-200 dark:border-stone-800 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50 flex flex-col gap-1">
+            <a href="index.html" class="flex items-center px-4 py-2 text-xs rounded-xl mx-1.5 transition-all duration-200 hover:translate-x-1 ${isDropdownActive('index.html')}">
+              <i class="fas fa-store-alt mr-2.5 text-emerald-600"></i>
               <span>Home 1</span>
-              <i class="fas fa-chevron-right text-[10px] opacity-60"></i>
             </a>
-
-            <a href="home-2.html" class="py-2 px-3 rounded-xl transition-all flex items-center justify-between ${isMobileActive('home-2.html')}">
+            <a href="home-2.html" class="flex items-center px-4 py-2 text-xs rounded-xl mx-1.5 transition-all duration-200 hover:translate-x-1 ${isDropdownActive('home-2.html')}">
+              <i class="fas fa-gem mr-2.5 text-amber-600"></i>
               <span>Home 2</span>
-              <i class="fas fa-chevron-right text-[10px] opacity-60"></i>
             </a>
-
-            <a href="about.html" class="py-2 px-3 rounded-xl transition-all flex items-center justify-between ${isMobileActive('about.html')}">
-              <span>About</span>
-              <i class="fas fa-chevron-right text-[10px] opacity-60"></i>
-            </a>
-
-            <a href="sessions.html" class="py-2 px-3 rounded-xl transition-all flex items-center justify-between ${isMobileActive('sessions.html')}">
-              <span>Sessions</span>
-              <i class="fas fa-chevron-right text-[10px] opacity-60"></i>
-            </a>
-
-            <a href="services.html" class="py-2 px-3 rounded-xl transition-all flex items-center justify-between ${isMobileActive('services.html')}">
-              <span>Services</span>
-              <i class="fas fa-chevron-right text-[10px] opacity-60"></i>
-            </a>
-
-            <a href="pricing.html" class="py-2 px-3 rounded-xl transition-all flex items-center justify-between ${isMobileActive('pricing.html')}">
-              <span>Pricing</span>
-              <i class="fas fa-chevron-right text-[10px] opacity-60"></i>
-            </a>
-
-            <a href="blog.html" class="py-2 px-3 rounded-xl transition-all flex items-center justify-between ${isMobileActive('blog.html')}">
-              <span>Blog</span>
-              <i class="fas fa-chevron-right text-[10px] opacity-60"></i>
-            </a>
-
-            <a href="faq.html" class="py-2 px-3 rounded-xl transition-all flex items-center justify-between ${isMobileActive('faq.html')}">
-              <span>FAQs</span>
-              <i class="fas fa-chevron-right text-[10px] opacity-60"></i>
-            </a>
-
-            <a href="contacts.html" class="py-2 px-3 rounded-xl transition-all flex items-center justify-between ${isMobileActive('contacts.html')}">
-              <span>Contact</span>
-              <i class="fas fa-chevron-right text-[10px] opacity-60"></i>
-            </a>
-
-            <hr class="border-stone-200 dark:border-stone-800 my-1">
-            <div class="text-[10px] uppercase tracking-wider text-amber-700 dark:text-amber-400 font-black px-2 py-0.5">Member Portals</div>
-
-            <a href="user-dashboard.html" class="py-2 px-3 rounded-xl transition-all flex items-center justify-between ${isMobileActive('user-dashboard.html')}">
-              <span>Pet Owner Dashboard</span>
-              <i class="fas fa-user-check text-emerald-500"></i>
-            </a>
-
-            <a href="admin-dashboard.html" class="py-2 px-3 rounded-xl transition-all flex items-center justify-between ${isMobileActive('admin-dashboard.html')}">
-              <span>Admin Management</span>
-              <i class="fas fa-lock text-rose-500"></i>
-            </a>
-
-            <div class="pt-2 flex gap-2">
-              <a href="login.html" class="flex-1 py-2 text-center rounded-xl bg-stone-100 dark:bg-stone-800 text-stone-800 dark:text-white font-bold text-xs hover:bg-stone-200 transition">Sign In</a>
-              <a href="sessions.html#booking" class="flex-1 py-2 text-center rounded-xl bg-emerald-800 text-white font-bold text-xs hover:bg-emerald-700 transition">Book Now</a>
-            </div>
           </div>
         </div>
-      </header>
-      <div id="mobile-drawer-backdrop" class="fixed inset-0 bg-stone-950/40 backdrop-blur-xs z-40 hidden lg:hidden"></div>
-    `;
+
+        <a href="about.html" class="${isLinkActive('about.html')}">About</a>
+        <a href="sessions.html" class="${isLinkActive('sessions.html')}">Sessions</a>
+        <a href="services.html" class="${isLinkActive('services.html')}">Services</a>
+        <a href="pricing.html" class="${isLinkActive('pricing.html')}">Pricing</a>
+        <a href="blog.html" class="${isLinkActive('blog.html')}">Blog</a>
+        <a href="faq.html" class="${isLinkActive('faq.html')}">FAQ</a>
+        <a href="contacts.html" class="${isLinkActive('contacts.html')}">Contacts</a>
+
+        <div class="relative group">
+          <button class="flex items-center gap-1.5 py-1 text-stone-700 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 font-medium focus:outline-none transition-all duration-200 hover:scale-105">
+            <span>Portals</span>
+            <i class="fas fa-shield-cat text-xs text-amber-500"></i>
+            <i class="fas fa-chevron-down text-[10px] group-hover:rotate-180 transition-transform duration-300"></i>
+          </button>
+          <div class="absolute end-0 mt-2 w-52 bg-white dark:bg-[#1A2220] rounded-2xl shadow-xl border border-stone-200 dark:border-stone-800 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50 flex flex-col gap-1">
+            <a href="user-dashboard.html" class="flex items-center px-4 py-2 hover:bg-emerald-50 dark:hover:bg-stone-800/80 text-xs font-semibold rounded-xl mx-1.5 transition-all duration-200 hover:translate-x-1">
+              <i class="fas fa-user-circle mr-2 text-emerald-600"></i> Pet Owner Portal
+            </a>
+            <a href="admin-dashboard.html" class="flex items-center px-4 py-2 hover:bg-emerald-50 dark:hover:bg-stone-800/80 text-xs font-semibold rounded-xl mx-1.5 transition-all duration-200 hover:translate-x-1">
+              <i class="fas fa-sliders mr-2 text-rose-600"></i> Admin Management
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls & Hamburger -->
+      <div class="flex items-center gap-2 sm:gap-2.5">
+        <button id="rtl-toggle-btn" title="Toggle Direction" class="w-8 h-8 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-200 flex items-center justify-center text-xs font-bold hover:bg-stone-200 dark:hover:bg-stone-700 transition">
+          <span class="dir-toggle-text">LTR</span>
+        </button>
+
+        <button id="theme-toggle-btn" title="Toggle Theme" class="w-8 h-8 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-200 flex items-center justify-center hover:bg-stone-200 dark:hover:bg-stone-700 transition">
+          <i class="fas fa-moon theme-toggle-icon"></i>
+        </button>
+
+        <a href="login.html" class="no-nav-highlight hidden sm:inline-flex items-center text-xs font-bold px-3 py-1.5 rounded-full text-stone-700 dark:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-800 transition">
+          Sign In
+        </a>
+
+        <a href="sessions.html#booking" class="no-nav-highlight hidden md:inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-extrabold bg-gradient-to-r from-emerald-800 to-emerald-700 text-white shadow-md hover:shadow-emerald-900/30 hover:-translate-y-0.5 transition">
+          <i class="fas fa-calendar-check text-[11px]"></i>
+          <span>Book Appointment</span>
+        </a>
+
+        <button id="mobile-menu-btn" aria-label="Toggle Navigation" class="lg:hidden w-8 h-8 rounded-full bg-stone-100 dark:bg-stone-800 flex items-center justify-center text-stone-800 dark:text-stone-200 focus:outline-none hover:bg-stone-200 transition">
+          <i class="fas fa-bars text-sm"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-drawer" class="lg:hidden hidden mt-2 mx-auto max-w-sm sm:max-w-md w-full bg-white dark:bg-[#1A2220] backdrop-blur-2xl rounded-3xl p-4 sm:p-5 shadow-2xl border border-stone-200 dark:border-stone-800 transition-all pointer-events-auto max-h-[75vh] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+      <div class="flex flex-col space-y-1 text-xs sm:text-sm">
+        <div class="text-[10px] uppercase tracking-wider text-emerald-800 dark:text-emerald-400 font-black px-2 py-1">Main Pages</div>
+        
+        <a href="index.html" class="py-2 px-3 rounded-xl transition-all flex items-center justify-between ${isMobileActive('index.html')}">
+          <span>Home 1</span>
+          <i class="fas fa-chevron-right text-[10px] opacity-60"></i>
+        </a>
+        <a href="home-2.html" class="py-2 px-3 rounded-xl transition-all flex items-center justify-between ${isMobileActive('home-2.html')}">
+          <span>Home 2</span>
+          <i class="fas fa-chevron-right text-[10px] opacity-60"></i>
+        </a>
+        <a href="about.html" class="py-2 px-3 rounded-xl transition-all flex items-center justify-between ${isMobileActive('about.html')}">
+          <span>About</span>
+          <i class="fas fa-chevron-right text-[10px] opacity-60"></i>
+        </a>
+        <a href="sessions.html" class="py-2 px-3 rounded-xl transition-all flex items-center justify-between ${isMobileActive('sessions.html')}">
+          <span>Sessions</span>
+          <i class="fas fa-chevron-right text-[10px] opacity-60"></i>
+        </a>
+        <a href="services.html" class="py-2 px-3 rounded-xl transition-all flex items-center justify-between ${isMobileActive('services.html')}">
+          <span>Services</span>
+          <i class="fas fa-chevron-right text-[10px] opacity-60"></i>
+        </a>
+        <a href="pricing.html" class="py-2 px-3 rounded-xl transition-all flex items-center justify-between ${isMobileActive('pricing.html')}">
+          <span>Pricing</span>
+          <i class="fas fa-chevron-right text-[10px] opacity-60"></i>
+        </a>
+        <a href="blog.html" class="py-2 px-3 rounded-xl transition-all flex items-center justify-between ${isMobileActive('blog.html')}">
+          <span>Blog</span>
+          <i class="fas fa-chevron-right text-[10px] opacity-60"></i>
+        </a>
+        <a href="faq.html" class="py-2 px-3 rounded-xl transition-all flex items-center justify-between ${isMobileActive('faq.html')}">
+          <span>FAQs</span>
+          <i class="fas fa-chevron-right text-[10px] opacity-60"></i>
+        </a>
+        <a href="contacts.html" class="py-2 px-3 rounded-xl transition-all flex items-center justify-between ${isMobileActive('contacts.html')}">
+          <span>Contact</span>
+          <i class="fas fa-chevron-right text-[10px] opacity-60"></i>
+        </a>
+
+        <hr class="border-stone-200 dark:border-stone-800 my-1">
+        <div class="text-[10px] uppercase tracking-wider text-amber-700 dark:text-amber-400 font-black px-2 py-0.5">Member Portals</div>
+
+        <a href="user-dashboard.html" class="py-2 px-3 rounded-xl transition-all flex items-center justify-between ${isMobileActive('user-dashboard.html')}">
+          <span>Pet Owner Dashboard</span>
+          <i class="fas fa-user-check text-emerald-500"></i>
+        </a>
+        <a href="admin-dashboard.html" class="py-2 px-3 rounded-xl transition-all flex items-center justify-between ${isMobileActive('admin-dashboard.html')}">
+          <span>Admin Management</span>
+          <i class="fas fa-lock text-rose-500"></i>
+        </a>
+
+        <div class="pt-2 flex gap-2">
+          <a href="login.html" class="flex-1 py-2 text-center rounded-xl bg-stone-100 dark:bg-stone-800 text-stone-800 dark:text-white font-bold text-xs hover:bg-stone-200 transition">Sign In</a>
+          <a href="sessions.html#booking" class="flex-1 py-2 text-center rounded-xl bg-emerald-800 text-white font-bold text-xs hover:bg-emerald-700 transition">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div id="mobile-drawer-backdrop" class="fixed inset-0 bg-stone-950/40 backdrop-blur-xs z-40 hidden lg:hidden"></div>
+`;
 
     document.getElementById('theme-toggle-btn')?.addEventListener('click', toggleTheme);
     document.getElementById('rtl-toggle-btn')?.addEventListener('click', toggleDirection);
@@ -521,12 +516,14 @@
         <div class="max-w-7xl mx-auto px-6">
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-stone-400 dark:border-stone-700">
             <div class="lg:col-span-2 space-y-4">
-              <a href="index.html" class="inline-flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center text-white shadow-md group-hover:scale-110 group-hover:bg-emerald-500 transition-all duration-300">
-                  <i class="fas fa-paw text-lg group-hover:rotate-12 transition-transform duration-300"></i>
-                </div>
-                <span class="font-extrabold tracking-tight text-lg sm:text-xl text-emerald-950 dark:text-white leading-tight group-hover:text-emerald-400 transition-colors">PawSpaw<span class="text-amber-500 dark:text-amber-400">.</span></span>
-              </a>
+             <a href="index.html" class="flex items-center gap-2.5 group focus:outline-none flex-shrink-0">
+  <div class="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center text-white shadow-md group-hover:scale-110 group-hover:bg-emerald-500 transition-all duration-300">
+    <i class="fas fa-paw text-lg group-hover:rotate-12 transition-transform duration-300"></i>
+  </div>
+  <div class="flex flex-col">
+    <span class="font-extrabold tracking-tight text-xl text-emerald-950 dark:text-white leading-tight group-hover:text-emerald-400 transition-colors">PawSpaw<span class="text-amber-500 dark:text-amber-400">.</span></span>
+  </div>
+</a>
               <p class="text-sm leading-relaxed max-w-sm text-stone-700 dark:text-stone-300">
                 Where every dog & cat gets treated like royalty. Organic hydro-massages, gentle breed-specific styling, stress-free environments, and certified holistic grooming.
               </p>
@@ -622,7 +619,7 @@
         throw new Error();
       })
       .then(html => pageCache.set(url, html))
-      .catch(() => {});
+      .catch(() => { });
   }
 
   function setupSpaNavigation() {
@@ -1112,11 +1109,11 @@
       if (statusFilter !== 'all' && status !== statusFilter) return;
       if (searchQuery && !pet.toLowerCase().includes(searchQuery) && !refId.toLowerCase().includes(searchQuery)) return;
 
-      const badgeColor = status === 'Confirmed' 
-        ? 'bg-emerald-100 text-emerald-800' 
+      const badgeColor = status === 'Confirmed'
+        ? 'bg-emerald-100 text-emerald-800'
         : status === 'Completed'
-        ? 'bg-blue-100 text-blue-800'
-        : 'bg-rose-100 text-rose-800';
+          ? 'bg-blue-100 text-blue-800'
+          : 'bg-rose-100 text-rose-800';
 
       if (tbody) {
         const tr = document.createElement('tr');
