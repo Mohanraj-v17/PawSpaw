@@ -547,7 +547,7 @@
 </a>
 
       <!-- Desktop Links -->
-      <div class="hidden lg:flex items-center gap-1.5 xl:gap-3 2xl:gap-5 text-[11px] xl:text-xs 2xl:text-sm whitespace-nowrap">
+      <div class="hidden lg:flex items-center gap-2 xl:gap-6 2xl:gap-7 text-[11px] xl:text-xs 2xl:text-sm whitespace-nowrap">
         <div class="relative dropdown-container" id="nav-home-dropdown-group">
           <button id="nav-home-btn" type="button" aria-expanded="false" aria-haspopup="true" class="flex items-center gap-1 xl:gap-1.5 py-1 text-[11px] xl:text-xs 2xl:text-sm ${isHome ? 'text-emerald-700 dark:text-emerald-400 font-bold border-0 border-b-2 border-emerald-600 dark:border-emerald-400 pb-0.5' : 'text-stone-700 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 font-medium border-0 border-b-2 border-transparent pb-0.5'} outline-none focus:outline-none focus:ring-0 focus-visible:outline-none select-none transition-colors duration-200 cursor-pointer">
             <span>Home</span>
@@ -1651,7 +1651,7 @@
           }
         }
       }
-    } catch (_) {}
+    } catch (_) { }
 
     const errBox = document.getElementById('booking-error-msg');
     const errText = document.getElementById('booking-error-text');
