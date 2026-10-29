@@ -289,25 +289,74 @@
     }
   }
 
+  function normalizePageName(pathOrHref) {
+    if (!pathOrHref) return 'index.html';
+    let clean = String(pathOrHref).split('#')[0].split('?')[0];
+    try {
+      clean = decodeURIComponent(clean);
+    } catch (_) {}
+
+    const parts = clean.split('/').filter(Boolean);
+    let last = parts.length > 0 ? parts[parts.length - 1].toLowerCase() : '';
+
+    if (!last || last === 'index' || last === 'index.html') {
+      return 'index.html';
+    }
+
+    if (last === 'home' || last === 'home1' || last === 'home-1' || last === 'home1.html' || last === 'home-1.html') {
+      return 'index.html';
+    }
+    if (last === 'home2' || last === 'home-2' || last === 'home2.html' || last === 'home-2.html') {
+      return 'home-2.html';
+    }
+    if (last === 'service' || last === 'service.html') {
+      return 'services.html';
+    }
+    if (last === 'session' || last === 'session.html') {
+      return 'sessions.html';
+    }
+    if (last === 'faq' || last === 'faqs' || last === 'faq.html' || last === 'faqs.html') {
+      return 'faq.html';
+    }
+    if (last === 'contact' || last === 'contacts' || last === 'contact.html' || last === 'contacts.html') {
+      return 'contacts.html';
+    }
+    if (last === 'blog' || last === 'blog.html' || last === 'blogs' || last === 'blogs.html') {
+      return 'blog.html';
+    }
+    if (last === 'price' || last === 'pricing' || last === 'price.html' || last === 'pricing.html') {
+      return 'pricing.html';
+    }
+    if (last === 'about' || last === 'about.html') {
+      return 'about.html';
+    }
+    if (last === 'book' || last === 'book.html') {
+      return 'book.html';
+    }
+
+    if (!last.includes('.')) {
+      return last + '.html';
+    }
+    return last;
+  }
+
+  function isPageActive(linkHref, curPage) {
+    return normalizePageName(linkHref) === normalizePageName(curPage);
+  }
+
   function updateNavbarActiveLinks() {
-    let path = window.location.pathname.replace(/\/+$/, ''); // trailing slash remove panna
-    let curPage = path.split('/').pop() || 'index.html';
+    const curPage = normalizePageName(window.location.pathname);
 
-    curPage = curPage.split('?')[0].split('#')[0];
-    if (!curPage.includes('.') && curPage !== '') {
-      curPage = curPage + '.html';
+    if (curPage === 'index.html') {
+      localStorage.setItem('pawspaw_active_home', 'home-1');
+    } else if (curPage === 'home-2.html') {
+      localStorage.setItem('pawspaw_active_home', 'home-2');
     }
-    if (curPage === '' || curPage === '/') {
-      curPage = 'index.html';
-    }
+    const savedHome = localStorage.getItem('pawspaw_active_home') || 'home-1';
 
-    // Aliases
-    if (curPage === 'home2.html') curPage = 'home-2.html';
-    if (curPage === 'service.html') curPage = 'services.html';
-
-    const isHome = curPage.startsWith('index') || curPage.startsWith('home') || curPage === '';
-    const isHome1 = (curPage === 'index.html' || curPage === '');
-    const isHome2 = (curPage === 'home-2.html');
+    const isHome = (curPage === 'index.html' || curPage === 'home-2.html');
+    const isHome1 = (curPage === 'index.html') || (!isHome && savedHome === 'home-1');
+    const isHome2 = (curPage === 'home-2.html') || (!isHome && savedHome === 'home-2');
 
     // Home button in top navbar
     const homeBtn = document.getElementById('nav-home-btn');
@@ -320,16 +369,15 @@
     }
 
     // 1. Top Navbar regular links (About, Sessions, Services, Pricing, Blog, FAQ, Contacts)
-    const topNavLinks = document.querySelectorAll('#navbar-placeholder nav .hidden.lg\\:flex > a[href]');
+    const topNavLinks = document.querySelectorAll('#desktop-nav-links > a[href], #navbar-placeholder nav .hidden.lg\\:flex > a[href]');
     topNavLinks.forEach(link => {
       const href = link.getAttribute('href');
-      const normalizePath = (url) => (url || '').split('?')[0].split('#')[0].replace(/^\//, '');
-
-const cleanCur = normalizePath(curPage);
-const cleanHref = normalizePath(href);
-
-const isMatch = (cleanCur === cleanHref) || 
-                (cleanCur === 'index.html' && (cleanHref === '' || cleanHref === 'index.html'));
+      const isMatch = isPageActive(href, curPage);
+      if (isMatch) {
+        link.className = 'inline-flex items-center py-1 text-[11px] xl:text-xs 2xl:text-sm text-emerald-700 dark:text-emerald-400 font-bold border-0 border-b-2 border-emerald-600 dark:border-emerald-400 pb-0.5 outline-none focus:outline-none focus:ring-0 focus-visible:outline-none transition-colors duration-200';
+      } else {
+        link.className = 'inline-flex items-center py-1 text-[11px] xl:text-xs 2xl:text-sm text-stone-700 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 font-medium border-0 border-b-2 border-transparent pb-0.5 outline-none focus:outline-none focus:ring-0 focus-visible:outline-none transition-colors duration-200';
+      }
     });
 
     // 2. Desktop Dropdown Items (Home 1, Home 2 in #nav-home-menu)
@@ -361,7 +409,7 @@ const isMatch = (cleanCur === cleanHref) ||
     const drawerLinks = document.querySelectorAll('#mobile-drawer a[href]');
     drawerLinks.forEach(link => {
       const href = link.getAttribute('href');
-      const isMatch = (curPage === href || (curPage === '' && href === 'index.html'));
+      const isMatch = isPageActive(href, curPage);
 
       if (link.classList.contains('no-nav-highlight') || link.closest('.grid') || link.querySelector('.fa-calendar-check') || link.querySelector('.fa-user')) {
         return;
@@ -516,44 +564,36 @@ const isMatch = (cleanCur === cleanHref) ||
       return;
     }
 
-    let path = window.location.pathname.replace(/\/+$/, ''); // trailing slash remove panna
-    let curPage = path.split('/').pop() || 'index.html';
+    const curPage = normalizePageName(window.location.pathname);
 
-    curPage = curPage.split('?')[0].split('#')[0];
-    if (!curPage.includes('.') && curPage !== '') {
-      curPage = curPage + '.html';
+    if (curPage === 'index.html') {
+      localStorage.setItem('pawspaw_active_home', 'home-1');
+    } else if (curPage === 'home-2.html') {
+      localStorage.setItem('pawspaw_active_home', 'home-2');
     }
-    if (curPage === '' || curPage === '/') {
-      curPage = 'index.html';
-    }
+    const savedHome = localStorage.getItem('pawspaw_active_home') || 'home-1';
 
-    // Aliases
-    if (curPage === 'home2.html') curPage = 'home-2.html';
-    if (curPage === 'service.html') curPage = 'services.html';
     const isLinkActive = (page) => {
-      const match = (curPage === page || (curPage === '' && page === 'index.html'));
-      return match
+      return isPageActive(page, curPage)
         ? 'inline-flex items-center py-1 text-[11px] xl:text-xs 2xl:text-sm text-emerald-700 dark:text-emerald-400 font-bold border-0 border-b-2 border-emerald-600 dark:border-emerald-400 pb-0.5 outline-none focus:outline-none focus:ring-0 focus-visible:outline-none transition-colors duration-200'
         : 'inline-flex items-center py-1 text-[11px] xl:text-xs 2xl:text-sm text-stone-700 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 font-medium border-0 border-b-2 border-transparent pb-0.5 outline-none focus:outline-none focus:ring-0 focus-visible:outline-none transition-colors duration-200';
     };
 
     const isDropdownActive = (page) => {
-      const match = (curPage === page || (curPage === '' && page === 'index.html'));
-      return match
+      return isPageActive(page, curPage)
         ? 'bg-emerald-50 dark:bg-stone-800 text-emerald-700 dark:text-emerald-400 font-bold'
         : 'text-stone-700 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-800/60 font-medium';
     };
 
     const isMobileActive = (page) => {
-      const match = (curPage === page || (curPage === '' && page === 'index.html'));
-      return match
+      return isPageActive(page, curPage)
         ? 'bg-emerald-800 dark:bg-emerald-700 text-white font-bold shadow-md shadow-emerald-900/20'
         : 'text-stone-700 dark:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-800/70 font-medium';
     };
 
-    const isHome = curPage.startsWith('index') || curPage.startsWith('home') || curPage === '';
-    const isHome1 = (curPage === 'index.html' || curPage === '');
-    const isHome2 = (curPage === 'home-2.html');
+    const isHome = (curPage === 'index.html' || curPage === 'home-2.html');
+    const isHome1 = (curPage === 'index.html') || (!isHome && savedHome === 'home-1');
+    const isHome2 = (curPage === 'home-2.html') || (!isHome && savedHome === 'home-2');
 
     mount.innerHTML = `
   <header class="fixed top-3.5 sm:top-5 left-0 right-0 z-50 px-2.5 sm:px-6 pointer-events-none" style="position: fixed !important; top: 1.25rem !important; z-index: 99999 !important;">
@@ -569,7 +609,7 @@ const isMatch = (cleanCur === cleanHref) ||
 </a>
 
       <!-- Desktop Links -->
-      <div class="hidden lg:flex items-center gap-2 xl:gap-6 2xl:gap-7 text-[11px] xl:text-xs 2xl:text-sm whitespace-nowrap">
+      <div id="desktop-nav-links" class="hidden lg:flex items-center gap-2 xl:gap-6 2xl:gap-7 text-[11px] xl:text-xs 2xl:text-sm whitespace-nowrap">
         <div class="relative dropdown-container" id="nav-home-dropdown-group">
           <button id="nav-home-btn" type="button" aria-expanded="false" aria-haspopup="true" class="flex items-center gap-1 xl:gap-1.5 py-1 text-[11px] xl:text-xs 2xl:text-sm ${isHome ? 'text-emerald-700 dark:text-emerald-400 font-bold border-0 border-b-2 border-emerald-600 dark:border-emerald-400 pb-0.5' : 'text-stone-700 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 font-medium border-0 border-b-2 border-transparent pb-0.5'} outline-none focus:outline-none focus:ring-0 focus-visible:outline-none select-none transition-colors duration-200 cursor-pointer">
             <span>Home</span>
@@ -893,8 +933,8 @@ const isMatch = (cleanCur === cleanHref) ||
       }
 
       e.preventDefault();
-      const currentUrl = curPath.split('/').pop() || 'index.html';
-      const targetUrl = href.split('#')[0];
+      const currentUrl = normalizePageName(curPath);
+      const targetUrl = normalizePageName(href);
       const targetHash = href.split('#')[1] || '';
 
       if (currentUrl === targetUrl && !targetHash) return;
@@ -907,7 +947,7 @@ const isMatch = (cleanCur === cleanHref) ||
       if (p.includes('dashboard') || p.includes('login') || p.includes('register') || p.includes('signup')) {
         window.location.reload();
       } else {
-        navigateToPage(p.split('/').pop() || 'index.html', false);
+        navigateToPage(p, false);
       }
     });
   }
@@ -923,10 +963,22 @@ const isMatch = (cleanCur === cleanHref) ||
     }
 
     try {
-      let htmlText = pageCache.get(url);
+      let fetchUrl = url;
+      let htmlText = pageCache.get(fetchUrl);
       if (!htmlText) {
-        const response = await fetch(url);
-        if (!response.ok) throw new Error('Page failed to load');
+        let response;
+        try {
+          response = await fetch(fetchUrl);
+        } catch (_) {}
+        if (!response || !response.ok) {
+          if (fetchUrl.endsWith('.html')) {
+            const clean = fetchUrl.replace(/\.html$/, '');
+            try { response = await fetch(clean); } catch (_) {}
+          } else {
+            try { response = await fetch(fetchUrl + '.html'); } catch (_) {}
+          }
+        }
+        if (!response || !response.ok) throw new Error('Page failed to load');
         htmlText = await response.text();
         pageCache.set(url, htmlText);
       }
@@ -942,7 +994,12 @@ const isMatch = (cleanCur === cleanHref) ||
       }
 
       if (pushState) {
-        window.history.pushState({}, '', url);
+        let pushUrl = url;
+        const isCleanMode = !window.location.pathname.endsWith('.html') && window.location.pathname !== '/';
+        if (isCleanMode && pushUrl.endsWith('.html')) {
+          pushUrl = pushUrl.replace(/\.html$/, '');
+        }
+        window.history.pushState({}, '', pushUrl);
       }
 
       window.scrollTo({ top: 0, behavior: 'instant' });

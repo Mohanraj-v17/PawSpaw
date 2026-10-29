@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navbar | PawSpaw & Co.</title>
     <link rel="icon" type="image/png" href="favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="fixed top-3.5 sm:top-5 left-0 right-0 z-50 px-2.5 sm:px-6 pointer-events-none" style="position: fixed !important; top: 1.25rem !important; z-index: 99999 !important;">
@@ -18,7 +21,7 @@
       </div>
     </a>
 
-    <div class="hidden lg:flex items-center gap-2 xl:gap-6 2xl:gap-7 text-[11px] xl:text-xs 2xl:text-sm whitespace-nowrap">
+    <div id="desktop-nav-links" class="hidden lg:flex items-center gap-2 xl:gap-6 2xl:gap-7 text-[11px] xl:text-xs 2xl:text-sm whitespace-nowrap">
       <div class="relative dropdown-container" id="nav-home-dropdown-group">
         <button id="nav-home-btn" type="button" aria-expanded="false" aria-haspopup="true" class="flex items-center gap-1 xl:gap-1.5 py-1 text-[11px] xl:text-xs 2xl:text-sm font-bold text-emerald-700 dark:text-emerald-400 border-0 border-b-2 border-emerald-600 dark:border-emerald-400 pb-0.5 outline-none focus:outline-none focus:ring-0 focus-visible:outline-none select-none transition-colors duration-200 cursor-pointer">
           <span>Home</span>
@@ -150,6 +153,7 @@
     </div>
   </div>
 </header>
+<script src="app.js"></script>
 <script>
   if (localStorage.getItem('pawspaw_theme') === 'dark') {
     document.documentElement.classList.add('dark');
