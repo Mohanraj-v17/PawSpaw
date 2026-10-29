@@ -290,7 +290,9 @@
   }
 
   function updateNavbarActiveLinks() {
-    let curPage = window.location.pathname.split('/').pop() || 'index.html';
+    let curPage = window.location.pathname.split('/').filter(Boolean).pop() || 'index.html';
+    curPage = curPage.split('?')[0].split('#')[0]; // Query params & hash strip panna
+
     if (curPage === 'home2.html') curPage = 'home-2.html';
     if (curPage === 'service.html') curPage = 'services.html';
 
@@ -504,7 +506,9 @@
       return;
     }
 
-    let curPage = window.location.pathname.split('/').pop() || 'index.html';
+    let curPage = window.location.pathname.split('/').filter(Boolean).pop() || 'index.html';
+    curPage = curPage.split('?')[0].split('#')[0]; // Query params & hash strip panna
+
     if (curPage === 'home2.html') curPage = 'home-2.html';
     if (curPage === 'service.html') curPage = 'services.html';
 
