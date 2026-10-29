@@ -24,6 +24,7 @@
   </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body class="bg-[#FDFBF7] dark:bg-[#121816] text-stone-800 dark:text-stone-100 transition-colors duration-300 antialiased overflow-x-hidden">
 
@@ -31,8 +32,15 @@
 
   <main class="pt-24 lg:pt-28">
 
-    <section class="max-w-7xl mx-auto px-6 py-12 lg:py-16 border-b border-stone-300 dark:border-stone-700">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <!-- ====================================================================
+     SECTION 1: HERO
+     ==================================================================== -->
+    <section class="max-w-7xl mx-auto px-6 py-4 lg:py-6 min-h-[calc(100vh-80px)] flex items-center border-b-2 border-stone-200 dark:border-stone-800">
+
+  <!-- Ambient Decorative Glow -->
+
+  <div class="max-w-7xl mx-auto px-6 py-2 lg:py-4 w-full relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <div class="lg:col-span-7 space-y-6">
           <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300 text-xs font-bold uppercase tracking-wider hover:scale-105 transition-transform duration-200">
             <i class="fas fa-heart text-amber-500"></i>
@@ -45,7 +53,7 @@
             Founded on the belief that pet grooming should feel like a calming retreat rather than a stressful necessity, PawSpaw & Co. combines veterinary hygiene standards with compassionate, fear-free handling.
           </p>
           <div class="flex items-center gap-4 pt-2">
-            <a href="sessions.html" class="px-7 py-3.5 rounded-full bg-emerald-800 hover:bg-emerald-700 text-white font-extrabold text-xs shadow-lg btn-hover">
+            <a href="sessions.html" class="px-7 py-3.5 rounded-full bg-emerald-800 hover:bg-emerald-700 text-white font-extrabold text-xs shadow-lg btn-hover border border-emerald-700">
               Meet Our Specialists
             </a>
             <a href="services.html" class="px-7 py-3.5 rounded-full border border-stone-300 dark:border-stone-700 hover:bg-stone-100 dark:hover:bg-stone-800 text-xs font-bold btn-hover">
@@ -55,41 +63,92 @@
         </div>
         <div class="lg:col-span-5">
           <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-stone-800 img-zoom-wrapper">
-            <img src="public/hamster-2.jpeg" alt="Groomer comforting dog" class="w-full h-[420px] object-cover">
+            <img src="public/dog-spa.jpg" alt="Professional groomer providing gentle pet spa treatment" class="w-full h-[420px] object-cover">
           </div>
         </div>
       </div>
-    </section>
-
-    <section class="max-w-7xl mx-auto px-6 py-16 border-b border-stone-300 dark:border-stone-700">
-      <div class="text-center max-w-xl mx-auto mb-14 space-y-2">
-        <span class="text-xs font-extrabold uppercase tracking-widest text-emerald-800 dark:text-emerald-400">Our Journey</span>
-        <h2 class="text-3xl font-extrabold text-emerald-950 dark:text-white">How PawSpaw Began</h2>
-      </div>
-
-      <div class="relative border-l-2 border-emerald-800/20 dark:border-emerald-800/40 ml-4 md:ml-32 space-y-12">
-        <div class="relative pl-8 card-hover p-4 rounded-2xl bg-white dark:bg-[#16201D] border border-stone-100 dark:border-stone-800/60 max-w-2xl">
-          <div class="absolute -left-[25px] top-5 w-4 h-4 rounded-full bg-emerald-800 border-4 border-[#FDFBF7] dark:border-[#121816]"></div>
-          <span class="text-xs font-black text-amber-600 uppercase tracking-wider">2018 • The Spark</span>
-          <h3 class="text-lg font-bold text-stone-900 dark:text-white mt-1">Frustration With Commercial Grooming</h3>
-          <p class="text-xs text-stone-600 dark:text-stone-300 mt-1">Our founder adopted an anxious rescue pup who dreaded noisy commercial cages. We set out to design an open-concept, low-frequency sanctuary.</p>
-        </div>
-
-        <div class="relative pl-8 card-hover p-4 rounded-2xl bg-white dark:bg-[#16201D] border border-stone-100 dark:border-stone-800/60 max-w-2xl">
-          <div class="absolute -left-[25px] top-5 w-4 h-4 rounded-full bg-emerald-800 border-4 border-[#FDFBF7] dark:border-[#121816]"></div>
-          <span class="text-xs font-black text-amber-600 uppercase tracking-wider">2021 • Fear-Free Certification</span>
-          <h3 class="text-lg font-bold text-stone-900 dark:text-white mt-1">Pioneering Gentle Techniques</h3>
-          <p class="text-xs text-stone-600 dark:text-stone-300 mt-1">Every groomer earned Fear-Free accreditation. We introduced plant-based hydro-massages and warm towel facial compresses.</p>
-        </div>
-
-        <div class="relative pl-8 card-hover p-4 rounded-2xl bg-white dark:bg-[#16201D] border border-stone-100 dark:border-stone-800/60 max-w-2xl">
-          <div class="absolute -left-[25px] top-5 w-4 h-4 rounded-full bg-emerald-800 border-4 border-[#FDFBF7] dark:border-[#121816]"></div>
-          <span class="text-xs font-black text-amber-600 uppercase tracking-wider">2026 • The Modern Atelier</span>
-          <h3 class="text-lg font-bold text-stone-900 dark:text-white mt-1">Over 12,000 Pets Treated with Dignity</h3>
-          <p class="text-xs text-stone-600 dark:text-stone-300 mt-1">With our advanced online portal, certified canine spa suites, and dedicated feline spaces, we redefine luxury companion care.</p>
-        </div>
       </div>
     </section>
+
+    <!-- ====================================================================
+     SECTION 2: STATS OVERVIEW
+     ==================================================================== -->
+<section class="max-w-7xl mx-auto px-6 py-12 lg:py-16 border-b-2 border-stone-200 dark:border-stone-800">
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+    <div class="p-6 rounded-2xl bg-white dark:bg-[#1A2220] border border-stone-200 dark:border-stone-800 shadow-sm card-hover text-center">
+      <div class="text-3xl sm:text-4xl font-black text-emerald-800 dark:text-emerald-400">8+</div>
+      <div class="text-xs sm:text-sm text-stone-500 dark:text-stone-400 font-semibold mt-1">Years in Service</div>
+    </div>
+    <div class="p-6 rounded-2xl bg-white dark:bg-[#1A2220] border border-stone-200 dark:border-stone-800 shadow-sm card-hover text-center">
+      <div class="text-3xl sm:text-4xl font-black text-emerald-800 dark:text-emerald-400">12,400+</div>
+      <div class="text-xs sm:text-sm text-stone-500 dark:text-stone-400 font-semibold mt-1">Gentle Grooms</div>
+    </div>
+    <div class="p-6 rounded-2xl bg-white dark:bg-[#1A2220] border border-stone-200 dark:border-stone-800 shadow-sm card-hover text-center">
+      <div class="text-3xl sm:text-4xl font-black text-amber-600">14</div>
+      <div class="text-xs sm:text-sm text-stone-500 dark:text-stone-400 font-semibold mt-1">Certified Stylists</div>
+    </div>
+    <div class="p-6 rounded-2xl bg-white dark:bg-[#1A2220] border border-stone-200 dark:border-stone-800 shadow-sm card-hover text-center">
+      <div class="text-3xl sm:text-4xl font-black text-emerald-800 dark:text-emerald-400">100%</div>
+      <div class="text-xs sm:text-sm text-stone-500 dark:text-stone-400 font-semibold mt-1">Cage-Free Comfort</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     SECTION 3: OUR JOURNEY (HOW PAWSPAW BEGAN)
+     ==================================================================== -->
+<section class="max-w-7xl mx-auto px-6 py-16 sm:py-20 border-b-2 border-stone-200 dark:border-stone-800">
+  <div class="text-center max-w-xl mx-auto mb-14 space-y-2">
+    <span class="text-xs font-extrabold uppercase tracking-widest text-emerald-800 dark:text-emerald-400">Our Journey</span>
+    <h2 class="text-3xl sm:text-4xl font-black text-emerald-950 dark:text-white">How PawSpaw Began</h2>
+  </div>
+
+  <div class="relative max-w-2xl mx-auto px-4 sm:px-6">
+    <!-- Continuous Vertical Line passing directly through all centered dots -->
+    <div class="absolute left-1/2 -translate-x-1/2 top-4 bottom-4 w-0.5 bg-emerald-800/30 dark:bg-emerald-600/40"></div>
+
+    <div class="space-y-10 sm:space-y-12 relative">
+      <!-- Milestone 1 -->
+      <div class="relative flex flex-col items-center text-center">
+        <!-- Dot centered exactly on the line -->
+        <div class="relative z-10 w-5 h-5 rounded-full bg-emerald-800 dark:bg-emerald-500 ring-4 ring-[#FDFBF7] dark:ring-[#121816] flex items-center justify-center mb-3.5 shadow-sm">
+          <div class="w-1.5 h-1.5 rounded-full bg-white dark:bg-[#121816]"></div>
+        </div>
+        <div class="w-full p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#16201D] border border-stone-200 dark:border-stone-800/80 shadow-sm hover:shadow-md transition-shadow text-center relative z-10">
+          <span class="text-xs font-black text-amber-700 dark:text-amber-500 uppercase tracking-wider block mb-2">2018 &bull; THE SPARK</span>
+          <h3 class="text-lg sm:text-xl font-bold text-stone-900 dark:text-white mb-2">Frustration With Commercial Grooming</h3>
+          <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed max-w-lg mx-auto">Our founder adopted an anxious rescue pup who dreaded noisy commercial cages. We set out to design an open-concept, low-frequency sanctuary.</p>
+        </div>
+      </div>
+
+      <!-- Milestone 2 -->
+      <div class="relative flex flex-col items-center text-center">
+        <!-- Dot centered exactly on the line -->
+        <div class="relative z-10 w-5 h-5 rounded-full bg-emerald-800 dark:bg-emerald-500 ring-4 ring-[#FDFBF7] dark:ring-[#121816] flex items-center justify-center mb-3.5 shadow-sm">
+          <div class="w-1.5 h-1.5 rounded-full bg-white dark:bg-[#121816]"></div>
+        </div>
+        <div class="w-full p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#16201D] border border-stone-200 dark:border-stone-800/80 shadow-sm hover:shadow-md transition-shadow text-center relative z-10">
+          <span class="text-xs font-black text-amber-700 dark:text-amber-500 uppercase tracking-wider block mb-2">2021 &bull; FEAR-FREE CERTIFICATION</span>
+          <h3 class="text-lg sm:text-xl font-bold text-stone-900 dark:text-white mb-2">Pioneering Gentle Techniques</h3>
+          <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed max-w-lg mx-auto">Every groomer earned Fear-Free accreditation. We introduced plant-based hydro-massages and warm towel facial compresses.</p>
+        </div>
+      </div>
+
+      <!-- Milestone 3 -->
+      <div class="relative flex flex-col items-center text-center">
+        <!-- Dot centered exactly on the line -->
+        <div class="relative z-10 w-5 h-5 rounded-full bg-emerald-800 dark:bg-emerald-500 ring-4 ring-[#FDFBF7] dark:ring-[#121816] flex items-center justify-center mb-3.5 shadow-sm">
+          <div class="w-1.5 h-1.5 rounded-full bg-white dark:bg-[#121816]"></div>
+        </div>
+        <div class="w-full p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#16201D] border border-stone-200 dark:border-stone-800/80 shadow-sm hover:shadow-md transition-shadow text-center relative z-10">
+          <span class="text-xs font-black text-amber-700 dark:text-amber-500 uppercase tracking-wider block mb-2">2026 &bull; THE MODERN ATELIER</span>
+          <h3 class="text-lg sm:text-xl font-bold text-stone-900 dark:text-white mb-2">Over 12,000 Pets Treated with Dignity</h3>
+          <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed max-w-lg mx-auto">With our advanced online portal, certified canine spa suites, and dedicated feline spaces, we redefine luxury companion care.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <section class="max-w-7xl mx-auto px-6 py-16 border-b border-stone-300 dark:border-stone-700">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -190,7 +249,7 @@
           <div class="bg-white/10 p-6 rounded-2xl border border-white/10 space-y-2 card-hover">
             <i class="fas fa-pump-medical text-amber-400 text-xl"></i>
             <h4 class="font-bold text-base">Autoclave Sterilization</h4>
-            <p class="text-xs text-stone-300">All shears, clipper blades, and brushes are sterilized at 250°F between each pet.</p>
+            <p class="text-xs text-stone-300">All shears, clipper blades, and brushes are sterilized at 250Â°F between each pet.</p>
           </div>
 
           <div class="bg-white/10 p-6 rounded-2xl border border-white/10 space-y-2 card-hover">
@@ -349,34 +408,18 @@
       </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-6 py-16 text-center ">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-        <div class="p-6 rounded-2xl bg-white dark:bg-[#1A2220] border border-stone-200 dark:border-stone-800 card-hover">
-          <div class="text-3xl font-black text-emerald-800 dark:text-emerald-400">8+</div>
-          <div class="text-xs text-stone-500 font-medium">Years in Service</div>
-        </div>
-        <div class="p-6 rounded-2xl bg-white dark:bg-[#1A2220] border border-stone-200 dark:border-stone-800 card-hover">
-          <div class="text-3xl font-black text-emerald-800 dark:text-emerald-400">12,400+</div>
-          <div class="text-xs text-stone-500 font-medium">Gentle Grooms</div>
-        </div>
-        <div class="p-6 rounded-2xl bg-white dark:bg-[#1A2220] border border-stone-200 dark:border-stone-800 card-hover">
-          <div class="text-3xl font-black text-amber-600">14</div>
-          <div class="text-xs text-stone-500 font-medium">Certified Stylists</div>
-        </div>
-        <div class="p-6 rounded-2xl bg-white dark:bg-[#1A2220] border border-stone-200 dark:border-stone-800 card-hover">
-          <div class="text-3xl font-black text-emerald-800 dark:text-emerald-400">100%</div>
-          <div class="text-xs text-stone-500 font-medium">Cage-Free Comfort</div>
-        </div>
-      </div>
-
-      <div class="max-w-xl mx-auto space-y-4">
-        <h3 class="text-2xl sm:text-3xl font-extrabold text-stone-900 dark:text-white">Experience the Difference in Person</h3>
-        <p class="text-stone-600 dark:text-stone-300 text-sm">Schedule a complimentary salon walkthrough or book your first appointment online today.</p>
-        <a href="sessions.html#booking" class="inline-block px-8 py-3.5 rounded-full bg-emerald-800 hover:bg-emerald-700 text-white text-xs font-bold shadow-xl btn-hover">
-          Book an Initial Session
-        </a>
-      </div>
-    </section>
+    <!-- ====================================================================
+     SECTION 9: FINAL CTA
+     ==================================================================== -->
+<section class="max-w-7xl mx-auto px-6 py-16 text-center">
+  <div class="max-w-xl mx-auto space-y-4">
+    <h3 class="text-2xl sm:text-3xl font-extrabold text-stone-900 dark:text-white">Experience the Difference in Person</h3>
+    <p class="text-stone-600 dark:text-stone-300 text-sm">Schedule a complimentary salon walkthrough or book your first appointment online today.</p>
+    <a href="book.html" class="inline-block px-8 py-3.5 rounded-full bg-emerald-800 hover:bg-emerald-700 text-white text-xs font-bold shadow-xl btn-hover border border-emerald-700">
+      Book an Initial Session
+    </a>
+  </div>
+</section>
 
   </main>
 

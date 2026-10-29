@@ -3,85 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Navbar | PawSpaw & Co.</title>
+    <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
-    <header class="fixed top-2 sm:top-4 left-0 right-0 z-50 px-4 sm:px-6 pointer-events-none">
-  <nav class="max-w-7xl mx-auto glass-nav bg-white/90 dark:bg-[#1A2220]/90 backdrop-blur-md rounded-full px-5 py-2.5 shadow-xl border border-stone-200/80 dark:border-stone-800 flex items-center justify-between pointer-events-auto transition-all">
-    <a href="index.html" class="flex items-center gap-2.5 group">
-      <div class="w-10 h-10 rounded-full bg-emerald-800 dark:bg-emerald-600 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
-        <i class="fas fa-paw text-lg"></i>
+<header class="fixed top-3.5 sm:top-5 left-0 right-0 z-50 px-2.5 sm:px-6 pointer-events-none" style="position: fixed !important; top: 1.25rem !important; z-index: 99999 !important;">
+  <nav class="max-w-7xl mx-auto glass-nav bg-white/95 dark:bg-[#1A2220]/95 backdrop-blur-md rounded-full px-3.5 sm:px-4 xl:px-6 py-2 sm:py-2.5 shadow-xl border border-stone-200/80 dark:border-stone-800 flex items-center justify-between pointer-events-auto transition-all">
+    <a href="index.html" class="flex items-center gap-2 xl:gap-2.5 group focus:outline-none flex-shrink-0">
+      <div class="w-8 h-8 sm:w-9 sm:h-9 xl:w-10 xl:h-10 rounded-full bg-emerald-600 flex items-center justify-center text-white shadow-md group-hover:scale-110 group-hover:bg-emerald-500 transition-all duration-300">
+        <i class="fas fa-paw text-sm sm:text-base xl:text-lg group-hover:rotate-12 transition-transform duration-300"></i>
       </div>
       <div class="flex flex-col">
-        <span class="font-extrabold tracking-tight text-lg text-emerald-950 dark:text-white leading-tight">PawSpaw<span class="text-amber-500">.</span></span>
+        <span class="font-extrabold tracking-tight text-base sm:text-lg xl:text-xl text-emerald-950 dark:text-white leading-tight group-hover:text-emerald-400 transition-colors">PawSpaw<span class="text-amber-500 dark:text-amber-400">.</span></span>
       </div>
     </a>
 
-    <div class="hidden lg:flex items-center space-x-6 text-xs xl:text-sm">
-      <div class="relative group">
-        <button class="flex items-center gap-1.5 py-1 text-stone-700 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 font-medium">
+    <div class="hidden lg:flex items-center gap-1.5 xl:gap-3 2xl:gap-5 text-[11px] xl:text-xs 2xl:text-sm whitespace-nowrap">
+      <div class="relative dropdown-container" id="nav-home-dropdown-group">
+        <button id="nav-home-btn" type="button" aria-expanded="false" aria-haspopup="true" class="flex items-center gap-1 xl:gap-1.5 py-1 text-[11px] xl:text-xs 2xl:text-sm font-bold text-emerald-700 dark:text-emerald-400 border-0 border-b-2 border-emerald-600 dark:border-emerald-400 pb-0.5 outline-none focus:outline-none focus:ring-0 focus-visible:outline-none select-none transition-colors duration-200 cursor-pointer">
           <span>Home</span>
-          <i class="fas fa-chevron-down text-[10px] group-hover:rotate-180 transition-transform"></i>
+          <i id="nav-home-chevron" class="fas fa-chevron-down text-[10px] dropdown-chevron transition-transform duration-300"></i>
         </button>
-        <div class="absolute left-0 mt-2 w-52 bg-white dark:bg-[#1A2220] rounded-2xl shadow-2xl border border-stone-200 dark:border-stone-800 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-          <a href="index.html" class="block px-4 py-2 hover:bg-stone-50 dark:hover:bg-stone-800/70 text-xs font-semibold text-emerald-700 dark:text-emerald-400">
-            <i class="fas fa-store mr-2 text-emerald-600"></i> Home 1 (Classic Salon)
-          </a>
-          <a href="home-2.html" class="block px-4 py-2 hover:bg-stone-50 dark:hover:bg-stone-800/70 text-xs font-semibold text-stone-700 dark:text-stone-300">
-            <i class="fas fa-gem mr-2 text-amber-500"></i> Home 2 (VIP Boutique)
-          </a>
+        <div id="nav-home-menu" class="dropdown-menu absolute start-0 top-full pt-2 w-52 z-50 dropdown-bridge">
+          <div class="bg-white dark:bg-[#1A2220] rounded-2xl shadow-xl border border-stone-200 dark:border-stone-800 p-2 flex flex-col gap-1.5">
+            <a href="index.html" class="flex items-center justify-between px-3.5 py-2.5 text-xs rounded-xl transition-all duration-200 bg-emerald-50 dark:bg-emerald-950/50 text-emerald-800 dark:text-emerald-300 font-bold border border-emerald-200/80 dark:border-emerald-800/60 shadow-xs">
+              <div class="flex items-center gap-2.5">
+                <i class="fas fa-store-alt text-emerald-600 text-sm"></i>
+                <span>Home 1</span>
+              </div>
+              <span class="dropdown-active-check flex items-center justify-center w-4 h-4 rounded-full bg-emerald-600 text-white text-[9px] shadow-xs">
+                <i class="fas fa-check"></i>
+              </span>
+            </a>
+            <a href="home-2.html" class="flex items-center justify-between px-3.5 py-2.5 text-xs rounded-xl transition-all duration-200 text-stone-700 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-800/60 font-medium border border-transparent hover:translate-x-0.5">
+              <div class="flex items-center gap-2.5">
+                <i class="fas fa-gem text-amber-600 text-sm"></i>
+                <span>Home 2</span>
+              </div>
+              <span class="dropdown-active-check hidden flex items-center justify-center w-4 h-4 rounded-full bg-amber-600 text-white text-[9px] shadow-xs">
+                <i class="fas fa-check"></i>
+              </span>
+            </a>
+          </div>
         </div>
       </div>
 
-      <a href="about.html" class="text-stone-700 dark:text-stone-300 hover:text-emerald-700 font-medium transition">About</a>
-      <a href="sessions.html" class="text-stone-700 dark:text-stone-300 hover:text-emerald-700 font-medium transition">Sessions</a>
-      <a href="services.html" class="text-stone-700 dark:text-stone-300 hover:text-emerald-700 font-medium transition">Services</a>
-      <a href="pricing.html" class="text-stone-700 dark:text-stone-300 hover:text-emerald-700 font-medium transition">Pricing</a>
-      <a href="blog.html" class="text-stone-700 dark:text-stone-300 hover:text-emerald-700 font-medium transition">Blog</a>
-      <a href="faq.html" class="text-stone-700 dark:text-stone-300 hover:text-emerald-700 font-medium transition">FAQ</a>
-      <a href="contacts.html" class="text-stone-700 dark:text-stone-300 hover:text-emerald-700 font-medium transition">Contacts</a>
+      <a href="about.html" class="inline-flex items-center py-1 text-[11px] xl:text-xs 2xl:text-sm text-stone-700 dark:text-stone-300 hover:text-emerald-700 font-medium border-0 border-b-2 border-transparent pb-0.5 outline-none focus:outline-none focus:ring-0 focus-visible:outline-none transition-colors duration-200">About</a>
+      <a href="sessions.html" class="inline-flex items-center py-1 text-[11px] xl:text-xs 2xl:text-sm text-stone-700 dark:text-stone-300 hover:text-emerald-700 font-medium border-0 border-b-2 border-transparent pb-0.5 outline-none focus:outline-none focus:ring-0 focus-visible:outline-none transition-colors duration-200">Sessions</a>
+      <a href="services.html" class="inline-flex items-center py-1 text-[11px] xl:text-xs 2xl:text-sm text-stone-700 dark:text-stone-300 hover:text-emerald-700 font-medium border-0 border-b-2 border-transparent pb-0.5 outline-none focus:outline-none focus:ring-0 focus-visible:outline-none transition-colors duration-200">Services</a>
+      <a href="pricing.html" class="inline-flex items-center py-1 text-[11px] xl:text-xs 2xl:text-sm text-stone-700 dark:text-stone-300 hover:text-emerald-700 font-medium border-0 border-b-2 border-transparent pb-0.5 outline-none focus:outline-none focus:ring-0 focus-visible:outline-none transition-colors duration-200">Pricing</a>
+      <a href="blog.html" class="inline-flex items-center py-1 text-[11px] xl:text-xs 2xl:text-sm text-stone-700 dark:text-stone-300 hover:text-emerald-700 font-medium border-0 border-b-2 border-transparent pb-0.5 outline-none focus:outline-none focus:ring-0 focus-visible:outline-none transition-colors duration-200">Blog</a>
+      <a href="faq.html" class="inline-flex items-center py-1 text-[11px] xl:text-xs 2xl:text-sm text-stone-700 dark:text-stone-300 hover:text-emerald-700 font-medium border-0 border-b-2 border-transparent pb-0.5 outline-none focus:outline-none focus:ring-0 focus-visible:outline-none transition-colors duration-200">FAQ</a>
+      <a href="contacts.html" class="inline-flex items-center py-1 text-[11px] xl:text-xs 2xl:text-sm text-stone-700 dark:text-stone-300 hover:text-emerald-700 font-medium border-0 border-b-2 border-transparent pb-0.5 outline-none focus:outline-none focus:ring-0 focus-visible:outline-none transition-colors duration-200">Contacts</a>
 
-      <div class="relative group">
-        <button class="flex items-center gap-1.5 py-1 text-stone-700 dark:text-stone-300 hover:text-emerald-700 font-medium">
+      <div class="relative dropdown-container" id="nav-portals-dropdown-group">
+        <button id="nav-portals-btn" type="button" aria-expanded="false" aria-haspopup="true" class="flex items-center gap-1 xl:gap-1.5 py-1 text-[11px] xl:text-xs 2xl:text-sm font-medium text-stone-700 dark:text-stone-300 hover:text-emerald-700 font-medium border-0 border-b-2 border-transparent pb-0.5 outline-none focus:outline-none focus:ring-0 focus-visible:outline-none select-none transition-colors duration-200 cursor-pointer">
           <span>Portals</span>
           <i class="fas fa-shield-cat text-xs text-amber-500"></i>
+          <i id="nav-portals-chevron" class="fas fa-chevron-down text-[10px] dropdown-chevron transition-transform duration-300"></i>
         </button>
-        <div class="absolute right-0 mt-2 w-52 bg-white dark:bg-[#1A2220] rounded-2xl shadow-2xl border border-stone-200 dark:border-stone-800 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-          <a href="user-dashboard.html" class="block px-4 py-2 hover:bg-stone-50 dark:hover:bg-stone-800/70 text-xs font-semibold text-stone-700 dark:text-stone-300">
-            <i class="fas fa-user-circle mr-2 text-emerald-600"></i> Pet Owner Portal
-          </a>
-          <a href="admin-dashboard.html" class="block px-4 py-2 hover:bg-stone-50 dark:hover:bg-stone-800/70 text-xs font-semibold text-stone-700 dark:text-stone-300">
-            <i class="fas fa-sliders mr-2 text-rose-600"></i> Admin Management
-          </a>
+        <div id="nav-portals-menu" class="dropdown-menu absolute end-0 top-full pt-2 w-52 z-50 dropdown-bridge">
+          <div class="bg-white dark:bg-[#1A2220] rounded-2xl shadow-xl border border-stone-200 dark:border-stone-800 p-1.5 flex flex-col gap-1">
+            <a href="user-dashboard.html" class="flex items-center px-3.5 py-2 hover:bg-stone-50 dark:hover:bg-stone-800/70 text-xs font-semibold rounded-xl transition-all duration-200 hover:translate-x-1 text-stone-700 dark:text-stone-300">
+              <i class="fas fa-user-circle mr-2 text-emerald-600"></i> Pet Owner Portal
+            </a>
+            <a href="admin-dashboard.html" class="flex items-center px-3.5 py-2 hover:bg-stone-50 dark:hover:bg-stone-800/70 text-xs font-semibold rounded-xl transition-all duration-200 hover:translate-x-1 text-stone-700 dark:text-stone-300">
+              <i class="fas fa-sliders mr-2 text-rose-600"></i> Admin Management
+            </a>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="flex items-center space-x-2.5 sm:space-x-3">
-      <button id="rtl-toggle-btn" class="w-9 h-9 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-200 flex items-center justify-center text-xs font-black">
+    <div class="flex items-center gap-1.5 sm:gap-2.5 flex-shrink-0">
+      <button id="rtl-toggle-btn" title="Toggle Direction" class="w-8 h-8 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-200 flex items-center justify-center text-xs font-bold hover:bg-stone-200 transition">
         <span class="dir-toggle-text">LTR</span>
       </button>
-      <button id="theme-toggle-btn" class="w-9 h-9 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-200 flex items-center justify-center">
+      <button id="theme-toggle-btn" title="Toggle Theme" class="w-8 h-8 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-200 flex items-center justify-center hover:bg-stone-200 transition">
         <i class="fas fa-moon theme-toggle-icon"></i>
       </button>
-      <a href="login.html" class="hidden sm:inline-flex text-xs font-bold px-4 py-2 rounded-full text-stone-700 dark:text-stone-200 hover:bg-stone-100 transition">
+      <a href="login.html" class="hidden md:inline-flex text-[11px] xl:text-xs font-bold px-2.5 py-1 xl:px-3.5 xl:py-1.5 rounded-full text-stone-700 dark:text-stone-200 hover:bg-stone-100 transition border border-stone-300 dark:border-stone-700">
         Sign In
       </a>
-      <a href="sessions.html#booking" class="hidden md:inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-black bg-emerald-800 text-white shadow-md hover:scale-105 transition">
+      <a href="book.html" class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 xl:px-4 xl:py-2 rounded-full text-[11px] xl:text-xs font-extrabold bg-emerald-800 hover:bg-emerald-700 text-white shadow-md hover:scale-105 transition border border-emerald-700">
         <i class="fas fa-calendar-check text-[11px]"></i>
         <span>Book Now</span>
       </a>
-      <button id="mobile-menu-btn" class="lg:hidden w-10 h-10 rounded-full bg-stone-100 dark:bg-stone-800 flex items-center justify-center">
-        <i class="fas fa-bars text-base" id="mobile-menu-icon"></i>
+      <button id="mobile-menu-btn" aria-label="Toggle Navigation" class="lg:hidden w-8 h-8 rounded-full bg-stone-100 dark:bg-stone-800 flex items-center justify-center hover:bg-stone-200 transition border border-stone-200 dark:border-stone-700">
+        <i class="fas fa-bars text-sm" id="mobile-menu-icon"></i>
       </button>
     </div>
-
   </nav>
 
   <div id="mobile-drawer" class="lg:hidden hidden mt-3 max-w-lg mx-auto bg-white/95 dark:bg-[#1A2220]/95 backdrop-blur-xl rounded-3xl p-6 shadow-2xl border border-stone-200 dark:border-stone-800">
     <div class="flex flex-col space-y-2 text-xs font-semibold">
-      <a href="index.html" class="py-2 px-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800">Home 1 </a>
-      <a href="home-2.html" class="py-2 px-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800">Home 2</a>
+      <!-- Home Dropdown Accordion in Mobile & Tablet Drawer -->
+      <div class="rounded-2xl overflow-hidden bg-stone-50/80 dark:bg-stone-800/50 border border-stone-200/80 dark:border-stone-800/80 mb-1">
+        <button id="drawer-home-toggle" type="button" class="w-full py-2.5 px-3 flex items-center justify-between text-left font-bold text-emerald-800 dark:text-emerald-400 hover:bg-stone-100 dark:hover:bg-stone-800/70 transition-colors cursor-pointer">
+          <span class="flex items-center gap-2">
+            <i class="fas fa-home text-emerald-600 text-xs"></i>
+            <span>Home</span>
+          </span>
+          <i id="drawer-home-chevron" class="fas fa-chevron-down text-[10px] transition-transform duration-200 rotate-180"></i>
+        </button>
+        <div id="drawer-home-menu" class="px-2 pb-2 space-y-1 transition-all">
+          <a href="index.html" class="py-2 px-3 rounded-xl transition-all flex items-center justify-between bg-emerald-800 text-white font-bold">
+            <span class="flex items-center gap-2">
+              <i class="fas fa-store text-[11px] text-emerald-200"></i>
+              <span>Home 1</span>
+            </span>
+            <i class="fas fa-chevron-right text-[10px] opacity-60"></i>
+          </a>
+          <a href="home-2.html" class="py-2 px-3 rounded-xl transition-all flex items-center justify-between text-stone-700 dark:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-800/70 font-medium">
+            <span class="flex items-center gap-2">
+              <i class="fas fa-gem text-[11px] text-amber-500"></i>
+              <span>Home 2</span>
+            </span>
+            <i class="fas fa-chevron-right text-[10px] opacity-60"></i>
+          </a>
+        </div>
+      </div>
       <a href="about.html" class="py-2 px-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800">About Us</a>
       <a href="sessions.html" class="py-2 px-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800">Sessions</a>
       <a href="services.html" class="py-2 px-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800">Services</a>
@@ -90,9 +131,22 @@
       <a href="faq.html" class="py-2 px-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800">FAQ</a>
       <a href="contacts.html" class="py-2 px-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800">Contacts</a>
       <div class="pt-2 flex gap-2">
-        <a href="user-dashboard.html" class="flex-1 py-2 text-center rounded-xl bg-stone-100 dark:bg-stone-800 font-bold">User Portal</a>
-        <a href="admin-dashboard.html" class="flex-1 py-2 text-center rounded-xl bg-rose-100 dark:bg-rose-950/40 text-rose-700 font-bold">Admin</a>
+        <a href="user-dashboard.html" class="flex-1 py-2 text-center rounded-xl bg-stone-100 dark:bg-stone-800 font-bold border border-stone-200 dark:border-stone-700">User Portal</a>
+        <a href="admin-dashboard.html" class="flex-1 py-2 text-center rounded-xl bg-rose-100 dark:bg-rose-950/40 text-rose-700 font-bold border border-rose-200 dark:border-rose-800">Admin</a>
       </div>
+      <!-- Actions in Drawer: ONLY visible below 768px (md:hidden)! At 768px, Sign In and Book Now are already in navbar! -->
+      <div class="pt-3 mt-1 border-t border-stone-200/80 dark:border-stone-800 grid grid-cols-2 gap-3 md:hidden">
+          <a href="login.html" class="flex items-center justify-center gap-2 py-3 px-4 rounded-2xl bg-stone-100 dark:bg-stone-800/90 hover:bg-stone-200 dark:hover:bg-stone-700 text-stone-800 dark:text-stone-100 font-extrabold text-xs shadow-sm hover:shadow transition-all duration-200 border border-stone-300 dark:border-stone-700 group">
+            <div class="w-6 h-6 rounded-full bg-white dark:bg-stone-900 flex items-center justify-center text-emerald-700 dark:text-emerald-400 shadow-xs group-hover:scale-110 transition-transform">
+              <i class="fas fa-user text-[11px]"></i>
+            </div>
+            <span>Sign In</span>
+          </a>
+          <a href="book.html" class="flex items-center justify-center gap-2 py-3 px-4 rounded-2xl bg-gradient-to-r from-emerald-800 via-emerald-700 to-emerald-800 hover:from-emerald-700 hover:to-emerald-600 text-white font-extrabold text-xs shadow-lg shadow-emerald-950/25 hover:shadow-emerald-900/35 hover:scale-[1.02] active:scale-95 transition-all duration-200 border border-emerald-600/60 group">
+            <i class="fas fa-calendar-check text-amber-300 group-hover:rotate-12 transition-transform text-xs"></i>
+            <span>Book Now</span>
+          </a>
+        </div>
     </div>
   </div>
 </header>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services Catalog | PawSpaw & Co.</title>
-  <meta name="description" content="Explore our full menu of grooming, haircuts, hygiene, and spa wellness therapies.">
+  <title>Services & Treatment Catalog | PawSpaw & Co. Luxury Pet Spa</title>
+  <meta name="description" content="Explore our detailed pet grooming services covering hydro-bathing, precision hair trimming, nail clipping, coat care, and restorative spa therapies with transparent pricing.">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -24,6 +24,7 @@
   </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body class="bg-[#FDFBF7] dark:bg-[#121816] text-stone-800 dark:text-stone-100 transition-colors duration-300 antialiased overflow-x-hidden">
 
@@ -31,178 +32,788 @@
 
   <main class="pt-24 lg:pt-28">
 
-    <section class="max-w-7xl mx-auto px-6 py-12 lg:py-16 text-center ">
-      <div class="max-w-2xl mx-auto space-y-4">
-        <span class="text-xs font-extrabold uppercase tracking-widest text-emerald-800 dark:text-emerald-400">Treatment Catalog</span>
-        <h1 class="text-4xl sm:text-5xl font-extrabold text-emerald-950 dark:text-white leading-tight">
-          Comprehensive Care from Whisker to Tail.
-        </h1>
-        <p class="text-stone-600 dark:text-stone-300 text-sm sm:text-base leading-relaxed">
-          Explore our certified grooming, coat sculpting, hygiene care, and restorative dermatological treatments.
-        </p>
-      </div>
-    </section>
+    <!-- ====================================================================
+     SECTION 1: HERO
+     ==================================================================== -->
+    <section class="max-w-7xl mx-auto px-6 py-4 lg:py-6 min-h-[calc(100vh-80px)] flex items-center border-b-2 border-stone-200 dark:border-stone-800">
+      <!-- Ambient Decorative Glows -->
 
-    <section class="max-w-7xl mx-auto px-6 py-12">
-      <div class="flex items-center gap-3 mb-8">
-        <div class="w-10 h-10 rounded-xl bg-teal-100 dark:bg-teal-950 text-teal-700 dark:text-teal-400 flex items-center justify-center font-bold hover:scale-105 transition-transform">
-          <i class="fas fa-shower"></i>
-        </div>
-        <div>
-          <h2 class="text-2xl font-bold text-stone-900 dark:text-white">Hydro-Bathing & Coat Cleansing</h2>
-          <p class="text-xs text-stone-500">Pressurized warm botanical wash removing dander without drying delicate skin.</p>
-        </div>
-      </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 flex flex-col sm:flex-row gap-6 card-hover">
-          <div class="img-zoom-wrapper w-full sm:w-44 h-44 rounded-2xl flex-shrink-0">
-            <img src="public/pitbull.avif" alt="Botanical bath" class="w-full h-full object-cover">
+      <div class="max-w-7xl mx-auto px-6 py-12 lg:py-16 w-full relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
+        
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300 text-xs font-bold uppercase tracking-wider hover:scale-105 transition-transform duration-200">
+            <i class="fas fa-sparkles text-amber-500"></i>
+            <span>Certified Grooming & Wellness Catalog</span>
           </div>
-          <div class="space-y-2 flex-1">
-            <div class="flex justify-between items-start">
-              <h3 class="font-bold text-stone-900 dark:text-white text-lg hover:text-emerald-700 transition-colors">Botanical Hydro-Bath</h3>
-              <span class="font-black text-emerald-800 dark:text-emerald-400 text-lg">$45</span>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-emerald-950 dark:text-white leading-[1.12]">
+            Comprehensive Care from <span class="text-amber-600 italic font-serif">Whisker to Tail.</span>
+          </h1>
+
+          <p class="text-stone-600 dark:text-stone-300 text-base sm:text-lg leading-relaxed max-w-xl">
+            From pressurized botanical hydro-baths and master scissor styling to stress-free nail clipping and Dead Sea mud wraps—every treatment is performed with Fear-Free gentle handling and medical-grade sanitation.
+          </p>
+
+          <!-- Prominent CTAs -->
+          <div class="flex flex-wrap items-center gap-3 sm:gap-4 pt-2">
+            <a href="book.html"
+              class="px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-emerald-800 hover:bg-emerald-700 text-white font-extrabold text-xs sm:text-sm shadow-xl shadow-emerald-900/20 btn-hover flex items-center gap-2 border border-emerald-700">
+              <i class="fas fa-calendar-check text-xs text-amber-300"></i>
+              <span>Book an Appointment</span>
+            </a>
+            <a href="#bathing"
+              class="px-6 sm:px-7 py-3.5 sm:py-4 rounded-full bg-white dark:bg-stone-800 hover:bg-stone-100 dark:hover:bg-stone-700 text-stone-800 dark:text-white font-extrabold text-xs sm:text-sm border-2 border-stone-300 dark:border-stone-700 btn-hover flex items-center gap-2">
+              <i class="fas fa-arrow-down text-xs text-emerald-600"></i>
+              <span>Explore Services</span>
+            </a>
+            <a href="contacts.html"
+              class="px-5 sm:px-6 py-3.5 sm:py-4 rounded-full bg-emerald-50 dark:bg-emerald-950/40 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 text-emerald-800 dark:text-emerald-300 font-extrabold text-xs sm:text-sm border border-emerald-300 dark:border-emerald-800 btn-hover flex items-center gap-2">
+              <i class="fas fa-phone-alt text-xs text-amber-500"></i>
+              <span>Contact Us</span>
+            </a>
+          </div>
+
+          <!-- Visible Contact Quick Bar -->
+          <div class="flex flex-wrap items-center gap-4 sm:gap-6 pt-3 text-xs text-stone-600 dark:text-stone-300 font-medium border-t border-stone-200 dark:border-stone-800/80">
+            <div class="flex items-center gap-1.5">
+              <i class="fas fa-location-dot text-emerald-700 dark:text-emerald-400"></i>
+              <span>Denkanikottai Rd, opp. government sericulture department, SBM Colony, Anthivadi, Hosur, Tamil Nadu 635109</span>
             </div>
-            <p class="text-xs text-stone-600 dark:text-stone-300">Organic oatmeal & aloe cleanse, tear-free facial lather, ear flush, and gentle fluff drying.</p>
-            <div class="text-[11px] text-stone-500 pt-2"><i class="far fa-clock mr-1"></i> 60 mins • Dogs & Cats</div>
-            <a href="sessions.html#booking" class="inline-block mt-2 text-xs font-bold text-amber-600 hover:text-amber-700 hover:translate-x-1 transition-all">Book this Bath →</a>
-          </div>
-        </div>
-
-        <div class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 flex flex-col sm:flex-row gap-6 card-hover">
-          <div class="img-zoom-wrapper w-full sm:w-44 h-44 rounded-2xl flex-shrink-0">
-            <img src="public/bordercollie.avif" alt="De-shed bath" class="w-full h-full object-cover">
-          </div>
-          <div class="space-y-2 flex-1">
-            <div class="flex justify-between items-start">
-              <h3 class="font-bold text-stone-900 dark:text-white text-lg hover:text-emerald-700 transition-colors">De-Shedding Deep Flush</h3>
-              <span class="font-black text-emerald-800 dark:text-emerald-400 text-lg">$65</span>
+            <div class="flex items-center gap-1.5">
+              <i class="fas fa-phone text-emerald-700 dark:text-emerald-400"></i>
+              <span class="font-bold text-stone-900 dark:text-white">+1 (800) 555-PAWS</span>
             </div>
-            <p class="text-xs text-stone-600 dark:text-stone-300">Furminator undercoat release bath, high-velocity blowout, and dead fur removal.</p>
-            <div class="text-[11px] text-stone-500 pt-2"><i class="far fa-clock mr-1"></i> 75 mins • Double-coat breeds</div>
-            <a href="sessions.html#booking" class="inline-block mt-2 text-xs font-bold text-amber-600 hover:text-amber-700 hover:translate-x-1 transition-all">Book this Bath →</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="max-w-7xl mx-auto px-6 py-12">
-      <div class="flex items-center gap-3 mb-8">
-        <div class="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-950 text-amber-600 flex items-center justify-center font-bold hover:scale-105 transition-transform">
-          <i class="fas fa-scissors"></i>
-        </div>
-        <div>
-          <h2 class="text-2xl font-bold text-stone-900 dark:text-white">Precision Haircuts & Styling</h2>
-          <p class="text-xs text-stone-500">Sculpted hand-scissoring adhering to breed standard or personalized requests.</p>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 flex flex-col sm:flex-row gap-6 card-hover">
-          <div class="img-zoom-wrapper w-full sm:w-44 h-44 rounded-2xl flex-shrink-0">
-            <img src="public/smallcat.avif" alt="Full styling" class="w-full h-full object-cover">
-          </div>
-          <div class="space-y-2 flex-1">
-            <div class="flex justify-between items-start">
-              <h3 class="font-bold text-stone-900 dark:text-white text-lg hover:text-emerald-700 transition-colors">Full Artisan Breed Haircut</h3>
-              <span class="font-black text-emerald-800 dark:text-emerald-400 text-lg">$75</span>
+            <div class="flex items-center gap-1.5">
+              <i class="far fa-clock text-emerald-700 dark:text-emerald-400"></i>
+              <span>Open Daily: 8 AM - 7 PM</span>
             </div>
-            <p class="text-xs text-stone-600 dark:text-stone-300">Complete body hand-scissoring, paw rounded trim, sanitary clip, ear styling, and spray.</p>
-            <div class="text-[11px] text-stone-500 pt-2"><i class="far fa-clock mr-1"></i> 90-120 mins • All Breeds</div>
-            <a href="sessions.html#booking" class="inline-block mt-2 text-xs font-bold text-amber-600 hover:text-amber-700 hover:translate-x-1 transition-all">Book Full Cut →</a>
           </div>
         </div>
 
-        <div class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 flex flex-col sm:flex-row gap-6 card-hover">
-          <div class="img-zoom-wrapper w-full sm:w-44 h-44 rounded-2xl flex-shrink-0">
-            <img src="public/pembroke.avif" alt="Teddy bear cut" class="w-full h-full object-cover">
-          </div>
-          <div class="space-y-2 flex-1">
-            <div class="flex justify-between items-start">
-              <h3 class="font-bold text-stone-900 dark:text-white text-lg hover:text-emerald-700 transition-colors">Asian Fusion & Teddy Trim</h3>
-              <span class="font-black text-emerald-800 dark:text-emerald-400 text-lg">$85</span>
+        <div class="lg:col-span-5">
+          <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-stone-800 img-zoom-wrapper relative">
+            <img src="public/warm.avif" alt="Dog receiving soothing hydro-bath spa care" class="w-full h-[440px] object-cover">
+            <div class="absolute bottom-4 left-4 right-4 bg-white/90 dark:bg-[#1A2220]/90 backdrop-blur-md p-3.5 rounded-2xl border border-stone-200/80 dark:border-stone-700 flex items-center justify-between">
+              <div class="flex items-center gap-2.5">
+                <div class="w-9 h-9 rounded-xl bg-emerald-100 dark:bg-emerald-950 flex items-center justify-center text-emerald-800 dark:text-emerald-400">
+                  <i class="fas fa-shield-cat"></i>
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-stone-900 dark:text-white">100% Fear-Free Handling</div>
+                  <div class="text-[10px] text-stone-500 dark:text-stone-400">Zero Cages. Low-Frequency Acoustical Calm.</div>
+                </div>
+              </div>
+              <span class="text-[10px] font-black uppercase text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/70 px-2.5 py-1 rounded-full">Certified</span>
             </div>
-            <p class="text-xs text-stone-600 dark:text-stone-300">Rounded plush muzzle scissor work, cylindrical legs, and curved ear silhouettes for doodles & poodles.</p>
-            <div class="text-[11px] text-stone-500 pt-2"><i class="far fa-clock mr-1"></i> 100 mins • Poodles, Bichons, Doodles</div>
-            <a href="sessions.html#booking" class="inline-block mt-2 text-xs font-bold text-amber-600 hover:text-amber-700 hover:translate-x-1 transition-all">Book Teddy Trim →</a>
           </div>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 2: QUICK CATEGORY NAVIGATION JUMP BAR
+         ==================================================================== -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6 sticky top-16 lg:top-20 z-30 pointer-events-none flex justify-center">
+      <div class="glass-nav w-fit max-w-full mx-auto bg-white/90 dark:bg-[#16201D]/90 backdrop-blur-xl rounded-2xl sm:rounded-full p-2 sm:p-2.5 shadow-lg border border-stone-200/80 dark:border-stone-800 pointer-events-auto overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        <div class="flex items-center justify-center gap-2 text-xs font-bold whitespace-nowrap min-w-max mx-auto px-1 sm:px-2">
+          <span class="text-stone-400 uppercase tracking-widest text-[10px] px-2 font-black">Jump to:</span>
+          <a href="#bathing" class="px-3.5 py-2 rounded-xl sm:rounded-full bg-stone-100 dark:bg-stone-800/80 hover:bg-emerald-800 hover:text-white text-stone-700 dark:text-stone-200 transition-colors flex items-center gap-1.5">
+            <i class="fas fa-shower text-emerald-600"></i> Bathing
+          </a>
+          <a href="#haircuts" class="px-3.5 py-2 rounded-xl sm:rounded-full bg-stone-100 dark:bg-stone-800/80 hover:bg-emerald-800 hover:text-white text-stone-700 dark:text-stone-200 transition-colors flex items-center gap-1.5">
+            <i class="fas fa-scissors text-amber-500"></i> Hair Trimming
+          </a>
+          <a href="#nails" class="px-3.5 py-2 rounded-xl sm:rounded-full bg-stone-100 dark:bg-stone-800/80 hover:bg-emerald-800 hover:text-white text-stone-700 dark:text-stone-200 transition-colors flex items-center gap-1.5">
+            <i class="fas fa-paw text-rose-500"></i> Nail Clipping
+          </a>
+          <a href="#coat-care" class="px-3.5 py-2 rounded-xl sm:rounded-full bg-stone-100 dark:bg-stone-800/80 hover:bg-emerald-800 hover:text-white text-stone-700 dark:text-stone-200 transition-colors flex items-center gap-1.5">
+            <i class="fas fa-wand-magic-sparkles text-teal-500"></i> Coat Care
+          </a>
+          <a href="#spa-treatments" class="px-3.5 py-2 rounded-xl sm:rounded-full bg-stone-100 dark:bg-stone-800/80 hover:bg-emerald-800 hover:text-white text-stone-700 dark:text-stone-200 transition-colors flex items-center gap-1.5">
+            <i class="fas fa-spa text-purple-500"></i> Spa Therapies
+          </a>
+          <a href="#pricing-table" class="px-3.5 py-2 rounded-xl sm:rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 hover:bg-emerald-800 hover:text-white transition-colors flex items-center gap-1.5 border border-emerald-200 dark:border-emerald-800">
+            <i class="fas fa-weight-scale text-amber-500"></i> Size Pricing
+          </a>
         </div>
       </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-6 py-12 border-b border-stone-300 dark:border-stone-700">
-      <div class="flex items-center gap-3 mb-8">
-        <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 flex items-center justify-center font-bold hover:scale-105 transition-transform">
-          <i class="fas fa-hand-sparkles"></i>
-        </div>
+    <!-- ====================================================================
+         PILLAR 1: BATHING & HYDRO-CLEANSING
+         ==================================================================== -->
+    <section id="bathing" class="max-w-7xl mx-auto px-6 py-16 border-b border-stone-300 dark:border-stone-700 scroll-mt-28">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
         <div>
-          <h2 class="text-2xl font-bold text-stone-900 dark:text-white">Hygiene & Paw Health</h2>
-          <p class="text-xs text-stone-500">Quick, vital health routines that prevent infections and pad irritation.</p>
+          <div class="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-emerald-800 dark:text-emerald-400 mb-1">
+            <i class="fas fa-shower"></i>
+            <span>Core Pillar 01</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 dark:text-white">Hydro-Bathing & Coat Cleansing</h2>
+          <p class="text-stone-600 dark:text-stone-300 text-sm mt-1 max-w-2xl">
+            Pressurized warm botanical wash removing deep dander and allergen buildup without stripping essential epidermal lipids.
+          </p>
         </div>
+        
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-        <div class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 space-y-3 card-hover">
-          <h4 class="font-bold text-base text-stone-900 dark:text-white">Nail Trim & Filing</h4>
-          <div class="text-xl font-black text-emerald-800 dark:text-emerald-400">$20</div>
-          <p class="text-xs text-stone-600 dark:text-stone-300">Precision clip followed by dremel rotary smoothing to prevent scratches on hardwood floors.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Card 1 -->
+        <div class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 card-hover flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="img-zoom-wrapper h-48 rounded-2xl overflow-hidden">
+              <img src="public/bath-1.avif" alt="Botanical Hydro-Bath" class="w-full h-full object-cover">
+            </div>
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="text-[10px] font-black uppercase tracking-wider text-emerald-600 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-full">Classic Essential</span>
+                <h3 class="font-bold text-stone-900 dark:text-white text-xl mt-1">Botanical Hydro-Bath</h3>
+              </div>
+              <div class="text-right">
+                <span class="text-2xl font-black text-emerald-800 dark:text-emerald-400">$45</span>
+                <span class="text-[10px] text-stone-400 block">60 mins</span>
+              </div>
+            </div>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+              Organic colloidal oatmeal & aloe vera deep lather, tear-free blueberry facial cleanse, warm ear flush, and gentle velocity fluff drying.
+            </p>
+            <ul class="text-[11px] text-stone-600 dark:text-stone-300 space-y-1.5 pt-2 border-t border-stone-100 dark:border-stone-800">
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Dual warm hydro-massage rinse</li>
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Organic lavender tearless facial</li>
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Fluff blowout with low-noise dryer</li>
+            </ul>
+          </div>
+          <div class="pt-4 mt-4 border-t border-stone-100 dark:border-stone-800 flex items-center justify-between gap-3 text-xs">
+            <span class="inline-flex items-center gap-1.5 text-stone-500 dark:text-stone-400 font-medium">
+              <i class="fas fa-shield-heart text-emerald-600"></i> Certified Gentle Care
+            </span>
+            <a href="contacts.html" class="inline-flex items-center gap-1 text-xs font-bold text-stone-600 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 transition" title="Ask Questions">
+              <span>Inquire</span>
+              <i class="fas fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
         </div>
 
-        <div class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 space-y-3 card-hover">
-          <h4 class="font-bold text-base text-stone-900 dark:text-white">Ear Pluck & Sanitization</h4>
-          <div class="text-xl font-black text-emerald-800 dark:text-emerald-400">$18</div>
-          <p class="text-xs text-stone-600 dark:text-stone-300">Removal of excess inner canal hair followed by organic witch hazel antibacterial wipe.</p>
+        <!-- Card 2 -->
+        <div class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 card-hover flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="img-zoom-wrapper h-48 rounded-2xl overflow-hidden">
+              <img src="public/bath-2.avif" alt="De-Shedding Deep Flush" class="w-full h-full object-cover">
+            </div>
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="text-[10px] font-black uppercase tracking-wider text-amber-600 bg-amber-50 dark:bg-amber-950/60 px-2.5 py-0.5 rounded-full">Double Coats</span>
+                <h3 class="font-bold text-stone-900 dark:text-white text-xl mt-1">De-Shedding Deep Flush</h3>
+              </div>
+              <div class="text-right">
+                <span class="text-2xl font-black text-emerald-800 dark:text-emerald-400">$65</span>
+                <span class="text-[10px] text-stone-400 block">75 mins</span>
+              </div>
+            </div>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+              Specialized undercoat releasing bath with plant enzymes, followed by high-velocity dead undercoat blowout and thorough rake brushing.
+            </p>
+            <ul class="text-[11px] text-stone-600 dark:text-stone-300 space-y-1.5 pt-2 border-t border-stone-100 dark:border-stone-800">
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Up to 90% shed reduction in home</li>
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> High-velocity dead fur ejection</li>
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Silk protein leave-in seal</li>
+            </ul>
+          </div>
+          <div class="pt-4 mt-4 border-t border-stone-100 dark:border-stone-800 flex items-center justify-between gap-3 text-xs">
+            <span class="inline-flex items-center gap-1.5 text-stone-500 dark:text-stone-400 font-medium">
+              <i class="fas fa-shield-heart text-emerald-600"></i> Certified Gentle Care
+            </span>
+            <a href="contacts.html" class="inline-flex items-center gap-1 text-xs font-bold text-stone-600 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 transition" title="Ask Questions">
+              <span>Inquire</span>
+              <i class="fas fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
         </div>
 
-        <div class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 space-y-3 card-hover">
-          <h4 class="font-bold text-base text-stone-900 dark:text-white">Teeth Gel & Foam Wash</h4>
-          <div class="text-xl font-black text-emerald-800 dark:text-emerald-400">$15</div>
-          <p class="text-xs text-stone-600 dark:text-stone-300">Plaque-dissolving enzymatic gel brushing accompanied by fresh mint botanical oral spray.</p>
+        <!-- Card 3 -->
+        <div class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 card-hover flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="img-zoom-wrapper h-48 rounded-2xl overflow-hidden">
+              <img src="public/bath-3.avif" alt="Hypoallergenic Medic-Wash" class="w-full h-full object-cover object-[50%_30%]">
+            </div>
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="text-[10px] font-black uppercase tracking-wider text-teal-600 bg-teal-50 dark:bg-teal-950/60 px-2.5 py-0.5 rounded-full">Sensitive Skin</span>
+                <h3 class="font-bold text-stone-900 dark:text-white text-xl mt-1">Hypoallergenic Medic-Wash</h3>
+              </div>
+              <div class="text-right">
+                <span class="text-2xl font-black text-emerald-800 dark:text-emerald-400">$55</span>
+                <span class="text-[10px] text-stone-400 block">60 mins</span>
+              </div>
+            </div>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+              100% fragrance-free, dye-free colloidal oat formula crafted for pets with acute dermatitis, seasonal pollen allergies, or sensitive skin.
+            </p>
+            <ul class="text-[11px] text-stone-600 dark:text-stone-300 space-y-1.5 pt-2 border-t border-stone-100 dark:border-stone-800">
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Strict zero artificial scent or dye</li>
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Neutral pH 6.8 formula protects coat</li>
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Calms red inflamed hot spots</li>
+            </ul>
+          </div>
+          <div class="pt-4 mt-4 border-t border-stone-100 dark:border-stone-800 flex items-center justify-between gap-3 text-xs">
+            <span class="inline-flex items-center gap-1.5 text-stone-500 dark:text-stone-400 font-medium">
+              <i class="fas fa-shield-heart text-emerald-600"></i> Certified Gentle Care
+            </span>
+            <a href="contacts.html" class="inline-flex items-center gap-1 text-xs font-bold text-stone-600 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 transition" title="Ask Questions">
+              <span>Inquire</span>
+              <i class="fas fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
         </div>
+
       </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-6 py-12 border-b border-stone-300 dark:border-stone-700">
-      <div class="bg-emerald-900 text-white rounded-[2.5rem] p-8 sm:p-12 space-y-8">
+    <!-- ====================================================================
+         PILLAR 2: HAIR TRIMMING & MASTER SCISSORING
+         ==================================================================== -->
+    <section id="haircuts" class="max-w-7xl mx-auto px-6 py-16 border-b border-stone-300 dark:border-stone-700 scroll-mt-28">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
         <div>
-          <span class="text-xs font-bold uppercase tracking-widest text-amber-400">Pure Indulgence</span>
-          <h2 class="text-3xl font-extrabold">Botanical Spa Therapies</h2>
+          <div class="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-1">
+            <i class="fas fa-scissors"></i>
+            <span>Core Pillar 02</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 dark:text-white">Precision Hair Trimming & Master Scissoring</h2>
+          <p class="text-stone-600 dark:text-stone-300 text-sm mt-1 max-w-2xl">
+            Customized hand-scissoring adhering to AKC/FCI breed standard geometry or contemporary Asian fusion teddy styling.
+          </p>
+        </div>
+        
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Card 1 -->
+        <div class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 card-hover flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="img-zoom-wrapper h-48 rounded-2xl overflow-hidden">
+              <img src="public/hair-1.avif" alt="Artisan Breed Haircut" class="w-full h-full object-cover">
+            </div>
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="text-[10px] font-black uppercase tracking-wider text-emerald-600 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-full">Full Service</span>
+                <h3 class="font-bold text-stone-900 dark:text-white text-xl mt-1">Full Artisan Breed Haircut</h3>
+              </div>
+              <div class="text-right">
+                <span class="text-2xl font-black text-emerald-800 dark:text-emerald-400">$75</span>
+                <span class="text-[10px] text-stone-400 block">90-120 mins</span>
+              </div>
+            </div>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+              Complete head-to-tail hand-scissoring, round paw trimming, hygiene sanitary clip, ear beveling, and organic chamomile finish.
+            </p>
+            <ul class="text-[11px] text-stone-600 dark:text-stone-300 space-y-1.5 pt-2 border-t border-stone-100 dark:border-stone-800">
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Master scissor certified stylists</li>
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Includes full hydro-bath and blowout</li>
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Complimentary nail clip & ear cleanse</li>
+            </ul>
+          </div>
+          <div class="pt-4 mt-4 border-t border-stone-100 dark:border-stone-800 flex items-center justify-between gap-3 text-xs">
+            <span class="inline-flex items-center gap-1.5 text-stone-500 dark:text-stone-400 font-medium">
+              <i class="fas fa-shield-heart text-emerald-600"></i> Certified Gentle Care
+            </span>
+            <a href="contacts.html" class="inline-flex items-center gap-1 text-xs font-bold text-stone-600 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 transition" title="Ask Questions">
+              <span>Inquire</span>
+              <i class="fas fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="bg-white/10 p-6 rounded-2xl border border-white/10 space-y-3 card-hover">
-            <h4 class="font-bold text-lg text-white">Blueberry Brightening Scrub</h4>
-            <div class="text-xl font-bold text-amber-400">$22 Add-on</div>
-            <p class="text-xs text-stone-300 leading-relaxed">Antioxidant facial lather that diminishes tear staining and leaves cheeks smelling like fresh berries.</p>
+        <!-- Card 2 -->
+        <div class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 card-hover flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="img-zoom-wrapper h-48 rounded-2xl overflow-hidden">
+              <img src="public/hair-2.avif" alt="Asian Fusion & Teddy Trim" class="w-full h-full object-cover object-[50%_30%]">
+            </div>
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="text-[10px] font-black uppercase tracking-wider text-amber-600 bg-amber-50 dark:bg-amber-950/60 px-2.5 py-0.5 rounded-full">Boutique Specialty</span>
+                <h3 class="font-bold text-stone-900 dark:text-white text-xl mt-1">Asian Fusion & Teddy Trim</h3>
+              </div>
+              <div class="text-right">
+                <span class="text-2xl font-black text-emerald-800 dark:text-emerald-400">$85</span>
+                <span class="text-[10px] text-stone-400 block">100 mins</span>
+              </div>
+            </div>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+              Plush rounded muzzle contouring, cylindrical soft legs, curved doughnut ear silhouettes, and customized bell-bottom paws for doodles and poodles.
+            </p>
+            <ul class="text-[11px] text-stone-600 dark:text-stone-300 space-y-1.5 pt-2 border-t border-stone-100 dark:border-stone-800">
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Japanese & Korean precision techniques</li>
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Ideal for Doodles, Poodles & Bichons</li>
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Silk leave-in shine polish</li>
+            </ul>
           </div>
-
-          <div class="bg-white/10 p-6 rounded-2xl border border-white/10 space-y-3 card-hover">
-            <h4 class="font-bold text-lg text-white">Dead Sea Mineral Mud Mask</h4>
-            <div class="text-xl font-bold text-amber-400">$35 Add-on</div>
-            <p class="text-xs text-stone-300 leading-relaxed">Thermal coat mud wrap that draws out skin toxins, relieves hot spots, and moisturizes dermatitis.</p>
-          </div>
-
-          <div class="bg-white/10 p-6 rounded-2xl border border-white/10 space-y-3 card-hover">
-            <h4 class="font-bold text-lg text-white">Aromatherapy Paw Soak</h4>
-            <div class="text-xl font-bold text-amber-400">$20 Add-on</div>
-            <p class="text-xs text-stone-300 leading-relaxed">Warm chamomile and lavender bubble soak followed by shea butter pad massage balm.</p>
+          <div class="pt-4 mt-4 border-t border-stone-100 dark:border-stone-800 flex items-center justify-between gap-3 text-xs">
+            <span class="inline-flex items-center gap-1.5 text-stone-500 dark:text-stone-400 font-medium">
+              <i class="fas fa-shield-heart text-emerald-600"></i> Certified Gentle Care
+            </span>
+            <a href="contacts.html" class="inline-flex items-center gap-1 text-xs font-bold text-stone-600 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 transition" title="Ask Questions">
+              <span>Inquire</span>
+              <i class="fas fa-arrow-right text-[10px]"></i>
+            </a>
           </div>
         </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 card-hover flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="img-zoom-wrapper h-48 rounded-2xl overflow-hidden">
+              <img src="public/hair-5.avif" alt="Sanitary & Face Perimeter Trim" class="w-full h-full object-cover">
+            </div>
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="text-[10px] font-black uppercase tracking-wider text-rose-600 bg-rose-50 dark:bg-rose-950/60 px-2.5 py-0.5 rounded-full">Maintenance</span>
+                <h3 class="font-bold text-stone-900 dark:text-white text-xl mt-1">Sanitary & Face Perimeter</h3>
+              </div>
+              <div class="text-right">
+                <span class="text-2xl font-black text-emerald-800 dark:text-emerald-400">$35</span>
+                <span class="text-[10px] text-stone-400 block">45 mins</span>
+              </div>
+            </div>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+              Between-grooming touch-up covering eye sightline trimming, paw pad perimeter clearing, belly sanitary shave, and sanitary tail clearance.
+            </p>
+            <ul class="text-[11px] text-stone-600 dark:text-stone-300 space-y-1.5 pt-2 border-t border-stone-100 dark:border-stone-800">
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Prevents eye irritation and staining</li>
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Keeps paw pads non-slip & clean</li>
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Fast 45-minute turnaround</li>
+            </ul>
+          </div>
+          <div class="pt-4 mt-4 border-t border-stone-100 dark:border-stone-800 flex items-center justify-between gap-3 text-xs">
+            <span class="inline-flex items-center gap-1.5 text-stone-500 dark:text-stone-400 font-medium">
+              <i class="fas fa-shield-heart text-emerald-600"></i> Certified Gentle Care
+            </span>
+            <a href="contacts.html" class="inline-flex items-center gap-1 text-xs font-bold text-stone-600 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 transition" title="Ask Questions">
+              <span>Inquire</span>
+              <i class="fas fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-16 border-b border-stone-300 dark:border-stone-700">
-      <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14 space-y-3">
+    <!-- ====================================================================
+         PILLAR 3: NAIL CLIPPING & PAW CARE
+         ==================================================================== -->
+    <section id="nails" class="max-w-7xl mx-auto px-6 py-16 border-b border-stone-300 dark:border-stone-700 scroll-mt-28">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <div class="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-emerald-700 dark:text-emerald-400 mb-1">
+            <i class="fas fa-paw"></i>
+            <span>Core Pillar 03</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 dark:text-white">Nail Clipping, Buffering & Paw Care</h2>
+          <p class="text-stone-600 dark:text-stone-300 text-sm mt-1 max-w-2xl">
+            Gentle paw handling ensuring nails never split or pinch quicks, combined with organic pad restoration balms.
+          </p>
+        </div>
+        
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Card 1 -->
+        <div class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 card-hover flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="img-zoom-wrapper h-48 rounded-2xl overflow-hidden">
+              <img src="public/nail-5.avif" alt="Precision Nail Clipping" class="w-full h-full object-cover">
+            </div>
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="text-[10px] font-black uppercase tracking-wider text-emerald-600 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-full">Essential Hygiene</span>
+                <h3 class="font-bold text-stone-900 dark:text-white text-xl mt-1">Precision Nail Trim & Dremel</h3>
+              </div>
+              <div class="text-right">
+                <span class="text-2xl font-black text-emerald-800 dark:text-emerald-400">$20</span>
+                <span class="text-[10px] text-stone-400 block">20 mins</span>
+              </div>
+            </div>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+              Safe veterinary clipper trim avoiding the sensitive quick, followed by a high-speed diamond dremel rotary filing for rounded, scratch-free tips.
+            </p>
+            <ul class="text-[11px] text-stone-600 dark:text-stone-300 space-y-1.5 pt-2 border-t border-stone-100 dark:border-stone-800">
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Quick-safe styptic powder safeguard</li>
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Diamond dremel smooth round polish</li>
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Safe for wood floors and furniture</li>
+            </ul>
+          </div>
+          <div class="pt-4 mt-4 border-t border-stone-100 dark:border-stone-800 flex items-center justify-between gap-3 text-xs">
+            <span class="inline-flex items-center gap-1.5 text-stone-500 dark:text-stone-400 font-medium">
+              <i class="fas fa-shield-heart text-emerald-600"></i> Certified Gentle Care
+            </span>
+            <a href="contacts.html" class="inline-flex items-center gap-1 text-xs font-bold text-stone-600 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 transition" title="Ask Questions">
+              <span>Inquire</span>
+              <i class="fas fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 card-hover flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="img-zoom-wrapper h-48 rounded-2xl overflow-hidden">
+              <img src="public/sheabalm-1.avif" alt="Luxury Pawdicure" class="w-full h-full object-cover">
+            </div>
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="text-[10px] font-black uppercase tracking-wider text-amber-600 bg-amber-50 dark:bg-amber-950/60 px-2.5 py-0.5 rounded-full">VIP Paw Treatment</span>
+                <h3 class="font-bold text-stone-900 dark:text-white text-xl mt-1">Pawdicure & Shea Balm</h3>
+              </div>
+              <div class="text-right">
+                <span class="text-2xl font-black text-emerald-800 dark:text-emerald-400">$30</span>
+                <span class="text-[10px] text-stone-400 block">30 mins</span>
+              </div>
+            </div>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+              Complete nail clip and rotary buffering, sanitary paw pad fur clearing, anti-bacterial pad wipe, and a warm organic shea butter massage.
+            </p>
+            <ul class="text-[11px] text-stone-600 dark:text-stone-300 space-y-1.5 pt-2 border-t border-stone-100 dark:border-stone-800">
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Restores cracked rough paw pads</li>
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Deep moisturization with beeswax & shea</li>
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Non-slip pad perimeter shave</li>
+            </ul>
+          </div>
+          <div class="pt-4 mt-4 border-t border-stone-100 dark:border-stone-800 flex items-center justify-between gap-3 text-xs">
+            <span class="inline-flex items-center gap-1.5 text-stone-500 dark:text-stone-400 font-medium">
+              <i class="fas fa-shield-heart text-emerald-600"></i> Certified Gentle Care
+            </span>
+            <a href="contacts.html" class="inline-flex items-center gap-1 text-xs font-bold text-stone-600 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 transition" title="Ask Questions">
+              <span>Inquire</span>
+              <i class="fas fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 card-hover flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="img-zoom-wrapper h-48 rounded-2xl overflow-hidden">
+              <img src="public/bath-5.avif" alt="Antiseptic Chamomile Paw Soak" class="w-full h-full object-cover">
+            </div>
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="text-[10px] font-black uppercase tracking-wider text-teal-600 bg-teal-50 dark:bg-teal-950/60 px-2.5 py-0.5 rounded-full">Therapeutic Relief</span>
+                <h3 class="font-bold text-stone-900 dark:text-white text-xl mt-1">Antiseptic Chamomile Soak</h3>
+              </div>
+              <div class="text-right">
+                <span class="text-2xl font-black text-emerald-800 dark:text-emerald-400">$25</span>
+                <span class="text-[10px] text-stone-400 block">25 mins</span>
+              </div>
+            </div>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+              Warm bubbling effervescent herbal soak infused with organic German chamomile and tea tree to eliminate sidewalk salt, yeast, and paw-licking urges.
+            </p>
+            <ul class="text-[11px] text-stone-600 dark:text-stone-300 space-y-1.5 pt-2 border-t border-stone-100 dark:border-stone-800">
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Eliminates yeast and fungal buildup</li>
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Calms obsessive paw licking</li>
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Warm hydro-bubble aeration</li>
+            </ul>
+          </div>
+          <div class="pt-4 mt-4 border-t border-stone-100 dark:border-stone-800 flex items-center justify-between gap-3 text-xs">
+            <span class="inline-flex items-center gap-1.5 text-stone-500 dark:text-stone-400 font-medium">
+              <i class="fas fa-shield-heart text-emerald-600"></i> Certified Gentle Care
+            </span>
+            <a href="contacts.html" class="inline-flex items-center gap-1 text-xs font-bold text-stone-600 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 transition" title="Ask Questions">
+              <span>Inquire</span>
+              <i class="fas fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         PILLAR 4: COAT CARE & DE-SHEDDING
+         ==================================================================== -->
+    <section id="coat-care" class="max-w-7xl mx-auto px-6 py-16 border-b border-stone-300 dark:border-stone-700 scroll-mt-28">
+      <span id="coat" class="scroll-mt-28"></span>
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <div class="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-teal-700 dark:text-teal-400 mb-1">
+            <i class="fas fa-wand-magic-sparkles"></i>
+            <span>Core Pillar 04</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 dark:text-white">Coat Care, Dematting & De-Shedding</h2>
+          <p class="text-stone-600 dark:text-stone-300 text-sm mt-1 max-w-2xl">
+            Gentle Scandinavian line-brushing, painless tangle release, and clinical undercoat clearing that preserves natural coat health.
+          </p>
+        </div>
+        
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Card 1 -->
+        <div class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 card-hover flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="img-zoom-wrapper h-48 rounded-2xl overflow-hidden">
+              <img src="public/cat-2.avif" alt="Line-Brushing & Dematting" class="w-full h-full object-cover">
+            </div>
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="text-[10px] font-black uppercase tracking-wider text-emerald-600 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-full">Pain-Free Detangle</span>
+                <h3 class="font-bold text-stone-900 dark:text-white text-xl mt-1">Line-Brushing & Dematting</h3>
+              </div>
+              <div class="text-right">
+                <span class="text-2xl font-black text-emerald-800 dark:text-emerald-400">$40</span>
+                <span class="text-[10px] text-stone-400 block">45 mins</span>
+              </div>
+            </div>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+              Layered Scandinavian sectioning technique separating mats at skin level with marshmallow root dematting serum, without pulling or blade clipping.
+            </p>
+            <ul class="text-[11px] text-stone-600 dark:text-stone-300 space-y-1.5 pt-2 border-t border-stone-100 dark:border-stone-800">
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Preserves hair length without shaving</li>
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Botanical marshmallow slip serum</li>
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Zero stress Fear-Free brushing</li>
+            </ul>
+          </div>
+          <div class="pt-4 mt-4 border-t border-stone-100 dark:border-stone-800 flex items-center justify-between gap-3 text-xs">
+            <span class="inline-flex items-center gap-1.5 text-stone-500 dark:text-stone-400 font-medium">
+              <i class="fas fa-shield-heart text-emerald-600"></i> Certified Gentle Care
+            </span>
+            <a href="contacts.html" class="inline-flex items-center gap-1 text-xs font-bold text-stone-600 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 transition" title="Ask Questions">
+              <span>Inquire</span>
+              <i class="fas fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 card-hover flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="img-zoom-wrapper h-48 rounded-2xl overflow-hidden">
+              <img src="public/dog-brush.jpg" alt="Heavy Undercoat Blast" class="w-full h-full object-cover">
+            </div>
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="text-[10px] font-black uppercase tracking-wider text-amber-600 bg-amber-50 dark:bg-amber-950/60 px-2.5 py-0.5 rounded-full">Heavy Shedding</span>
+                <h3 class="font-bold text-stone-900 dark:text-white text-xl mt-1">Furminator Heavy De-Shed</h3>
+              </div>
+              <div class="text-right">
+                <span class="text-2xl font-black text-emerald-800 dark:text-emerald-400">$60</span>
+                <span class="text-[10px] text-stone-400 block">75 mins</span>
+              </div>
+            </div>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+              Targeted undercoat carding and high-velocity deshedding air flush designed for Huskies, German Shepherds, Golden Retrievers, and double-coated breeds.
+            </p>
+            <ul class="text-[11px] text-stone-600 dark:text-stone-300 space-y-1.5 pt-2 border-t border-stone-100 dark:border-stone-800">
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Eliminates dead dense trapped fur</li>
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Prevents heat exhaustion and hotspots</li>
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Dual-action undercoat rake finish</li>
+            </ul>
+          </div>
+          <div class="pt-4 mt-4 border-t border-stone-100 dark:border-stone-800 flex items-center justify-between gap-3 text-xs">
+            <span class="inline-flex items-center gap-1.5 text-stone-500 dark:text-stone-400 font-medium">
+              <i class="fas fa-shield-heart text-emerald-600"></i> Certified Gentle Care
+            </span>
+            <a href="contacts.html" class="inline-flex items-center gap-1 text-xs font-bold text-stone-600 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 transition" title="Ask Questions">
+              <span>Inquire</span>
+              <i class="fas fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 card-hover flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="img-zoom-wrapper h-48 rounded-2xl overflow-hidden">
+              <img src="public/pembroke.avif" alt="Silk Keratin Leave-In Shield" class="w-full h-full object-cover">
+            </div>
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="text-[10px] font-black uppercase tracking-wider text-purple-600 bg-purple-50 dark:bg-purple-950/60 px-2.5 py-0.5 rounded-full">Coat Shield</span>
+                <h3 class="font-bold text-stone-900 dark:text-white text-xl mt-1">Silk Keratin Coat Shield</h3>
+              </div>
+              <div class="text-right">
+                <span class="text-2xl font-black text-emerald-800 dark:text-emerald-400">$25</span>
+                <span class="text-[10px] text-stone-400 block">20 mins</span>
+              </div>
+            </div>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+              Hydrolyzed wheat and silk amino acid glaze that bonds to damaged hair shafts, sealing the cuticle to repel mud, static, and friction tangles.
+            </p>
+            <ul class="text-[11px] text-stone-600 dark:text-stone-300 space-y-1.5 pt-2 border-t border-stone-100 dark:border-stone-800">
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Repels static and outdoor dirt</li>
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Long-lasting velvet gloss touch</li>
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Natural UV and environmental shield</li>
+            </ul>
+          </div>
+          <div class="pt-4 mt-4 border-t border-stone-100 dark:border-stone-800 flex items-center justify-between gap-3 text-xs">
+            <span class="inline-flex items-center gap-1.5 text-stone-500 dark:text-stone-400 font-medium">
+              <i class="fas fa-shield-heart text-emerald-600"></i> Certified Gentle Care
+            </span>
+            <a href="contacts.html" class="inline-flex items-center gap-1 text-xs font-bold text-stone-600 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 transition" title="Ask Questions">
+              <span>Inquire</span>
+              <i class="fas fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         PILLAR 5: RESTORATIVE SPA TREATMENTS
+         ==================================================================== -->
+    <section id="spa-treatments" class="max-w-7xl mx-auto px-6 py-16 border-b border-stone-300 dark:border-stone-700 scroll-mt-28">
+      <span id="spa" class="scroll-mt-28"></span>
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <div class="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-purple-700 dark:text-purple-400 mb-1">
+            <i class="fas fa-spa"></i>
+            <span>Core Pillar 05</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 dark:text-white">Restorative Spa Therapies & Facials</h2>
+          <p class="text-stone-600 dark:text-stone-300 text-sm mt-1 max-w-2xl">
+            Thermal mineral wraps, antioxidant facial compresses, and ozone micro-bubble hydrobaths formulated to soothe joint fatigue and heal skin.
+          </p>
+        </div>
+        
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Card 1 -->
+        <div class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 card-hover flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="img-zoom-wrapper h-48 rounded-2xl overflow-hidden">
+              <img src="public/dog-spa.jpg" alt="Dead Sea Mud Mask" class="w-full h-full object-cover">
+            </div>
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="text-[10px] font-black uppercase tracking-wider text-emerald-600 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-full">Skin Detox</span>
+                <h3 class="font-bold text-stone-900 dark:text-white text-xl mt-1">Dead Sea Mineral Mud Mask</h3>
+              </div>
+              <div class="text-right">
+                <span class="text-2xl font-black text-emerald-800 dark:text-emerald-400">$35</span>
+                <span class="text-[10px] text-stone-400 block">45 mins</span>
+              </div>
+            </div>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+              Thermal mineral mud wrap that draws out deep cutaneous toxins, calms flare-ups, soothes arthritic joint stiffness, and hydrates dry skin.
+            </p>
+            <ul class="text-[11px] text-stone-600 dark:text-stone-300 space-y-1.5 pt-2 border-t border-stone-100 dark:border-stone-800">
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Rich in 21 restorative minerals</li>
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Soothes joint stiffness & itching</li>
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Warm botanical towel wrap</li>
+            </ul>
+          </div>
+          <div class="pt-4 mt-4 border-t border-stone-100 dark:border-stone-800 flex items-center justify-between gap-3 text-xs">
+            <span class="inline-flex items-center gap-1.5 text-stone-500 dark:text-stone-400 font-medium">
+              <i class="fas fa-shield-heart text-emerald-600"></i> Certified Gentle Care
+            </span>
+            <a href="contacts.html" class="inline-flex items-center gap-1 text-xs font-bold text-stone-600 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 transition" title="Ask Questions">
+              <span>Inquire</span>
+              <i class="fas fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 card-hover flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="img-zoom-wrapper h-48 rounded-2xl overflow-hidden">
+              <img src="public/shihtuz.jpg" alt="Blueberry Brightening Facial" class="w-full h-full object-cover">
+            </div>
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="text-[10px] font-black uppercase tracking-wider text-purple-600 bg-purple-50 dark:bg-purple-950/60 px-2.5 py-0.5 rounded-full">Facial Glow</span>
+                <h3 class="font-bold text-stone-900 dark:text-white text-xl mt-1">Blueberry Brightening Facial</h3>
+              </div>
+              <div class="text-right">
+                <span class="text-2xl font-black text-emerald-800 dark:text-emerald-400">$22</span>
+                <span class="text-[10px] text-stone-400 block">20 mins</span>
+              </div>
+            </div>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+              Antioxidant fruit lather with gentle jojoba beads that clears tear staining around the muzzle and eyes without stinging, leaving clean sweet cheeks.
+            </p>
+            <ul class="text-[11px] text-stone-600 dark:text-stone-300 space-y-1.5 pt-2 border-t border-stone-100 dark:border-stone-800">
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Gently lightens tear staining</li>
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> 100% ophthalmologist-safe tearless lather</li>
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Long-lasting fresh berry scent</li>
+            </ul>
+          </div>
+          <div class="pt-4 mt-4 border-t border-stone-100 dark:border-stone-800 flex items-center justify-between gap-3 text-xs">
+            <span class="inline-flex items-center gap-1.5 text-stone-500 dark:text-stone-400 font-medium">
+              <i class="fas fa-shield-heart text-emerald-600"></i> Certified Gentle Care
+            </span>
+            <a href="contacts.html" class="inline-flex items-center gap-1 text-xs font-bold text-stone-600 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 transition" title="Ask Questions">
+              <span>Inquire</span>
+              <i class="fas fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 card-hover flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="img-zoom-wrapper h-48 rounded-2xl overflow-hidden">
+              <img src="public/dog-bath.jpg" alt="Aromatherapy Ozone Hydro-Massage" class="w-full h-full object-cover">
+            </div>
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="text-[10px] font-black uppercase tracking-wider text-amber-600 bg-amber-50 dark:bg-amber-950/60 px-2.5 py-0.5 rounded-full">Senior & Joint Care</span>
+                <h3 class="font-bold text-stone-900 dark:text-white text-xl mt-1">Ozone Hydro-Massage Bath</h3>
+              </div>
+              <div class="text-right">
+                <span class="text-2xl font-black text-emerald-800 dark:text-emerald-400">$45</span>
+                <span class="text-[10px] text-stone-400 block">40 mins</span>
+              </div>
+            </div>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+              Infusion of millions of oxygenated micro-bubbles into warm water, penetrating deep into pores to eliminate bacterial sebum while easing tight muscles.
+            </p>
+            <ul class="text-[11px] text-stone-600 dark:text-stone-300 space-y-1.5 pt-2 border-t border-stone-100 dark:border-stone-800">
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Micro-bubble deep pore oxygenation</li>
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Gentle therapeutic orthopedic massage</li>
+              <li><i class="fas fa-check text-emerald-600 mr-1.5"></i> Lavender & chamomile relaxation</li>
+            </ul>
+          </div>
+          <div class="pt-4 mt-4 border-t border-stone-100 dark:border-stone-800 flex items-center justify-between gap-3 text-xs">
+            <span class="inline-flex items-center gap-1.5 text-stone-500 dark:text-stone-400 font-medium">
+              <i class="fas fa-shield-heart text-emerald-600"></i> Certified Gentle Care
+            </span>
+            <a href="contacts.html" class="inline-flex items-center gap-1 text-xs font-bold text-stone-600 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 transition" title="Ask Questions">
+              <span>Inquire</span>
+              <i class="fas fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 7: TRANSPARENT PRICING BY PET SIZE & WEIGHT
+         ==================================================================== -->
+    <section id="pricing-table" class="max-w-7xl mx-auto px-4 sm:px-6 py-16 border-b border-stone-300 dark:border-stone-700 scroll-mt-28">
+      <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
         <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300 text-[11px] font-extrabold uppercase tracking-widest">
           <i class="fas fa-weight-scale text-amber-500"></i>
-          <span>Transparent Pricing</span>
+          <span>Clear & Transparent Rates</span>
         </span>
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-emerald-950 dark:text-white">
-          Pricing by Pet Size & Weight Category
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-emerald-950 dark:text-white">
+          Transparent Rates by Pet Size & Weight
         </h2>
         <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed max-w-lg mx-auto">
-          Every breed is unique. We price based on animal frame, coat density, and dedicated stylist table time.
+          Every breed is unique. We price fairly based on animal frame, coat density, and dedicated stylist table time.
         </p>
       </div>
 
@@ -218,13 +829,17 @@
               <h3 class="text-xl font-bold text-stone-900 dark:text-white">Petite Breeds</h3>
               <p class="text-[11px] text-stone-500 mt-1">Shih Tzu, Chihuahua, Maltese, Toy Poodle, Persian Cats</p>
             </div>
-            <div class="space-y-2 pt-2 border-t border-stone-100 dark:border-stone-800 text-xs">
+            <div class="space-y-2.5 pt-3 border-t border-stone-100 dark:border-stone-800 text-xs">
               <div class="flex justify-between"><span class="text-stone-500">Hydro-Bath:</span><span class="font-bold text-emerald-700 dark:text-emerald-400">$40 - $45</span></div>
               <div class="flex justify-between"><span class="text-stone-500">Full Scissor Cut:</span><span class="font-bold text-emerald-700 dark:text-emerald-400">$65 - $75</span></div>
-              <div class="flex justify-between"><span class="text-stone-500">Table Time:</span><span class="font-bold text-stone-800 dark:text-stone-200">~60 mins</span></div>
+              <div class="flex justify-between"><span class="text-stone-500">Nail Clip & File:</span><span class="font-bold text-emerald-700 dark:text-emerald-400">$20</span></div>
+              <div class="flex justify-between"><span class="text-stone-500">Stylist Table Time:</span><span class="font-bold text-stone-800 dark:text-stone-200">~60 mins</span></div>
             </div>
           </div>
-          <a href="sessions.html#booking" class="mt-6 block text-center py-2.5 rounded-xl bg-stone-100 dark:bg-stone-800 hover:bg-emerald-800 hover:text-white text-xs font-bold transition-all">Book Small</a>
+          <div class="mt-4 pt-3 border-t border-stone-100 dark:border-stone-800 flex items-center justify-center gap-1.5 text-center text-[11px] text-stone-500 dark:text-stone-400 font-medium">
+            <i class="fas fa-paw text-emerald-600 text-[10px]"></i>
+            <span>Tailored by coat density & size</span>
+          </div>
         </div>
 
         <div class="bg-white dark:bg-[#1A2220] rounded-3xl p-6 border border-stone-200 dark:border-stone-800 shadow-sm card-hover flex flex-col justify-between">
@@ -237,13 +852,17 @@
               <h3 class="text-xl font-bold text-stone-900 dark:text-white">Mid-Size Companions</h3>
               <p class="text-[11px] text-stone-500 mt-1">Cocker Spaniel, French Bulldog, Beagle, Corgi, Shiba Inu</p>
             </div>
-            <div class="space-y-2 pt-2 border-t border-stone-100 dark:border-stone-800 text-xs">
+            <div class="space-y-2.5 pt-3 border-t border-stone-100 dark:border-stone-800 text-xs">
               <div class="flex justify-between"><span class="text-stone-500">Hydro-Bath:</span><span class="font-bold text-emerald-700 dark:text-emerald-400">$55 - $60</span></div>
               <div class="flex justify-between"><span class="text-stone-500">Full Scissor Cut:</span><span class="font-bold text-emerald-700 dark:text-emerald-400">$85 - $95</span></div>
-              <div class="flex justify-between"><span class="text-stone-500">Table Time:</span><span class="font-bold text-stone-800 dark:text-stone-200">~75 mins</span></div>
+              <div class="flex justify-between"><span class="text-stone-500">Nail Clip & File:</span><span class="font-bold text-emerald-700 dark:text-emerald-400">$20</span></div>
+              <div class="flex justify-between"><span class="text-stone-500">Stylist Table Time:</span><span class="font-bold text-stone-800 dark:text-stone-200">~75 mins</span></div>
             </div>
           </div>
-          <a href="sessions.html#booking" class="mt-6 block text-center py-2.5 rounded-xl bg-stone-100 dark:bg-stone-800 hover:bg-emerald-800 hover:text-white text-xs font-bold transition-all">Book Medium</a>
+          <div class="mt-4 pt-3 border-t border-stone-100 dark:border-stone-800 flex items-center justify-center gap-1.5 text-center text-[11px] text-stone-500 dark:text-stone-400 font-medium">
+            <i class="fas fa-paw text-emerald-600 text-[10px]"></i>
+            <span>Tailored by coat density & size</span>
+          </div>
         </div>
 
         <div class="bg-white dark:bg-[#1A2220] rounded-3xl p-6 border border-stone-200 dark:border-stone-800 shadow-sm card-hover flex flex-col justify-between">
@@ -256,13 +875,17 @@
               <h3 class="text-xl font-bold text-stone-900 dark:text-white">Large Athletes</h3>
               <p class="text-[11px] text-stone-500 mt-1">Golden Retriever, Lab, Standard Poodle, Boxer, Husky</p>
             </div>
-            <div class="space-y-2 pt-2 border-t border-stone-100 dark:border-stone-800 text-xs">
+            <div class="space-y-2.5 pt-3 border-t border-stone-100 dark:border-stone-800 text-xs">
               <div class="flex justify-between"><span class="text-stone-500">Hydro-Bath:</span><span class="font-bold text-emerald-700 dark:text-emerald-400">$70 - $80</span></div>
               <div class="flex justify-between"><span class="text-stone-500">Full Scissor Cut:</span><span class="font-bold text-emerald-700 dark:text-emerald-400">$105 - $125</span></div>
-              <div class="flex justify-between"><span class="text-stone-500">Table Time:</span><span class="font-bold text-stone-800 dark:text-stone-200">~90 mins</span></div>
+              <div class="flex justify-between"><span class="text-stone-500">Nail Clip & File:</span><span class="font-bold text-emerald-700 dark:text-emerald-400">$25</span></div>
+              <div class="flex justify-between"><span class="text-stone-500">Stylist Table Time:</span><span class="font-bold text-stone-800 dark:text-stone-200">~90 mins</span></div>
             </div>
           </div>
-          <a href="sessions.html#booking" class="mt-6 block text-center py-2.5 rounded-xl bg-stone-100 dark:bg-stone-800 hover:bg-emerald-800 hover:text-white text-xs font-bold transition-all">Book Large</a>
+          <div class="mt-4 pt-3 border-t border-stone-100 dark:border-stone-800 flex items-center justify-center gap-1.5 text-center text-[11px] text-stone-500 dark:text-stone-400 font-medium">
+            <i class="fas fa-paw text-emerald-600 text-[10px]"></i>
+            <span>Tailored by coat density & size</span>
+          </div>
         </div>
 
         <div class="bg-white dark:bg-[#1A2220] rounded-3xl p-6 border border-stone-200 dark:border-stone-800 shadow-sm card-hover flex flex-col justify-between">
@@ -275,112 +898,122 @@
               <h3 class="text-xl font-bold text-stone-900 dark:text-white">Giant Companions</h3>
               <p class="text-[11px] text-stone-500 mt-1">Bernese Mountain Dog, Great Dane, Newfoundland, Mastiff</p>
             </div>
-            <div class="space-y-2 pt-2 border-t border-stone-100 dark:border-stone-800 text-xs">
+            <div class="space-y-2.5 pt-3 border-t border-stone-100 dark:border-stone-800 text-xs">
               <div class="flex justify-between"><span class="text-stone-500">Hydro-Bath:</span><span class="font-bold text-emerald-700 dark:text-emerald-400">$95 - $115</span></div>
               <div class="flex justify-between"><span class="text-stone-500">Full Scissor Cut:</span><span class="font-bold text-emerald-700 dark:text-emerald-400">$140 - $160</span></div>
-              <div class="flex justify-between"><span class="text-stone-500">Table Time:</span><span class="font-bold text-stone-800 dark:text-stone-200">~120 mins</span></div>
+              <div class="flex justify-between"><span class="text-stone-500">Nail Clip & File:</span><span class="font-bold text-emerald-700 dark:text-emerald-400">$30</span></div>
+              <div class="flex justify-between"><span class="text-stone-500">Stylist Table Time:</span><span class="font-bold text-stone-800 dark:text-stone-200">~120 mins</span></div>
             </div>
           </div>
-          <a href="sessions.html#booking" class="mt-6 block text-center py-2.5 rounded-xl bg-stone-100 dark:bg-stone-800 hover:bg-emerald-800 hover:text-white text-xs font-bold transition-all">Book Giant</a>
+          <div class="mt-4 pt-3 border-t border-stone-100 dark:border-stone-800 flex items-center justify-center gap-1.5 text-center text-[11px] text-stone-500 dark:text-stone-400 font-medium">
+            <i class="fas fa-paw text-emerald-600 text-[10px]"></i>
+            <span>Tailored by coat density & size</span>
+          </div>
         </div>
 
       </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-16 border-b border-stone-300 dark:border-stone-700">
-      <div class="bg-white dark:bg-[#16201D] rounded-[2.5rem] p-6 sm:p-10 border border-stone-200 dark:border-stone-800 shadow-xl space-y-8">
+    <!-- ====================================================================
+         SECTION 8: SIMPLE 3-STEP BOOKING PROCESS
+         ==================================================================== -->
+    <section class="max-w-7xl mx-auto px-6 py-16 border-b border-stone-300 dark:border-stone-700">
+      <div class="text-center max-w-xl mx-auto mb-12 space-y-2">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-emerald-800 dark:text-emerald-400">Simple Booking Process</span>
+        <h2 class="text-3xl font-extrabold text-emerald-950 dark:text-white">How to Book Your Companion's Session</h2>
+        <p class="text-stone-600 dark:text-stone-300 text-sm">Clear, stress-free scheduling in less than two minutes.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
         
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-          <div>
-            <span class="text-[11px] font-black uppercase tracking-widest text-emerald-800 dark:text-emerald-400">Clinical Skin Care</span>
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-stone-900 dark:text-white">Restorative Derma-Therapies</h2>
+        <div class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 text-center space-y-3 card-hover">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-400 font-black text-lg mx-auto flex items-center justify-center">
+            1
           </div>
-          <span class="text-xs text-stone-400">Can be added to any core bath or haircut</span>
+          <h3 class="text-lg font-bold text-stone-900 dark:text-white">Select Service & Pet Profile</h3>
+          <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+            Choose your pet breed, weight category, and desired grooming package or restorative spa add-on.
+          </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="p-6 rounded-2xl bg-stone-50 dark:bg-stone-800/60 border border-stone-100 dark:border-stone-800 space-y-3 card-hover">
-            <div class="flex justify-between items-start">
-              <h4 class="font-bold text-base text-stone-900 dark:text-white">Anti-Allergy Neem Soak</h4>
-              <span class="font-bold text-emerald-700 dark:text-emerald-400 text-sm">+$24</span>
-            </div>
-            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
-              Organic cold-pressed neem and turmeric infused rinse that purges skin of environmental pollen and calms allergic itching immediately.
-            </p>
+        <div class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 text-center space-y-3 card-hover">
+          <div class="w-12 h-12 rounded-2xl bg-amber-100 dark:bg-amber-950 text-amber-600 font-black text-lg mx-auto flex items-center justify-center">
+            2
           </div>
+          <h3 class="text-lg font-bold text-stone-900 dark:text-white">Pick Date & Stylist</h3>
+          <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+            Select a convenient morning or afternoon reservation and pair with your preferred Fear-Free certified specialist.
+          </p>
+        </div>
 
-          <div class="p-6 rounded-2xl bg-stone-50 dark:bg-stone-800/60 border border-stone-100 dark:border-stone-800 space-y-3 card-hover">
-            <div class="flex justify-between items-start">
-              <h4 class="font-bold text-base text-stone-900 dark:text-white">Keratin Coat Glaze</h4>
-              <span class="font-bold text-emerald-700 dark:text-emerald-400 text-sm">+$30</span>
-            </div>
-            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
-              Micro-protein coat sealant that strengthens brittle fur, repairs heat damage from sun exposure, and shields against tangles for up to 3 weeks.
-            </p>
+        <div class="bg-white dark:bg-[#1A2220] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 text-center space-y-3 card-hover">
+          <div class="w-12 h-12 rounded-2xl bg-teal-100 dark:bg-teal-950 text-teal-600 font-black text-lg mx-auto flex items-center justify-center">
+            3
           </div>
-
-          <div class="p-6 rounded-2xl bg-stone-50 dark:bg-stone-800/60 border border-stone-100 dark:border-stone-800 space-y-3 card-hover">
-            <div class="flex justify-between items-start">
-              <h4 class="font-bold text-base text-stone-900 dark:text-white">Hot Spot Herbal Compress</h4>
-              <span class="font-bold text-emerald-700 dark:text-emerald-400 text-sm">+$18</span>
-            </div>
-            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
-              Targeted colloidal silver and organic witch hazel warm towel pack applied to inflamed patches to suppress bacterial flare-ups.
-            </p>
-          </div>
+          <h3 class="text-lg font-bold text-stone-900 dark:text-white">Enjoy Cage-Free Pampering</h3>
+          <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+            Drop off your companion for personalized spa pampering. Receive live photo updates and pick up a glowing, happy pet.
+          </p>
         </div>
 
       </div>
+
+      <div class="text-center pt-10">
+        <a href="book.html" class="px-8 py-4 rounded-full bg-emerald-800 hover:bg-emerald-700 text-white font-extrabold text-sm shadow-xl btn-hover inline-flex items-center gap-2 border border-emerald-700">
+          <i class="fas fa-calendar-check text-amber-300"></i>
+          <span>Launch Online Booking Form</span>
+        </a>
+      </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-16 border-b border-stone-300 dark:border-stone-700">
-      <div class="bg-gradient-to-r from-emerald-950 via-emerald-900 to-stone-900 rounded-[2.5rem] p-6 sm:p-10 lg:p-14 text-white border border-emerald-800/60 shadow-2xl">
+    <!-- ====================================================================
+         SECTION 9: FINAL CONSULTATION & CONTACT BANNER
+         ==================================================================== -->
+    <section class="max-w-7xl mx-auto px-6 py-16">
+      <div class="bg-gradient-to-r from-emerald-950 via-emerald-900 to-teal-950 rounded-[2.5rem] p-8 sm:p-14 text-white shadow-2xl border border-emerald-800/80">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
-          <div class="lg:col-span-6 space-y-4">
-            <span class="px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 text-[10px] font-black uppercase tracking-wider border border-amber-400/30">
-              Vet Dermatologist Approved
+          <div class="lg:col-span-7 space-y-4">
+            <span class="px-3.5 py-1 rounded-full bg-amber-400 text-stone-950 text-xs font-black uppercase tracking-wider">
+              Personalized Consultation
             </span>
-            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight">
-              Formulated at Canine Neutral pH 6.8
+            <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight">
+              Unsure which treatment matches your pet's coat?
             </h2>
-            <p class="text-xs sm:text-sm text-stone-300 leading-relaxed">
-              Human shampoos have an acidic pH of 5.5, which burns dog and cat skin. Every product used in our salon matches the delicate neutral lipid barrier of companion animals.
+            <p class="text-stone-300 text-sm leading-relaxed max-w-xl">
+              Every appointment includes an in-person skin and coat health assessment. Speak with our master stylists directly or schedule a complimentary salon walkthrough.
             </p>
+
+            <div class="flex flex-wrap items-center gap-4 text-xs text-stone-300 pt-2">
+              <div class="flex items-center gap-2">
+                <i class="fas fa-phone-alt text-amber-400"></i>
+                <span class="font-bold text-white">+1 (800) 555-PAWS</span>
+              </div>
+              <span class="text-stone-500">•</span>
+              <div class="flex items-center gap-2">
+                <i class="fas fa-envelope text-emerald-400"></i>
+                <span>concierge@pawspaw.com</span>
+              </div>
+              <span class="text-stone-500">•</span>
+              <div class="flex items-center gap-2">
+                <i class="fas fa-location-dot text-teal-400"></i>
+                <span>PawSpaw Center, Hosur</span>
+              </div>
+            </div>
           </div>
 
-          <div class="lg:col-span-6 grid grid-cols-2 gap-4">
-            <div class="p-4 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10 space-y-1">
-              <div class="text-amber-400 font-black text-sm"><i class="fas fa-check-circle mr-1"></i> Zero SLS & Sulfates</div>
-              <p class="text-[11px] text-stone-300">No cheap detergent foaming agents that sting eyes.</p>
-            </div>
-            <div class="p-4 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10 space-y-1">
-              <div class="text-emerald-400 font-black text-sm"><i class="fas fa-check-circle mr-1"></i> Cruelty-Free Vegan</div>
-              <p class="text-[11px] text-stone-300">100% plant and seed extracts ethically sourced.</p>
-            </div>
-            <div class="p-4 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10 space-y-1">
-              <div class="text-teal-400 font-black text-sm"><i class="fas fa-check-circle mr-1"></i> Pure Essential Mists</div>
-              <p class="text-[11px] text-stone-300">Scented with pure chamomile, lavender, and aloe.</p>
-            </div>
-            <div class="p-4 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10 space-y-1">
-              <div class="text-rose-400 font-black text-sm"><i class="fas fa-check-circle mr-1"></i> 100% Biodegradable</div>
-              <p class="text-[11px] text-stone-300">Zero synthetic chemical runoff into city waters.</p>
-            </div>
+          <div class="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-3 justify-center">
+            <a href="book.html"
+              class="w-full text-center px-8 py-4 rounded-full bg-amber-500 hover:bg-amber-400 text-stone-950 font-black text-sm shadow-xl btn-hover border border-amber-400">
+              <i class="fas fa-calendar-check mr-2"></i> Book an Appointment
+            </a>
+            <a href="contacts.html"
+              class="w-full text-center px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-extrabold text-sm border border-white/20 btn-hover">
+              <i class="fas fa-headset mr-2 text-amber-300"></i> Contact Salon Concierge
+            </a>
           </div>
 
         </div>
-      </div>
-    </section>
-
-    <section class="max-w-7xl mx-auto px-6 py-16 text-center space-y-6 ">
-      <h3 class="text-2xl sm:text-3xl font-extrabold text-stone-900 dark:text-white">Uncertain which treatment your pet requires?</h3>
-      <p class="text-stone-600 dark:text-stone-300 text-sm max-w-xl mx-auto">
-        Every appointment begins with an in-person coat assessment. Our stylists will guide you to the healthiest choice for your pet's comfort.
-      </p>
-      <div class="pt-2">
-        <a href="sessions.html#booking" class="px-8 py-4 rounded-full bg-emerald-800 hover:bg-emerald-700 text-white font-extrabold text-xs shadow-xl btn-hover inline-block">
-          Book a Consultation & Session
-        </a>
       </div>
     </section>
 

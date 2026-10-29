@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book an Appointment | PawSpaw & Co. Luxury Pet Spa</title>
+  <meta name="description" content="Reserve a bespoke grooming or spa session for your companion. Certified Fear-Free stylists, 100% organic botanicals, and zero-cage comfort.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              700: '#1b4332',
+              800: '#0f291e',
+              accent: '#e07a5f'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body class="bg-[#FDFBF7] dark:bg-[#121816] text-stone-800 dark:text-stone-100 transition-colors duration-300 antialiased overflow-x-hidden min-h-screen flex flex-col justify-between">
+
+  <div id="navbar-placeholder"></div>
+
+  <main class="pt-24 lg:pt-28 flex-1">
+
+    <!-- ====================================================================
+         SECTION 1: HERO
+         ==================================================================== -->
+    <section class="relative w-full py-12 lg:py-16 text-center bg-gradient-to-b from-emerald-50/60 via-stone-50/50 to-[#FDFBF7] dark:from-emerald-950/20 dark:via-[#16211E] dark:to-[#121816] border-b-2 border-stone-200/90 dark:border-stone-800/90 shadow-xs overflow-hidden mb-8">
+      <!-- Ambient Decorative Glow -->
+      <div class="absolute -top-20 left-1/2 -translate-x-1/2 w-[36rem] h-56 bg-emerald-200/35 dark:bg-emerald-900/15 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-3xl mx-auto px-6 space-y-4 relative z-10">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300 text-xs font-black uppercase tracking-widest shadow-sm">
+          <i class="fas fa-calendar-check text-amber-500"></i>
+          <span>Official Reservation Portal</span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-emerald-950 dark:text-white leading-[1.15]">
+          Reserve Your Pet's <span class="text-amber-600 italic font-serif">Spa Retreat.</span>
+        </h1>
+        <p class="text-stone-600 dark:text-stone-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+          Every session is tailored to your pet's emotional and physical comfort. Choose your preferred specialist, treatment, date, and time below for an anxiety-free sanctuary experience.
+        </p>
+
+        <!-- Quick Trust Indicators -->
+        <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-8 pt-2 text-xs font-bold text-stone-600 dark:text-stone-300">
+          <div class="flex items-center gap-1.5">
+            <i class="fas fa-shield-cat text-emerald-600"></i>
+            <span>100% Fear-Free Handling</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <i class="fas fa-door-open text-amber-600"></i>
+            <span>Zero-Cage Environment</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <i class="fas fa-leaf text-teal-600"></i>
+            <span>Organic Botanical Care</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 2: BOOKING WORKFLOW (FORM + SIDEBAR)
+         ==================================================================== -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 py-8 lg:py-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+
+        <!-- Left Column: The Central Booking Form Container -->
+        <div class="lg:col-span-8 bg-white dark:bg-[#1A2220] rounded-[2.5rem] p-6 sm:p-10 lg:p-12 border border-stone-200 dark:border-stone-800 shadow-xl space-y-8">
+          
+          <div class="border-b border-stone-200 dark:border-stone-800 pb-5">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-stone-900 dark:text-white">
+              Appointment Details
+            </h2>
+            <p class="text-xs sm:text-sm text-stone-500 dark:text-stone-400 mt-1">
+              Please complete all required fields. Your booking will be saved instantly to your account.
+            </p>
+          </div>
+
+          <!-- Dynamic Real-Time Feedback Messages -->
+          <div id="booking-error-msg" class="hidden p-4 rounded-2xl bg-rose-50 dark:bg-rose-950/70 border border-rose-300 dark:border-rose-800 text-rose-800 dark:text-rose-300 text-xs font-bold flex items-center gap-2">
+            <i class="fas fa-circle-exclamation text-base"></i>
+            <span id="booking-error-text">Please correct the highlighted fields before submitting.</span>
+          </div>
+
+          <!-- Confirmed Booking Card (shown on real successful save) -->
+          <div id="booking-confirmation-msg" class="hidden p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-emerald-50 via-teal-50/50 to-stone-50 dark:from-emerald-950/60 dark:via-[#16231F] dark:to-stone-900 border-2 border-emerald-500/70 shadow-lg space-y-4">
+            <div class="flex items-center justify-between border-b border-emerald-200 dark:border-emerald-800/60 pb-3">
+              <div class="flex items-center gap-2.5">
+                <div class="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-lg shadow-sm">
+                  <i class="fas fa-check"></i>
+                </div>
+                <div>
+                  <h4 class="font-extrabold text-stone-900 dark:text-white text-base">Appointment Confirmed!</h4>
+                  <p class="text-xs text-stone-500 dark:text-stone-400">Your reservation has been recorded in our system.</p>
+                </div>
+              </div>
+              <span id="conf-ref-badge" class="px-3 py-1 rounded-full bg-emerald-800 text-white text-xs font-black tracking-wider">#APT-XXXX</span>
+            </div>
+
+            <!-- Summary Receipt Matrix -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs pt-1">
+              <div class="p-3 rounded-xl bg-white/80 dark:bg-stone-900/80 border border-stone-200/80 dark:border-stone-800">
+                <span class="text-[10px] text-stone-400 uppercase font-black block">Pet</span>
+                <span id="conf-pet-name" class="font-bold text-stone-900 dark:text-white text-sm">-</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/80 dark:bg-stone-900/80 border border-stone-200/80 dark:border-stone-800">
+                <span class="text-[10px] text-stone-400 uppercase font-black block">Service</span>
+                <span id="conf-service-name" class="font-bold text-emerald-800 dark:text-emerald-400 text-sm truncate block">-</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/80 dark:bg-stone-900/80 border border-stone-200/80 dark:border-stone-800">
+                <span class="text-[10px] text-stone-400 uppercase font-black block">Date</span>
+                <span id="conf-date-val" class="font-bold text-stone-900 dark:text-white text-sm">-</span>
+              </div>
+              <div class="p-3 rounded-xl bg-white/80 dark:bg-stone-900/80 border border-stone-200/80 dark:border-stone-800">
+                <span class="text-[10px] text-stone-400 uppercase font-black block">Time</span>
+                <span id="conf-time-val" class="font-bold text-stone-900 dark:text-white text-sm">-</span>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+              <span class="text-xs text-stone-600 dark:text-stone-300">
+                A confirmation summary has been saved to your portal.
+              </span>
+              <div class="flex items-center gap-2">
+                <a href="user-dashboard.html" class="px-5 py-2.5 rounded-xl bg-emerald-800 hover:bg-emerald-700 text-white font-extrabold text-xs shadow-md transition-all flex items-center gap-1.5">
+                  <i class="fas fa-user-circle"></i>
+                  <span>View in Portal</span>
+                </a>
+                <button type="button" onclick="window.print()" class="px-4 py-2.5 rounded-xl bg-stone-200 dark:bg-stone-800 hover:bg-stone-300 text-stone-700 dark:text-stone-200 font-bold text-xs transition-colors">
+                  <i class="fas fa-print mr-1"></i> Print
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form Element connected directly to setupPublicBookingForm() -->
+          <form id="appointment-booking-form" class="space-y-6" novalidate>
+
+            <!-- Pillar A: Pet Parent Contact Info -->
+            <div class="space-y-4">
+              <div class="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-emerald-800 dark:text-emerald-400">
+                <i class="fas fa-user"></i>
+                <span>1. Pet Owner Information</span>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                  <label for="book-owner-name" class="block text-xs font-bold text-stone-700 dark:text-stone-300 mb-1">
+                    Your Full Name <span class="text-rose-500">*</span>
+                  </label>
+                  <input type="text" id="book-owner-name" required placeholder="e.g. Rachel Adams"
+                    class="w-full text-xs px-4 py-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-emerald-600 hover:border-stone-400 transition-colors">
+                </div>
+
+                <div>
+                  <label for="book-owner-email" class="block text-xs font-bold text-stone-700 dark:text-stone-300 mb-1">
+                    Email Address <span class="text-rose-500">*</span>
+                  </label>
+                  <input type="email" id="book-owner-email" required placeholder="rachel@example.com"
+                    class="w-full text-xs px-4 py-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-emerald-600 hover:border-stone-400 transition-colors">
+                </div>
+
+                <div>
+                  <label for="book-owner-phone" class="block text-xs font-bold text-stone-700 dark:text-stone-300 mb-1">
+                    Phone Number <span class="text-rose-500">*</span>
+                  </label>
+                  <input type="tel" id="book-owner-phone" required placeholder="e.g. +1 (555) 382-9102"
+                    class="w-full text-xs px-4 py-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-emerald-600 hover:border-stone-400 transition-colors">
+                </div>
+              </div>
+            </div>
+
+            <!-- Pillar B: Pet Details -->
+            <div class="space-y-4 pt-2 border-t border-stone-100 dark:border-stone-800/80">
+              <div class="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-emerald-800 dark:text-emerald-400">
+                <i class="fas fa-paw"></i>
+                <span>2. Pet Companion Details</span>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                  <label for="book-pet-name" class="block text-xs font-bold text-stone-700 dark:text-stone-300 mb-1">
+                    Pet's Name <span class="text-rose-500">*</span>
+                  </label>
+                  <input type="text" id="book-pet-name" required placeholder="e.g. Milo"
+                    class="w-full text-xs px-4 py-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-emerald-600 hover:border-stone-400 transition-colors">
+                </div>
+
+                <div>
+                  <label for="book-pet-type" class="block text-xs font-bold text-stone-700 dark:text-stone-300 mb-1">
+                    Pet Type <span class="text-rose-500">*</span>
+                  </label>
+                  <select id="book-pet-type" required
+                    class="w-full text-xs px-4 py-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-emerald-600 hover:border-stone-400 transition-colors">
+                    <option value="Dog">Dog (Canine)</option>
+                    <option value="Cat">Cat (Feline)</option>
+                    <option value="Other">Other Small Companion</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="book-pet-breed" class="block text-xs font-bold text-stone-700 dark:text-stone-300 mb-1">
+                    Breed & Approx. Weight
+                  </label>
+                  <input type="text" id="book-pet-breed" placeholder="e.g. Golden Retriever (45 lbs)"
+                    class="w-full text-xs px-4 py-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-emerald-600 hover:border-stone-400 transition-colors">
+                </div>
+              </div>
+            </div>
+
+            <!-- Pillar C: Service & Specialist -->
+            <div class="space-y-4 pt-2 border-t border-stone-100 dark:border-stone-800/80">
+              <div class="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-emerald-800 dark:text-emerald-400">
+                <i class="fas fa-spa"></i>
+                <span>3. Treatment & Specialist Selection</span>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="book-service" class="block text-xs font-bold text-stone-700 dark:text-stone-300 mb-1">
+                    Select Grooming Service <span class="text-rose-500">*</span>
+                  </label>
+                  <select id="book-service" required
+                    class="w-full text-xs px-4 py-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-emerald-600 hover:border-stone-400 transition-colors">
+                    <option value="Hydro-Bath & Blow Dry">Hydro-Bath & Blow Dry ($45 &bull; 60 mins)</option>
+                    <option value="Full Haircut & Styling">Full Haircut & Master Scissoring ($75 &bull; 90 mins)</option>
+                    <option value="Nail Trim & Pawdicure">Gentle Nail Trim & Pawdicure ($25 &bull; 30 mins)</option>
+                    <option value="Coat Care & De-Shedding">Coat Care & Intensive De-Shedding ($65 &bull; 60 mins)</option>
+                    <option value="Spa Mud & Blueberry Facial">Spa Mud Wrap & Blueberry Facial ($95 &bull; 100 mins)</option>
+                    <option value="Thalasso Mineral Luxury Package">Thalasso VIP Full Spa Retreat ($145 &bull; 120 mins)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="book-specialist" class="block text-xs font-bold text-stone-700 dark:text-stone-300 mb-1">
+                    Preferred Grooming Specialist
+                  </label>
+                  <select id="book-specialist"
+                    class="w-full text-xs px-4 py-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-emerald-600 hover:border-stone-400 transition-colors">
+                    <option value="First Available Master Stylist">First Available Master Stylist</option>
+                    <option value="Elena Rostova (Master Groomer)">Elena Rostova (Master Stylist & Asian Fusion)</option>
+                    <option value="Marcus Vance (Feline Stylist)">Marcus Vance (Senior Cat & Low-Stress Specialist)</option>
+                    <option value="Liam Davies (Puppy Specialist)">Liam Davies (Puppy & Anxious Dog Acclimatization)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pillar D: Schedule (Date & Time) -->
+            <div class="space-y-4 pt-2 border-t border-stone-100 dark:border-stone-800/80">
+              <div class="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-emerald-800 dark:text-emerald-400">
+                <i class="fas fa-clock"></i>
+                <span>4. Appointment Schedule</span>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="book-date" class="block text-xs font-bold text-stone-700 dark:text-stone-300 mb-1">
+                    Preferred Date <span class="text-rose-500">*</span>
+                  </label>
+                  <input type="date" id="book-date" required
+                    class="w-full text-xs px-4 py-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-emerald-600 hover:border-stone-400 transition-colors">
+                </div>
+
+                <div>
+                  <label for="book-time" class="block text-xs font-bold text-stone-700 dark:text-stone-300 mb-1">
+                    Available Time Slot <span class="text-rose-500">*</span>
+                  </label>
+                  <select id="book-time" required
+                    class="w-full text-xs px-4 py-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-emerald-600 hover:border-stone-400 transition-colors">
+                    <option value="08:30 AM">08:30 AM (Early Calm Slot)</option>
+                    <option value="10:00 AM">10:00 AM</option>
+                    <option value="11:30 AM">11:30 AM</option>
+                    <option value="01:30 PM">01:30 PM</option>
+                    <option value="03:00 PM">03:00 PM</option>
+                    <option value="04:30 PM">04:30 PM</option>
+                    <option value="06:00 PM">06:00 PM (Evening Retreat)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pillar E: Additional Notes -->
+            <div class="space-y-2 pt-2 border-t border-stone-100 dark:border-stone-800/80">
+              <label for="book-notes" class="block text-xs font-bold text-stone-700 dark:text-stone-300">
+                Additional Notes or Behavioral Requests (Optional)
+              </label>
+              <textarea id="book-notes" rows="3" placeholder="e.g. Sensitive ears, dislikes high-velocity dryers, needs extra praise and positive treats..."
+                class="w-full text-xs px-4 py-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-white focus:outline-none focus:border-emerald-600 hover:border-stone-400 transition-colors resize-none"></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="pt-4">
+              <button type="submit" id="book-submit-btn"
+                class="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-800 via-emerald-700 to-emerald-800 hover:from-emerald-700 hover:to-emerald-600 text-white font-extrabold text-sm shadow-xl shadow-emerald-950/25 hover:shadow-emerald-900/35 hover:scale-[1.01] active:scale-95 transition-all duration-200 border border-emerald-600/70 flex items-center justify-center gap-2">
+                <i class="fas fa-calendar-check text-amber-300 text-base"></i>
+                <span>Confirm & Reserve Appointment</span>
+              </button>
+              <p class="text-[11px] text-stone-500 dark:text-stone-400 text-center mt-2.5">
+                No upfront cancellation fee. You can reschedule or cancel anytime up to 4 hours before your session.
+              </p>
+            </div>
+
+          </form>
+
+        </div>
+
+        <!-- Right Column: Reassurance, Salon Policies, and Contact -->
+        <div class="lg:col-span-4 space-y-6">
+
+          <!-- Card 1: Our Salon Standards -->
+          <div class="bg-white dark:bg-[#1A2220] rounded-3xl p-6 sm:p-7 border border-stone-200 dark:border-stone-800 shadow-sm space-y-4">
+            <h3 class="text-base font-bold text-stone-900 dark:text-white flex items-center gap-2">
+              <i class="fas fa-award text-amber-500"></i>
+              <span>The PawSpaw Standard</span>
+            </h3>
+            
+            <ul class="space-y-3 text-xs text-stone-600 dark:text-stone-300">
+              <li class="flex items-start gap-2.5">
+                <i class="fas fa-check-circle text-emerald-600 mt-0.5"></i>
+                <span><strong>No Commercial Cages:</strong> Pets rest in acoustic private suites with plush orthopedic pads.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fas fa-check-circle text-emerald-600 mt-0.5"></i>
+                <span><strong>Autoclave Sanitation:</strong> Every shear blade and brush is sterilized between appointments.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fas fa-check-circle text-emerald-600 mt-0.5"></i>
+                <span><strong>100% Pure Botanicals:</strong> Zero harsh sulfates, artificial fragrances, or parabens.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="fas fa-check-circle text-emerald-600 mt-0.5"></i>
+                <span><strong>Fear-Free Certified:</strong> Stylists trained in reward-based handling and calming techniques.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 2: Salon Address & Hours -->
+          <div class="bg-white dark:bg-[#1A2220] rounded-3xl p-6 sm:p-7 border border-stone-200 dark:border-stone-800 shadow-sm space-y-3">
+            <h3 class="text-base font-bold text-stone-900 dark:text-white flex items-center gap-2">
+              <i class="fas fa-location-dot text-emerald-700 dark:text-emerald-400"></i>
+              <span>Salon Location & Concierge</span>
+            </h3>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+              Denkanikottai Rd, near LG tv best showroom, opp. government sericulture department, SBM Colony, Anthivadi, Hosur, Tamil Nadu 635109
+            </p>
+            <div class="text-xs space-y-1 pt-1 border-t border-stone-100 dark:border-stone-800/80">
+              <div class="flex items-center justify-between">
+                <span class="text-stone-500">Phone Support:</span>
+                <span class="font-bold text-stone-900 dark:text-white">+1 (800) 555-PAWS</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-stone-500">Hours:</span>
+                <span class="font-bold text-stone-900 dark:text-white">8:00 AM &ndash; 7:00 PM</span>
+              </div>
+            </div>
+            <a href="contacts.html" class="block text-center py-2 rounded-xl bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 text-xs font-bold text-stone-800 dark:text-stone-200 transition-colors">
+              View Map & Directions &rarr;
+            </a>
+          </div>
+
+          <!-- Card 3: First Visit Perk -->
+          <div class="bg-gradient-to-br from-amber-500/15 via-emerald-500/10 to-teal-500/15 rounded-3xl p-6 border border-amber-500/30 space-y-2">
+            <span class="px-2.5 py-0.5 rounded-full bg-amber-500 text-stone-950 text-[10px] font-black uppercase tracking-wider">New Client Perk</span>
+            <h4 class="font-bold text-stone-900 dark:text-white text-sm">Complimentary Blueberry Facial</h4>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+              First-time visitors receive a soothing, tearless organic Blueberry Facial compression treatment included with any booking.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="app.js"></script>
+  <script>
+    // Prefill date min attribute to today so users cannot book in the past
+    const dateInput = document.getElementById('book-date');
+    if (dateInput) {
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.min = today;
+      if (!dateInput.value) {
+        // Default to tomorrow
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        dateInput.value = tomorrow.toISOString().split('T')[0];
+      }
+    }
+
+    // Read URL search params for prefill (e.g. book.html?service=Hydro-Bath&specialist=Elena)
+    const params = new URLSearchParams(window.location.search);
+    const serviceParam = params.get('service');
+    const specParam = params.get('specialist');
+
+    if (serviceParam) {
+      const serviceSelect = document.getElementById('book-service');
+      if (serviceSelect) {
+        for (let i = 0; i < serviceSelect.options.length; i++) {
+          if (serviceSelect.options[i].value.toLowerCase().includes(serviceParam.toLowerCase())) {
+            serviceSelect.selectedIndex = i;
+            break;
+          }
+        }
+      }
+    }
+
+    if (specParam) {
+      const specSelect = document.getElementById('book-specialist');
+      if (specSelect) {
+        for (let i = 0; i < specSelect.options.length; i++) {
+          if (specSelect.options[i].value.toLowerCase().includes(specParam.toLowerCase())) {
+            specSelect.selectedIndex = i;
+            break;
+          }
+        }
+      }
+    }
+
+    if (localStorage.getItem('pawspaw_theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+</body>
+</html>
+

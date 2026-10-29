@@ -28,7 +28,8 @@
   </script>
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body class="bg-[#FDFBF7] dark:bg-[#121816] text-stone-800 dark:text-stone-100 transition-colors duration-300 antialiased overflow-x-hidden min-h-screen flex flex-col justify-between">
 
@@ -36,8 +37,11 @@
 
   <main class="pt-24 lg:pt-28 flex-1">
 
-    <section class="max-w-7xl mx-auto px-6 py-12 lg:py-16 text-center">
-      <div class="max-w-3xl mx-auto space-y-4">
+    <!-- SECTION 1: HERO -->
+    <section class="relative w-full py-14 lg:py-20 text-center   shadow-xs overflow-hidden">
+      <!-- Ambient Decorative Glow -->
+
+      <div class="max-w-3xl mx-auto px-6 space-y-4 relative z-10">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300 text-xs font-black uppercase tracking-widest shadow-sm hover:shadow transition-shadow">
           <i class="fas fa-feather-pointed text-amber-500"></i>
           <span>Holistic Wellness Journal</span>
@@ -56,7 +60,7 @@
         
         <div class="lg:col-span-7 h-72 sm:h-96 lg:h-[460px] overflow-hidden relative">
           <img 
-            src="public/Beagle.avif" 
+            src="public/dog-brush.jpg" 
             alt="Beagle enjoying professional brushing" 
             class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           >
@@ -66,10 +70,10 @@
           </div>
         </div>
 
-        <div class="lg:col-span-5 p-8 sm:p-12 space-y-4">
+        <div class="lg:col-span-5 p-5 sm:p-8 lg:p-12 space-y-4">
           <div class="flex items-center gap-3 text-xs text-stone-500 dark:text-stone-400">
             <span class="font-bold text-emerald-800 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-3 py-1 rounded-full uppercase text-[10px] tracking-wider">Coat Health</span>
-            <span>•</span>
+            <span>&bull;</span>
             <span><i class="far fa-clock mr-1"></i> 7 Min Read</span>
           </div>
 
@@ -81,7 +85,7 @@
             Surface brushing leaves the dense undercoat packed tight against delicate skin, causing painful friction and irritation. Learn the certified Scandinavian technique to safely comb down to the skin without pulling.
           </p>
 
-          <div class="pt-2 flex items-center justify-between border-t border-stone-100 dark:border-stone-800/80">
+          <div class="pt-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-t border-stone-100 dark:border-stone-800/80">
             <div class="flex items-center gap-3">
               <img src="public/elena.avif" alt="Elena Rostova" class="w-10 h-10 rounded-full object-cover border-2 border-emerald-600">
               <div>
@@ -93,7 +97,7 @@
             <button 
               data-title="The Ultimate Line-Brushing Routine: Eliminating Hidden Mats at Skin Level" 
               data-content="Line brushing requires separating the coat layer by layer right down to the skin with a metal greyhound comb. Using a slicker brush on the outer surface without reaching the undercoat leaves dense knots right next to delicate epidermis. Begin at the bottom of the pet's leg, hold up the hair above, and brush down small sections at a time. Pair every 2 minutes of calm cooperation with high-value freeze-dried treats to turn line brushing into a reassuring bonding ritual." 
-              class="blog-read-btn inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-800 hover:bg-emerald-700 text-white font-bold text-xs shadow-md hover:shadow-emerald-900/30 hover:scale-105 active:scale-95 transition-all"
+              class="blog-read-btn inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-emerald-800 hover:bg-emerald-700 text-white font-bold text-xs shadow-md hover:shadow-emerald-900/30 hover:scale-105 active:scale-95 transition-all w-full sm:w-auto"
             >
               <span>Read Full Article</span>
               <i class="fas fa-arrow-right text-[10px]"></i>
@@ -135,7 +139,7 @@
             </div>
             <div class="p-6 space-y-2.5">
               <div class="text-[11px] text-stone-400 flex items-center gap-2">
-                <span>Oct 08, 2026</span> • <span>4 min read</span>
+                <span>Oct 08, 2026</span> &bull; <span>4 min read</span>
               </div>
               <h3 class="font-bold text-stone-900 dark:text-white text-lg leading-snug group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
                 The Science of Bath Water Temperature for Canine Skin
@@ -149,7 +153,7 @@
             <span class="text-[11px] text-stone-400 font-semibold">By Aria Montgomery</span>
             <button 
               data-title="The Science of Bath Water Temperature for Canine Skin" 
-              data-content="Dogs possess an epidermis that is only 3 to 5 cells thick (compared to 10-15 cells in humans). Water that feels comfortably hot to a human hand triggers vasodilation and dissolves the vital acid mantle on canine dermis. Always maintain bath water at lukewarm room temperature (~98°F / 36.5°C). Following the bath with a chamomile botanical leave-in rinse preserves skin flora and leaves coats shiny without oiliness." 
+              data-content="Dogs possess an epidermis that is only 3 to 5 cells thick (compared to 10-15 cells in humans). Water that feels comfortably hot to a human hand triggers vasodilation and dissolves the vital acid mantle on canine dermis. Always maintain bath water at lukewarm room temperature (~98Â°F / 36.5Â°C). Following the bath with a chamomile botanical leave-in rinse preserves skin flora and leaves coats shiny without oiliness." 
               class="blog-read-btn text-xs font-bold text-amber-600 hover:text-amber-700 dark:hover:text-amber-400 flex items-center gap-1 group/btn"
             >
               <span>Read Guide</span>
@@ -166,7 +170,7 @@
             </div>
             <div class="p-6 space-y-2.5">
               <div class="text-[11px] text-stone-400 flex items-center gap-2">
-                <span>Sep 29, 2026</span> • <span>6 min read</span>
+                <span>Sep 29, 2026</span> &bull; <span>6 min read</span>
               </div>
               <h3 class="font-bold text-stone-900 dark:text-white text-lg leading-snug group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
                 Signs Your Senior Cat Needs Professional Feline Grooming
@@ -192,12 +196,12 @@
         <article data-category="puppy" class="blog-card-item group bg-white dark:bg-[#1A2220] rounded-3xl overflow-hidden border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:border-emerald-700/30 transition-all duration-300 flex flex-col justify-between">
           <div>
             <div class="h-52 overflow-hidden relative">
-              <img src="public/golden-2.avif" alt="Puppy socialization exercise" class="w-full h-full object-cover object-[50%_40%] transition-transform duration-500 group-hover:scale-105">
+              <img src="public/nail-5.avif" alt="Puppy socialization exercise" class="w-full h-full object-cover object-[50%_40%] transition-transform duration-500 group-hover:scale-105">
               <span class="absolute top-3 right-3 bg-stone-900/80 backdrop-blur-sm text-amber-400 text-[10px] font-black px-3 py-1 rounded-full uppercase">Puppy Care</span>
             </div>
             <div class="p-6 space-y-2.5">
               <div class="text-[11px] text-stone-400 flex items-center gap-2">
-                <span>Sep 18, 2026</span> • <span>5 min read</span>
+                <span>Sep 18, 2026</span> &bull; <span>5 min read</span>
               </div>
               <h3 class="font-bold text-stone-900 dark:text-white text-lg leading-snug group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
                 Acclimatizing Young Pups to Paw & Nail Trimming
@@ -223,12 +227,12 @@
         <article data-category="breeds" class="blog-card-item group bg-white dark:bg-[#1A2220] rounded-3xl overflow-hidden border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:border-emerald-700/30 transition-all duration-300 flex flex-col justify-between">
           <div>
             <div class="h-52 overflow-hidden relative">
-              <img src="public/pembroke.avif" alt="Poodle teddy bear trim" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              <img src="public/sheabalm-1.avif" alt="Poodle teddy bear trim" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
               <span class="absolute top-3 right-3 bg-stone-900/80 backdrop-blur-sm text-purple-400 text-[10px] font-black px-3 py-1 rounded-full uppercase">Breed Guides</span>
             </div>
             <div class="p-6 space-y-2.5">
               <div class="text-[11px] text-stone-400 flex items-center gap-2">
-                <span>Aug 24, 2026</span> • <span>6 min read</span>
+                <span>Aug 24, 2026</span> &bull; <span>6 min read</span>
               </div>
               <h3 class="font-bold text-stone-900 dark:text-white text-lg leading-snug group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
                 Understanding Wool vs. Fleece Coats in Doodles & Poodles
@@ -259,7 +263,7 @@
             </div>
             <div class="p-6 space-y-2.5">
               <div class="text-[11px] text-stone-400 flex items-center gap-2">
-                <span>Aug 12, 2026</span> • <span>4 min read</span>
+                <span>Aug 12, 2026</span> &bull; <span>4 min read</span>
               </div>
               <h3 class="font-bold text-stone-900 dark:text-white text-lg leading-snug group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
                 Treating Facial Skin Folds in French Bulldogs & Pugs
@@ -285,12 +289,12 @@
         <article data-category="tips" class="blog-card-item group bg-white dark:bg-[#1A2220] rounded-3xl overflow-hidden border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:border-emerald-700/30 transition-all duration-300 flex flex-col justify-between">
           <div>
             <div class="h-52 overflow-hidden relative">
-              <img src="public/hamster.avif" alt="Ear cleaning procedure" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              <img src="public/ear-1.avif" alt="Ear cleaning procedure" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
               <span class="absolute top-3 right-3 bg-stone-900/80 backdrop-blur-sm text-emerald-400 text-[10px] font-black px-3 py-1 rounded-full uppercase">Grooming Tips</span>
             </div>
             <div class="p-6 space-y-2.5">
               <div class="text-[11px] text-stone-400 flex items-center gap-2">
-                <span>Jul 30, 2026</span> • <span>5 min read</span>
+                <span>Jul 30, 2026</span> &bull; <span>5 min read</span>
               </div>
               <h3 class="font-bold text-stone-900 dark:text-white text-lg leading-snug group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
                 The Safe Way to Clean Ear Canals Without Cotton Swabs
@@ -554,7 +558,7 @@
           </p>
 
           <div class="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3.5">
-            <a href="sessions.html#booking" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-amber-500 hover:bg-amber-400 text-stone-950 font-black text-xs shadow-xl shadow-amber-500/20 hover:-translate-y-1 hover:shadow-2xl hover:shadow-amber-500/40 active:translate-y-0 active:scale-95 transition-all duration-200">
+            <a href="book.html" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-amber-500 hover:bg-amber-400 text-stone-950 font-black text-xs shadow-xl shadow-amber-500/20 hover:-translate-y-1 hover:shadow-2xl hover:shadow-amber-500/40 active:translate-y-0 active:scale-95 transition-all duration-200">
               Schedule a Grooming Session
             </a>
             <a href="faq.html" class="w-full sm:w-auto px-8 py-3.5 rounded-full border border-stone-500/80 hover:border-stone-300 hover:bg-white/10 text-stone-200 hover:text-white font-bold text-xs hover:-translate-y-1 active:translate-y-0 active:scale-95 transition-all duration-200">
@@ -587,7 +591,7 @@
 
       <div class="pt-4 border-t border-stone-100 dark:border-stone-800 flex items-center justify-between gap-4">
         <span class="text-[11px] text-stone-400">Need personal grooming advice?</span>
-        <a href="sessions.html#booking" class="px-5 py-2.5 rounded-xl bg-emerald-800 hover:bg-emerald-700 text-white text-xs font-bold shadow-md hover:scale-105 active:scale-95 transition-all">
+        <a href="book.html" class="px-5 py-2.5 rounded-xl bg-emerald-800 hover:bg-emerald-700 text-white text-xs font-bold shadow-md hover:scale-105 active:scale-95 transition-all">
           Book Session with Author
         </a>
       </div>

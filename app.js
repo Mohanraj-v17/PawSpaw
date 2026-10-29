@@ -235,7 +235,27 @@
     });
   }
 
+  function closeDesktopDropdowns() {
+    const homeGroup = document.getElementById('nav-home-dropdown-group');
+    const portalsGroup = document.getElementById('nav-portals-dropdown-group');
+    if (homeGroup) {
+      homeGroup.classList.remove('dropdown-open');
+      homeGroup.classList.add('dropdown-force-closed');
+      document.getElementById('nav-home-btn')?.setAttribute('aria-expanded', 'false');
+    }
+    if (portalsGroup) {
+      portalsGroup.classList.remove('dropdown-open');
+      portalsGroup.classList.add('dropdown-force-closed');
+      document.getElementById('nav-portals-btn')?.setAttribute('aria-expanded', 'false');
+    }
+    setTimeout(() => {
+      homeGroup?.classList.remove('dropdown-force-closed');
+      portalsGroup?.classList.remove('dropdown-force-closed');
+    }, 350);
+  }
+
   function closeMobileMenu() {
+    closeDesktopDropdowns();
     const drawer = document.getElementById('mobile-drawer');
     const backdrop = document.getElementById('mobile-drawer-backdrop');
     const mobileBtn = document.getElementById('mobile-menu-btn');
@@ -275,35 +295,202 @@
     if (curPage === 'service.html') curPage = 'services.html';
 
     const isHome = curPage.startsWith('index') || curPage.startsWith('home') || curPage === '';
+    const isHome1 = (curPage === 'index.html' || curPage === '');
+    const isHome2 = (curPage === 'home-2.html');
 
-    const homeBtn = document.querySelector('#navbar-placeholder nav .group > button');
+    // Home button in top navbar
+    const homeBtn = document.getElementById('nav-home-btn');
     if (homeBtn) {
       if (isHome) {
-        homeBtn.className = 'flex items-center gap-1.5 py-1 text-sm font-bold text-emerald-700 dark:text-emerald-400 border-b-2 border-emerald-600 dark:border-emerald-400 pb-0.5 focus:outline-none transition-all duration-200';
+        homeBtn.className = 'flex items-center gap-1 xl:gap-1.5 py-1 text-[11px] xl:text-xs 2xl:text-sm font-bold text-emerald-700 dark:text-emerald-400 border-0 border-b-2 border-emerald-600 dark:border-emerald-400 pb-0.5 outline-none focus:outline-none focus:ring-0 focus-visible:outline-none select-none transition-colors duration-200 cursor-pointer';
       } else {
-        homeBtn.className = 'flex items-center gap-1.5 py-1 text-sm font-bold text-stone-700 dark:text-stone-200 hover:text-emerald-700 dark:hover:text-emerald-400 focus:outline-none transition-all duration-200';
+        homeBtn.className = 'flex items-center gap-1 xl:gap-1.5 py-1 text-[11px] xl:text-xs 2xl:text-sm font-medium text-stone-700 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 border-0 border-b-2 border-transparent pb-0.5 outline-none focus:outline-none focus:ring-0 focus-visible:outline-none select-none transition-colors duration-200 cursor-pointer';
       }
     }
 
-    const navLinks = document.querySelectorAll('#navbar-placeholder a[href]');
-    navLinks.forEach(link => {
+    // 1. Top Navbar regular links (About, Sessions, Services, Pricing, Blog, FAQ, Contacts)
+    const topNavLinks = document.querySelectorAll('#navbar-placeholder nav .hidden.lg\\:flex > a[href]');
+    topNavLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      const isMatch = (curPage === href);
+      if (isMatch) {
+        link.className = 'inline-flex items-center py-1 text-[11px] xl:text-xs 2xl:text-sm text-emerald-700 dark:text-emerald-400 font-bold border-0 border-b-2 border-emerald-600 dark:border-emerald-400 pb-0.5 outline-none focus:outline-none focus:ring-0 focus-visible:outline-none transition-colors duration-200';
+      } else {
+        link.className = 'inline-flex items-center py-1 text-[11px] xl:text-xs 2xl:text-sm text-stone-700 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 font-medium border-0 border-b-2 border-transparent pb-0.5 outline-none focus:outline-none focus:ring-0 focus-visible:outline-none transition-colors duration-200';
+      }
+    });
+
+    // 2. Desktop Dropdown Items (Home 1, Home 2 in #nav-home-menu)
+    const home1Link = document.querySelector('#nav-home-menu a[href="index.html"]');
+    if (home1Link) {
+      const check1 = home1Link.querySelector('.dropdown-active-check');
+      if (isHome1) {
+        home1Link.className = 'flex items-center justify-between px-3.5 py-2.5 text-xs rounded-xl transition-all duration-200 bg-emerald-50 dark:bg-emerald-950/50 text-emerald-800 dark:text-emerald-300 font-bold border border-emerald-200/80 dark:border-emerald-800/60 shadow-xs';
+        if (check1) check1.classList.remove('hidden');
+      } else {
+        home1Link.className = 'flex items-center justify-between px-3.5 py-2.5 text-xs rounded-xl transition-all duration-200 text-stone-700 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-800/60 font-medium border border-transparent hover:translate-x-0.5';
+        if (check1) check1.classList.add('hidden');
+      }
+    }
+
+    const home2Link = document.querySelector('#nav-home-menu a[href="home-2.html"]');
+    if (home2Link) {
+      const check2 = home2Link.querySelector('.dropdown-active-check');
+      if (isHome2) {
+        home2Link.className = 'flex items-center justify-between px-3.5 py-2.5 text-xs rounded-xl transition-all duration-200 bg-amber-50 dark:bg-amber-950/50 text-amber-800 dark:text-amber-300 font-bold border border-amber-200/80 dark:border-amber-800/60 shadow-xs';
+        if (check2) check2.classList.remove('hidden');
+      } else {
+        home2Link.className = 'flex items-center justify-between px-3.5 py-2.5 text-xs rounded-xl transition-all duration-200 text-stone-700 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-800/60 font-medium border border-transparent hover:translate-x-0.5';
+        if (check2) check2.classList.add('hidden');
+      }
+    }
+
+    // 3. Mobile Drawer Links
+    const drawerLinks = document.querySelectorAll('#mobile-drawer a[href]');
+    drawerLinks.forEach(link => {
       const href = link.getAttribute('href');
       const isMatch = (curPage === href || (curPage === '' && href === 'index.html'));
 
-      if (link.closest('#mobile-drawer')) {
-        if (isMatch) {
-          link.className = 'py-2 px-3 rounded-xl transition-all flex items-center justify-between bg-emerald-800 dark:bg-emerald-700 text-white font-bold shadow-md shadow-emerald-900/20';
-        } else {
-          link.className = 'py-2 px-3 rounded-xl transition-all flex items-center justify-between text-stone-700 dark:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-800/70 font-medium';
-        }
-      } else if (!link.querySelector('.fa-paw') && !link.closest('.group') && !link.classList.contains('no-nav-highlight')) {
-        if (isMatch) {
-          link.className = 'text-emerald-700 dark:text-emerald-400 font-extrabold border-b-2 border-emerald-600 dark:border-emerald-400 pb-0.5';
-        } else {
-          link.className = 'text-stone-700 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 font-medium transition-colors duration-200 hover:scale-105 inline-block';
-        }
+      if (link.classList.contains('no-nav-highlight') || link.closest('.grid') || link.querySelector('.fa-calendar-check') || link.querySelector('.fa-user')) {
+        return;
+      }
+      if (isMatch) {
+        link.className = 'py-2 px-3 rounded-xl transition-all flex items-center justify-between bg-emerald-800 dark:bg-emerald-700 text-white font-bold shadow-md shadow-emerald-900/20';
+      } else {
+        link.className = 'py-2 px-3 rounded-xl transition-all flex items-center justify-between text-stone-700 dark:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-800/70 font-medium';
       }
     });
+  }
+
+
+  function setupNavbarDropdowns() {
+    // 1. Desktop & Tablet Landscape Dropdowns (Home and Portals)
+    const homeGroup = document.getElementById('nav-home-dropdown-group');
+    const homeBtn = document.getElementById('nav-home-btn');
+    const portalsGroup = document.getElementById('nav-portals-dropdown-group');
+    const portalsBtn = document.getElementById('nav-portals-btn');
+
+    function closeAllDesktopDropdowns() {
+      if (homeGroup) {
+        homeGroup.classList.remove('dropdown-open');
+        homeGroup.classList.add('dropdown-force-closed');
+        homeBtn?.setAttribute('aria-expanded', 'false');
+      }
+      if (portalsGroup) {
+        portalsGroup.classList.remove('dropdown-open');
+        portalsGroup.classList.add('dropdown-force-closed');
+        portalsBtn?.setAttribute('aria-expanded', 'false');
+      }
+      setTimeout(() => {
+        homeGroup?.classList.remove('dropdown-force-closed');
+        portalsGroup?.classList.remove('dropdown-force-closed');
+      }, 350);
+    }
+
+    function toggleDropdown(group, btn, otherGroup, otherBtn) {
+      if (!group) return;
+      const isOpen = group.classList.contains('dropdown-open');
+
+      if (otherGroup) {
+        otherGroup.classList.remove('dropdown-open');
+        otherGroup.classList.add('dropdown-force-closed');
+        otherBtn?.setAttribute('aria-expanded', 'false');
+      }
+
+      if (isOpen) {
+        group.classList.remove('dropdown-open');
+        group.classList.add('dropdown-force-closed');
+        btn?.setAttribute('aria-expanded', 'false');
+        setTimeout(() => group.classList.remove('dropdown-force-closed'), 350);
+      } else {
+        group.classList.remove('dropdown-force-closed');
+        group.classList.add('dropdown-open');
+        btn?.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    if (homeBtn && homeGroup && homeBtn.dataset.bound !== 'true') {
+      homeBtn.dataset.bound = 'true';
+      homeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleDropdown(homeGroup, homeBtn, portalsGroup, portalsBtn);
+      });
+    }
+
+    if (portalsBtn && portalsGroup && portalsBtn.dataset.bound !== 'true') {
+      portalsBtn.dataset.bound = 'true';
+      portalsBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleDropdown(portalsGroup, portalsBtn, homeGroup, homeBtn);
+      });
+    }
+
+    // Close when clicking dropdown links (Home 1, Home 2, Portals)
+    document.querySelectorAll('#nav-home-menu a, #nav-portals-menu a').forEach(link => {
+      if (link.dataset.boundClose !== 'true') {
+        link.dataset.boundClose = 'true';
+        link.addEventListener('click', () => {
+          closeAllDesktopDropdowns();
+        });
+      }
+    });
+
+    // Close when tapping anywhere outside (pointerdown + click for all touchscreens, Nest Hub Max, tablets, mobile)
+    if (!window._navbarDropdownDocListener) {
+      window._navbarDropdownDocListener = true;
+
+      const handleOutsideTap = (e) => {
+        if (!e.target.closest('#nav-home-dropdown-group') && !e.target.closest('#nav-portals-dropdown-group')) {
+          closeAllDesktopDropdowns();
+        }
+      };
+
+      document.addEventListener('pointerdown', handleOutsideTap, { passive: true });
+      document.addEventListener('click', handleOutsideTap, { passive: true });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeAllDesktopDropdowns();
+        }
+      });
+    }
+
+    // Desktop hover: mouseleave cleanly closes on devices with fine pointer (mouse)
+    [homeGroup, portalsGroup].forEach(group => {
+      if (!group || group.dataset.hoverBound === 'true') return;
+      group.dataset.hoverBound = 'true';
+
+      group.addEventListener('mouseleave', () => {
+        if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+          group.classList.remove('dropdown-open');
+          group.classList.remove('dropdown-force-closed');
+          group.querySelector('button')?.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+
+    // 2. Mobile & Tablet Drawer Home Accordion Toggle
+    const drawerHomeToggle = document.getElementById('drawer-home-toggle');
+    const drawerHomeMenu = document.getElementById('drawer-home-menu');
+    const drawerHomeChevron = document.getElementById('drawer-home-chevron');
+
+    if (drawerHomeToggle && drawerHomeMenu && drawerHomeToggle.dataset.bound !== 'true') {
+      drawerHomeToggle.dataset.bound = 'true';
+      drawerHomeToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const isHidden = drawerHomeMenu.classList.contains('hidden');
+        if (isHidden) {
+          drawerHomeMenu.classList.remove('hidden');
+          drawerHomeChevron?.classList.add('rotate-180');
+        } else {
+          drawerHomeMenu.classList.add('hidden');
+          drawerHomeChevron?.classList.remove('rotate-180');
+        }
+      });
+    }
   }
 
   function renderNavbar() {
@@ -313,6 +500,7 @@
     if (mount.children.length > 0) {
       updateNavbarActiveLinks();
       closeMobileMenu();
+      setupNavbarDropdowns();
       return;
     }
 
@@ -323,8 +511,8 @@
     const isLinkActive = (page) => {
       const match = (curPage === page || (curPage === '' && page === 'index.html'));
       return match
-        ? 'text-emerald-700 dark:text-emerald-400 font-extrabold border-b-2 border-emerald-600 dark:border-emerald-400 pb-0.5'
-        : 'text-stone-700 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 font-medium transition-colors duration-200 hover:scale-105 inline-block';
+        ? 'inline-flex items-center py-1 text-[11px] xl:text-xs 2xl:text-sm text-emerald-700 dark:text-emerald-400 font-bold border-0 border-b-2 border-emerald-600 dark:border-emerald-400 pb-0.5 outline-none focus:outline-none focus:ring-0 focus-visible:outline-none transition-colors duration-200'
+        : 'inline-flex items-center py-1 text-[11px] xl:text-xs 2xl:text-sm text-stone-700 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 font-medium border-0 border-b-2 border-transparent pb-0.5 outline-none focus:outline-none focus:ring-0 focus-visible:outline-none transition-colors duration-200';
     };
 
     const isDropdownActive = (page) => {
@@ -342,37 +530,51 @@
     };
 
     const isHome = curPage.startsWith('index') || curPage.startsWith('home') || curPage === '';
+    const isHome1 = (curPage === 'index.html' || curPage === '');
+    const isHome2 = (curPage === 'home-2.html');
 
     mount.innerHTML = `
-  <header class="fixed left-0 right-0 z-50 px-2.5 sm:px-6 pointer-events-none" style="position: fixed !important; top: 0.5rem !important; z-index: 99999 !important;">
-    <nav class="max-w-7xl mx-auto glass-nav bg-white/95 dark:bg-[#1A2220]/95 backdrop-blur-md rounded-full px-3.5 sm:px-6 py-2 sm:py-2.5 shadow-xl border border-stone-200/80 dark:border-stone-800 flex items-center justify-between pointer-events-auto transition-all">
+  <header class="fixed top-3.5 sm:top-5 left-0 right-0 z-50 px-2.5 sm:px-6 pointer-events-none" style="position: fixed !important; top: 1.25rem !important; z-index: 99999 !important;">
+    <nav class="max-w-7xl mx-auto glass-nav bg-white/95 dark:bg-[#1A2220]/95 backdrop-blur-md rounded-full px-3.5 sm:px-4 xl:px-6 py-2 sm:py-2.5 shadow-xl border border-stone-200/80 dark:border-stone-800 flex items-center justify-between pointer-events-auto transition-all">
       
-      <a href="index.html" class="flex items-center gap-2.5 group focus:outline-none flex-shrink-0">
-  <div class="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center text-white shadow-md group-hover:scale-110 group-hover:bg-emerald-500 transition-all duration-300">
-    <i class="fas fa-paw text-lg group-hover:rotate-12 transition-transform duration-300"></i>
+      <a href="index.html" class="flex items-center gap-2 xl:gap-2.5 group focus:outline-none flex-shrink-0">
+  <div class="w-8 h-8 sm:w-9 sm:h-9 xl:w-10 xl:h-10 rounded-full bg-emerald-600 flex items-center justify-center text-white shadow-md group-hover:scale-110 group-hover:bg-emerald-500 transition-all duration-300">
+    <i class="fas fa-paw text-sm sm:text-base xl:text-lg group-hover:rotate-12 transition-transform duration-300"></i>
   </div>
   <div class="flex flex-col">
-    <span class="font-extrabold tracking-tight text-xl text-emerald-950 dark:text-white leading-tight group-hover:text-emerald-400 transition-colors">PawSpaw<span class="text-amber-500 dark:text-amber-400">.</span></span>
+    <span class="font-extrabold tracking-tight text-base sm:text-lg xl:text-xl text-emerald-950 dark:text-white leading-tight group-hover:text-emerald-400 transition-colors">PawSpaw<span class="text-amber-500 dark:text-amber-400">.</span></span>
   </div>
 </a>
 
       <!-- Desktop Links -->
-      <div class="hidden lg:flex items-center gap-7 text-sm">
-        <div class="relative group">
-          <button class="flex items-center gap-1.5 py-1 text-sm font-medium ${isHome ? 'text-emerald-700 dark:text-emerald-400 border-b-2 border-emerald-600 dark:border-emerald-400 pb-0.5' : 'text-stone-700 dark:text-stone-200 hover:text-emerald-700 dark:hover:text-emerald-400'} focus:outline-none transition-all duration-200">
+      <div class="hidden lg:flex items-center gap-1.5 xl:gap-3 2xl:gap-5 text-[11px] xl:text-xs 2xl:text-sm whitespace-nowrap">
+        <div class="relative dropdown-container" id="nav-home-dropdown-group">
+          <button id="nav-home-btn" type="button" aria-expanded="false" aria-haspopup="true" class="flex items-center gap-1 xl:gap-1.5 py-1 text-[11px] xl:text-xs 2xl:text-sm ${isHome ? 'text-emerald-700 dark:text-emerald-400 font-bold border-0 border-b-2 border-emerald-600 dark:border-emerald-400 pb-0.5' : 'text-stone-700 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 font-medium border-0 border-b-2 border-transparent pb-0.5'} outline-none focus:outline-none focus:ring-0 focus-visible:outline-none select-none transition-colors duration-200 cursor-pointer">
             <span>Home</span>
-            <i class="fas fa-chevron-down text-[10px] group-hover:rotate-180 transition-transform duration-300"></i>
+            <i id="nav-home-chevron" class="fas fa-chevron-down text-[10px] dropdown-chevron transition-transform duration-300"></i>
           </button>
           
-          <div class="absolute start-0 mt-2 w-44 bg-white dark:bg-[#1A2220] rounded-2xl shadow-xl border border-stone-200 dark:border-stone-800 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50 flex flex-col gap-1">
-            <a href="index.html" class="flex items-center px-4 py-2 text-xs rounded-xl mx-1.5 transition-all duration-200 hover:translate-x-1 ${isDropdownActive('index.html')}">
-              <i class="fas fa-store-alt mr-2.5 text-emerald-600"></i>
-              <span>Home 1</span>
-            </a>
-            <a href="home-2.html" class="flex items-center px-4 py-2 text-xs rounded-xl mx-1.5 transition-all duration-200 hover:translate-x-1 ${isDropdownActive('home-2.html')}">
-              <i class="fas fa-gem mr-2.5 text-amber-600"></i>
-              <span>Home 2</span>
-            </a>
+          <div id="nav-home-menu" class="dropdown-menu absolute start-0 top-full pt-2 w-52 z-50 dropdown-bridge">
+            <div class="bg-white dark:bg-[#1A2220] rounded-2xl shadow-xl border border-stone-200 dark:border-stone-800 p-2 flex flex-col gap-1.5">
+              <a href="index.html" class="flex items-center justify-between px-3.5 py-2.5 text-xs rounded-xl transition-all duration-200 ${isHome1 ? 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-800 dark:text-emerald-300 font-bold border border-emerald-200/80 dark:border-emerald-800/60 shadow-xs' : 'text-stone-700 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-800/60 font-medium border border-transparent hover:translate-x-0.5'}">
+                <div class="flex items-center gap-2.5">
+                  <i class="fas fa-store-alt text-emerald-600 text-sm"></i>
+                  <span>Home 1</span>
+                </div>
+                <span class="dropdown-active-check ${isHome1 ? '' : 'hidden'} flex items-center justify-center w-4 h-4 rounded-full bg-emerald-600 text-white text-[9px] shadow-xs">
+                  <i class="fas fa-check"></i>
+                </span>
+              </a>
+              <a href="home-2.html" class="flex items-center justify-between px-3.5 py-2.5 text-xs rounded-xl transition-all duration-200 ${isHome2 ? 'bg-amber-50 dark:bg-amber-950/50 text-amber-800 dark:text-amber-300 font-bold border border-amber-200/80 dark:border-amber-800/60 shadow-xs' : 'text-stone-700 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-800/60 font-medium border border-transparent hover:translate-x-0.5'}">
+                <div class="flex items-center gap-2.5">
+                  <i class="fas fa-gem text-amber-600 text-sm"></i>
+                  <span>Home 2</span>
+                </div>
+                <span class="dropdown-active-check ${isHome2 ? '' : 'hidden'} flex items-center justify-center w-4 h-4 rounded-full bg-amber-600 text-white text-[9px] shadow-xs">
+                  <i class="fas fa-check"></i>
+                </span>
+              </a>
+            </div>
           </div>
         </div>
 
@@ -384,25 +586,27 @@
         <a href="faq.html" class="${isLinkActive('faq.html')}">FAQ</a>
         <a href="contacts.html" class="${isLinkActive('contacts.html')}">Contacts</a>
 
-        <div class="relative group">
-          <button class="flex items-center gap-1.5 py-1 text-stone-700 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 font-bold focus:outline-none transition-all duration-200 hover:scale-105">
+        <div class="relative dropdown-container" id="nav-portals-dropdown-group">
+          <button id="nav-portals-btn" type="button" aria-expanded="false" aria-haspopup="true" class="flex items-center gap-1 xl:gap-1.5 py-1 text-[11px] xl:text-xs 2xl:text-sm font-medium text-stone-700 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 border-0 border-b-2 border-transparent pb-0.5 outline-none focus:outline-none focus:ring-0 focus-visible:outline-none select-none transition-colors duration-200 cursor-pointer">
             <span>Portals</span>
             <i class="fas fa-shield-cat text-xs text-amber-500"></i>
-            <i class="fas fa-chevron-down text-[10px] group-hover:rotate-180 transition-transform duration-300"></i>
+            <i id="nav-portals-chevron" class="fas fa-chevron-down text-[10px] dropdown-chevron transition-transform duration-300"></i>
           </button>
-          <div class="absolute end-0 mt-2 w-52 bg-white dark:bg-[#1A2220] rounded-2xl shadow-xl border border-stone-200 dark:border-stone-800 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50 flex flex-col gap-1">
-            <a href="user-dashboard.html" class="flex items-center px-4 py-2 hover:bg-emerald-50 dark:hover:bg-stone-800/80 text-xs font-semibold rounded-xl mx-1.5 transition-all duration-200 hover:translate-x-1">
-              <i class="fas fa-user-circle mr-2 text-emerald-600"></i> Pet Owner Portal
-            </a>
-            <a href="admin-dashboard.html" class="flex items-center px-4 py-2 hover:bg-emerald-50 dark:hover:bg-stone-800/80 text-xs font-semibold rounded-xl mx-1.5 transition-all duration-200 hover:translate-x-1">
-              <i class="fas fa-sliders mr-2 text-rose-600"></i> Admin Management
-            </a>
+          <div id="nav-portals-menu" class="dropdown-menu absolute end-0 top-full pt-2 w-52 z-50 dropdown-bridge">
+            <div class="bg-white dark:bg-[#1A2220] rounded-2xl shadow-xl border border-stone-200 dark:border-stone-800 p-1.5 flex flex-col gap-1">
+              <a href="user-dashboard.html" class="flex items-center px-3.5 py-2 hover:bg-emerald-50 dark:hover:bg-stone-800/80 text-xs font-semibold rounded-xl transition-all duration-200 hover:translate-x-1">
+                <i class="fas fa-user-circle mr-2 text-emerald-600"></i> Pet Owner Portal
+              </a>
+              <a href="admin-dashboard.html" class="flex items-center px-3.5 py-2 hover:bg-emerald-50 dark:hover:bg-stone-800/80 text-xs font-semibold rounded-xl transition-all duration-200 hover:translate-x-1">
+                <i class="fas fa-sliders mr-2 text-rose-600"></i> Admin Management
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Controls & Hamburger -->
-      <div class="flex items-center gap-2 sm:gap-2.5">
+      <div class="flex items-center gap-1.5 sm:gap-2.5">
         <button id="rtl-toggle-btn" title="Toggle Direction" class="w-8 h-8 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-200 flex items-center justify-center text-xs font-bold hover:bg-stone-200 dark:hover:bg-stone-700 transition">
           <span class="dir-toggle-text">LTR</span>
         </button>
@@ -411,13 +615,13 @@
           <i class="fas fa-moon theme-toggle-icon"></i>
         </button>
 
-        <a href="login.html" class="no-nav-highlight hidden sm:inline-flex items-center text-xs font-bold px-3 py-1.5 rounded-full text-stone-700 dark:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-800 transition">
+        <a href="login.html" class="no-nav-highlight hidden md:inline-flex items-center text-[11px] xl:text-xs font-bold px-2.5 py-1 xl:px-3.5 xl:py-1.5 rounded-full text-stone-700 dark:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-800 transition border border-stone-300 dark:border-stone-700">
           Sign In
         </a>
 
-        <a href="sessions.html#booking" class="no-nav-highlight hidden md:inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-extrabold bg-gradient-to-r from-emerald-800 to-emerald-700 text-white shadow-md hover:shadow-emerald-900/30 hover:-translate-y-0.5 transition">
+        <a href="book.html" class="no-nav-highlight hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 xl:px-4 xl:py-2 rounded-full text-[11px] xl:text-xs font-extrabold bg-emerald-800 hover:bg-emerald-700 text-white shadow-md hover:shadow-emerald-900/30 hover:-translate-y-0.5 transition border border-emerald-700">
           <i class="fas fa-calendar-check text-[11px]"></i>
-          <span>Book Appointment</span>
+          <span>Book Now</span>
         </a>
 
         <button id="mobile-menu-btn" aria-label="Toggle Navigation" class="lg:hidden w-8 h-8 rounded-full bg-stone-100 dark:bg-stone-800 flex items-center justify-center text-stone-800 dark:text-stone-200 focus:outline-none hover:bg-stone-200 transition">
@@ -431,14 +635,21 @@
       <div class="flex flex-col space-y-1 text-xs sm:text-sm">
         <div class="text-[10px] uppercase tracking-wider text-emerald-800 dark:text-emerald-400 font-black px-2 py-1">Main Pages</div>
         
-        <a href="index.html" class="py-2 px-3 rounded-xl transition-all flex items-center justify-between ${isMobileActive('index.html')}">
-          <span>Home 1</span>
-          <i class="fas fa-chevron-right text-[10px] opacity-60"></i>
-        </a>
-        <a href="home-2.html" class="py-2 px-3 rounded-xl transition-all flex items-center justify-between ${isMobileActive('home-2.html')}">
-          <span>Home 2</span>
-          <i class="fas fa-chevron-right text-[10px] opacity-60"></i>
-        </a>
+        <!-- Home Dropdown Accordion in Mobile & Tablet Drawer -->
+        
+            <a href="index.html" class="py-2 px-3 rounded-xl transition-all flex items-center justify-between ${isMobileActive('index.html')}">
+              <span class="flex items-center gap-2">
+                <span>Home 1</span>
+              </span>
+              <i class="fas fa-chevron-right text-[10px] opacity-60"></i>
+            </a>
+            <a href="home-2.html" class="py-2 px-3 rounded-xl transition-all flex items-center justify-between ${isMobileActive('home-2.html')}">
+              <span class="flex items-center gap-2">
+                <span>Home 2</span>
+              </span>
+              <i class="fas fa-chevron-right text-[10px] opacity-60"></i>
+            </a>
+  
         <a href="about.html" class="py-2 px-3 rounded-xl transition-all flex items-center justify-between ${isMobileActive('about.html')}">
           <span>About</span>
           <i class="fas fa-chevron-right text-[10px] opacity-60"></i>
@@ -480,9 +691,17 @@
           <i class="fas fa-lock text-rose-500"></i>
         </a>
 
-        <div class="pt-2 flex gap-2">
-          <a href="login.html" class="flex-1 py-2 text-center rounded-xl bg-stone-100 dark:bg-stone-800 text-stone-800 dark:text-white font-bold text-xs hover:bg-stone-200 transition">Sign In</a>
-          <a href="sessions.html#booking" class="flex-1 py-2 text-center rounded-xl bg-emerald-800 text-white font-bold text-xs hover:bg-emerald-700 transition">Book Now</a>
+        <div class="pt-3 mt-1 border-t border-stone-200/80 dark:border-stone-800 grid grid-cols-2 gap-3 md:hidden">
+          <a href="login.html" class="flex items-center justify-center gap-2 py-3 px-4 rounded-2xl bg-stone-100 dark:bg-stone-800/90 hover:bg-stone-200 dark:hover:bg-stone-700 text-stone-800 dark:text-stone-100 font-extrabold text-xs shadow-sm hover:shadow transition-all duration-200 border border-stone-300 dark:border-stone-700 group">
+            <div class="w-6 h-6 rounded-full bg-white dark:bg-stone-900 flex items-center justify-center text-emerald-700 dark:text-emerald-400 shadow-xs group-hover:scale-110 transition-transform">
+              <i class="fas fa-user text-[11px]"></i>
+            </div>
+            <span>Sign In</span>
+          </a>
+          <a href="book.html" class="flex items-center justify-center gap-2 py-3 px-4 rounded-2xl bg-gradient-to-r from-emerald-800 via-emerald-700 to-emerald-800 hover:from-emerald-700 hover:to-emerald-600 text-white font-extrabold text-xs shadow-lg shadow-emerald-950/25 hover:shadow-emerald-900/35 hover:scale-[1.02] active:scale-95 transition-all duration-200 border border-emerald-600/60 group">
+            <i class="fas fa-calendar-check text-amber-300 group-hover:rotate-12 transition-transform text-xs"></i>
+            <span>Book Now</span>
+          </a>
         </div>
       </div>
     </div>
@@ -502,6 +721,7 @@
     updateThemeIcon(localStorage.getItem('pawspaw_theme') || 'light');
     updateDirectionBadge(localStorage.getItem('pawspaw_direction') || 'ltr');
     updateNavbarActiveLinks();
+    setupNavbarDropdowns();
   }
 
   function renderFooter() {
@@ -545,14 +765,11 @@
             <div class="space-y-3">
               <h4 class="text-xs font-black uppercase tracking-widest text-emerald-800 dark:text-emerald-400">Navigation</h4>
               <ul class="space-y-2 text-sm text-stone-700 dark:text-stone-300">
-                <li><a href="index.html" class="hover:text-emerald-800 dark:hover:text-amber-400 transition-colors">Home 1 (Classic)</a></li>
-                <li><a href="home-2.html" class="hover:text-emerald-800 dark:hover:text-amber-400 transition-colors">Home 2 (VIP Boutique)</a></li>
+                <li><a href="index.html" class="hover:text-emerald-800 dark:hover:text-amber-400 transition-colors">Home</a></li>
                 <li><a href="about.html" class="hover:text-emerald-800 dark:hover:text-amber-400 transition-colors">About Our Salon</a></li>
                 <li><a href="sessions.html" class="hover:text-emerald-800 dark:hover:text-amber-400 transition-colors">Sessions & Groomers</a></li>
                 <li><a href="services.html" class="hover:text-emerald-800 dark:hover:text-amber-400 transition-colors">Services & Spa</a></li>
-                <li><a href="pricing.html" class="hover:text-emerald-800 dark:hover:text-amber-400 transition-colors">Pricing Packages</a></li>
                 <li><a href="blog.html" class="hover:text-emerald-800 dark:hover:text-amber-400 transition-colors">Care Journal</a></li>
-                <li><a href="faq.html" class="hover:text-emerald-800 dark:hover:text-amber-400 transition-colors">Help & FAQs</a></li>
                 <li><a href="contacts.html" class="hover:text-emerald-800 dark:hover:text-amber-400 transition-colors">Contact Us</a></li>
               </ul>
             </div>
@@ -825,8 +1042,9 @@
             <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold ${badgeColor}">${apt.status}</span>
             <span class="text-xs text-stone-400 font-mono">${apt.id}</span>
           </div>
-          <h4 class="font-bold text-stone-900 dark:text-white text-base">${apt.service} • ${apt.petName}</h4>
+          <h4 class="font-bold text-stone-900 dark:text-white text-base">${apt.service} • ${apt.petName}${apt.petType ? ' (' + apt.petType + ')' : ''}</h4>
           <p class="text-xs text-stone-500">${apt.date} at ${apt.time} • Stylist: ${apt.specialist}</p>
+          ${apt.notes ? `<p class="text-[11px] text-stone-500 dark:text-stone-400 italic pt-1 border-t border-stone-100 dark:border-stone-800"><i class="fas fa-note-sticky mr-1 text-amber-500"></i>Special request: "${apt.notes}"</p>` : ''}
         </div>
         <div class="flex gap-2">
           ${apt.status === 'Confirmed' ? `
@@ -1119,7 +1337,7 @@
         tr.className = 'hover:bg-stone-50 dark:hover:bg-stone-800/40 transition-colors';
         tr.innerHTML = `
           <td class="p-4 font-mono font-bold text-stone-900 dark:text-white">${refId}</td>
-          <td class="p-4 font-bold">${pet}</td>
+          <td class="p-4 font-bold">${pet}${apt.petType ? ' <span class="text-[11px] font-normal text-stone-500">(' + apt.petType + ')</span>' : ''}</td>
           <td class="p-4">${apt.service || 'Grooming'}</td>
           <td class="p-4">${apt.specialist || 'Specialist'}</td>
           <td class="p-4 font-mono text-[11px]">${apt.date || ''} • ${apt.time || ''}</td>
@@ -1392,47 +1610,218 @@
     if (!bookingForm || bookingForm.dataset.bound === 'true') return;
     bookingForm.dataset.bound = 'true';
 
+    // Set date min attribute to today and default to tomorrow if empty
+    const dateInput = document.getElementById('book-date');
+    if (dateInput) {
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.min = today;
+      if (!dateInput.value) {
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        dateInput.value = tomorrow.toISOString().split('T')[0];
+      }
+    }
+
+    // Prefill from URL query params (e.g. ?service=... or ?specialist=...)
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const sParam = urlParams.get('service');
+      const specParam = urlParams.get('specialist');
+
+      if (sParam) {
+        const serviceSelect = document.getElementById('book-service');
+        if (serviceSelect) {
+          for (let i = 0; i < serviceSelect.options.length; i++) {
+            if (serviceSelect.options[i].value.toLowerCase().includes(sParam.toLowerCase())) {
+              serviceSelect.selectedIndex = i;
+              break;
+            }
+          }
+        }
+      }
+
+      if (specParam) {
+        const specSelect = document.getElementById('book-specialist');
+        if (specSelect) {
+          for (let i = 0; i < specSelect.options.length; i++) {
+            if (specSelect.options[i].value.toLowerCase().includes(specParam.toLowerCase())) {
+              specSelect.selectedIndex = i;
+              break;
+            }
+          }
+        }
+      }
+    } catch (_) {}
+
+    const errBox = document.getElementById('booking-error-msg');
+    const errText = document.getElementById('booking-error-text');
+    const confMsg = document.getElementById('booking-confirmation-msg');
+
+    function showError(msg) {
+      if (errBox && errText) {
+        errText.textContent = msg;
+        errBox.classList.remove('hidden');
+        errBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      if (confMsg) confMsg.classList.add('hidden');
+      showToast(msg, 'error');
+    }
+
+    function clearError() {
+      if (errBox) errBox.classList.add('hidden');
+    }
+
     bookingForm.addEventListener('submit', function (e) {
       e.preventDefault();
+      clearError();
+
       const ownerName = document.getElementById('book-owner-name')?.value.trim();
       const ownerEmail = document.getElementById('book-owner-email')?.value.trim();
+      const ownerPhone = document.getElementById('book-owner-phone')?.value.trim();
       const petName = document.getElementById('book-pet-name')?.value.trim();
-      const petBreed = document.getElementById('book-pet-breed')?.value.trim() || 'Mixed Breed';
+      const petType = document.getElementById('book-pet-type')?.value || 'Dog';
+      const petBreed = document.getElementById('book-pet-breed')?.value.trim() || 'Companion Breed';
       const service = document.getElementById('book-service')?.value;
-      const specialist = document.getElementById('book-specialist')?.value || 'First Available Specialist';
+      const specialist = document.getElementById('book-specialist')?.value || 'First Available Master Stylist';
       const date = document.getElementById('book-date')?.value;
       const time = document.getElementById('book-time')?.value;
+      const notes = document.getElementById('book-notes')?.value.trim() || '';
 
-      if (!ownerName || !ownerEmail || !petName || !service || !date || !time) {
-        showToast('Please fill all required appointment fields.', 'error');
+      // Validation 1: Owner Name
+      if (!ownerName || ownerName.length < 2) {
+        showError('Please enter your full name (at least 2 characters).');
+        document.getElementById('book-owner-name')?.focus();
         return;
       }
+
+      // Validation 2: Email regex
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!ownerEmail || !emailRegex.test(ownerEmail)) {
+        showError('Please provide a valid email address (e.g., name@example.com).');
+        document.getElementById('book-owner-email')?.focus();
+        return;
+      }
+
+      // Validation 3: Phone number (min 7 digits)
+      const digitsOnly = ownerPhone ? ownerPhone.replace(/\D/g, '') : '';
+      if (!ownerPhone || digitsOnly.length < 7) {
+        showError('Please provide a valid phone number (at least 7 digits).');
+        document.getElementById('book-owner-phone')?.focus();
+        return;
+      }
+
+      // Validation 4: Pet Name
+      if (!petName || petName.length < 1) {
+        showError("Please enter your pet's name.");
+        document.getElementById('book-pet-name')?.focus();
+        return;
+      }
+
+      // Validation 5: Service Selection
+      if (!service) {
+        showError('Please choose a grooming or spa treatment.');
+        document.getElementById('book-service')?.focus();
+        return;
+      }
+
+      // Validation 6: Date validation (must not be in the past)
+      if (!date) {
+        showError('Please select a preferred appointment date.');
+        document.getElementById('book-date')?.focus();
+        return;
+      }
+      const todayStr = new Date().toISOString().split('T')[0];
+      if (date < todayStr) {
+        showError('Appointment date cannot be in the past. Please select today or a future date.');
+        document.getElementById('book-date')?.focus();
+        return;
+      }
+
+      // Validation 7: Time
+      if (!time) {
+        showError('Please choose an available appointment time slot.');
+        document.getElementById('book-time')?.focus();
+        return;
+      }
+
+      // Price mapping based on service
+      const priceMap = {
+        'Hydro-Bath & Blow Dry': '$45.00',
+        'Full Haircut & Styling': '$75.00',
+        'Nail Trim & Pawdicure': '$25.00',
+        'Coat Care & De-Shedding': '$65.00',
+        'Spa Mud & Blueberry Facial': '$95.00',
+        'Thalasso Mineral Luxury Package': '$145.00',
+        'Luxury Spa & Blueberry Facial': '$95.00',
+        'Thalasso Mineral Mud Spa': '$145.00'
+      };
+      const price = priceMap[service] || '$75.00';
 
       const newApt = {
         id: 'APT-' + Math.floor(1000 + Math.random() * 9000),
         petName,
+        petType,
         petBreed,
         ownerName,
         ownerEmail,
+        ownerPhone,
         service,
         specialist,
         date,
         time,
+        notes,
         status: 'Confirmed',
-        price: '$85.00'
+        price
       };
 
+      // Save to localStorage
       const existing = JSON.parse(localStorage.getItem(SEED_KEY_APPTS) || '[]');
       existing.unshift(newApt);
       localStorage.setItem(SEED_KEY_APPTS, JSON.stringify(existing));
 
-      showToast(`Booking Successful! Ref #${newApt.id} registered for ${petName}`, 'success');
-      bookingForm.reset();
+      // Also create a linked receipt record in SEED_KEY_RECEIPTS so dashboard has a full trail
+      const existingReceipts = JSON.parse(localStorage.getItem(SEED_KEY_RECEIPTS) || '[]');
+      existingReceipts.unshift({
+        ref: newApt.id,
+        date: newApt.date,
+        service: newApt.service,
+        petName: newApt.petName,
+        amount: newApt.price
+      });
+      localStorage.setItem(SEED_KEY_RECEIPTS, JSON.stringify(existingReceipts));
 
-      const confMsg = document.getElementById('booking-confirmation-msg');
+      // Populate interactive confirmation summary if on book.html
+      const refBadge = document.getElementById('conf-ref-badge');
+      if (refBadge) refBadge.textContent = '#' + newApt.id;
+
+      const confPet = document.getElementById('conf-pet-name');
+      if (confPet) confPet.textContent = `${newApt.petName} (${newApt.petType})`;
+
+      const confService = document.getElementById('conf-service-name');
+      if (confService) confService.textContent = newApt.service;
+
+      const confDate = document.getElementById('conf-date-val');
+      if (confDate) confDate.textContent = newApt.date;
+
+      const confTime = document.getElementById('conf-time-val');
+      if (confTime) confTime.textContent = newApt.time;
+
       if (confMsg) {
         confMsg.classList.remove('hidden');
-        confMsg.scrollIntoView({ behavior: 'smooth' });
+        confMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
+      showToast(`Appointment Confirmed! Ref #${newApt.id} saved for ${petName}.`, 'success');
+
+      // Reset form fields
+      bookingForm.reset();
+
+      // Reset date input to tomorrow
+      const dateInp = document.getElementById('book-date');
+      if (dateInp) {
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        dateInp.value = tomorrow.toISOString().split('T')[0];
       }
     });
   }

@@ -50,6 +50,83 @@ body {
   -webkit-backdrop-filter: blur(14px);
 }
 
+/* ==========================================================================
+   DROPDOWN NAVIGATION (DESKTOP, TABLET & TOUCHSCREENS / NEST HUB MAX)
+   ========================================================================== */
+button, a {
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+.dropdown-container {
+  position: relative;
+}
+
+/* Default state: closed */
+.dropdown-container .dropdown-menu {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s;
+}
+
+.dropdown-container .dropdown-menu a {
+  border-bottom: none !important;
+  text-decoration: none !important;
+}
+
+.dropdown-container .dropdown-chevron {
+  transition: transform 0.25s ease;
+}
+
+/* Open state: triggered by tap/click on all devices (tablets, Nest Hub Max, mobile, desktop) */
+.dropdown-container.dropdown-open .dropdown-menu {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: translateY(0) !important;
+}
+
+.dropdown-container.dropdown-open .dropdown-chevron {
+  transform: rotate(180deg) !important;
+}
+
+/* Force-closed state: guarantees instant dismissal even when touch emulation leaves :hover active */
+.dropdown-container.dropdown-force-closed .dropdown-menu {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: translateY(6px) !important;
+}
+
+.dropdown-container.dropdown-force-closed .dropdown-chevron {
+  transform: rotate(0deg) !important;
+}
+
+/* Hover support strictly for genuine pointer/mouse devices - NEVER for touchscreens/Nest Hub Max */
+@media (hover: hover) and (pointer: fine) {
+  .dropdown-container:not(.dropdown-force-closed):hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .dropdown-container:not(.dropdown-force-closed):hover .dropdown-chevron {
+    transform: rotate(180deg);
+  }
+}
+
+/* Invisible bridge eliminating the hover gap between button and floating menu */
+.dropdown-bridge::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  height: 14px;
+}
+
 [dir="rtl"] .rtl-flip {
   transform: scaleX(-1);
 }
@@ -127,12 +204,66 @@ body {
 
 #navbar-placeholder header {
   position: fixed !important;
-  top: 0.5rem !important;
+  top: 1.25rem !important;
   left: 0 !important;
   right: 0 !important;
   z-index: 99999 !important;
 }
 
+@media (max-width: 640px) {
+  #navbar-placeholder header {
+    top: 0.85rem !important;
+  }
+}
+
 #navbar-placeholder > * {
   pointer-events: auto !important;
+}
+
+/* Crisp button and border standards */
+.btn-primary {
+  background-color: #065f46;
+  color: #ffffff;
+  border: 1px solid #047857;
+}
+.btn-primary:hover {
+  background-color: #047857;
+  border-color: #059669;
+}
+.btn-secondary {
+  border: 2px solid #d6d3d1;
+}
+.dark .btn-secondary {
+  border: 2px solid #44403c;
+}
+
+/* Prevent any blinking borders, tap highlight boxes, or focus outlines on navbar links and buttons */
+.glass-nav button,
+.glass-nav a,
+#navbar-placeholder button,
+#navbar-placeholder a {
+  -webkit-tap-highlight-color: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+  user-select: none;
+}
+
+.glass-nav button:focus,
+.glass-nav button:active,
+.glass-nav button:focus-visible,
+.glass-nav a:focus,
+.glass-nav a:active,
+.glass-nav a:focus-visible,
+#navbar-placeholder button:focus,
+#navbar-placeholder button:active,
+#navbar-placeholder button:focus-visible,
+#navbar-placeholder a:focus,
+#navbar-placeholder a:active,
+#navbar-placeholder a:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  border-top-color: transparent !important;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
 }
