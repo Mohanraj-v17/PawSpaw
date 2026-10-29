@@ -290,9 +290,18 @@
   }
 
   function updateNavbarActiveLinks() {
-    let curPage = window.location.pathname.split('/').filter(Boolean).pop() || 'index.html';
-    curPage = curPage.split('?')[0].split('#')[0]; // Query params & hash strip panna
+    let path = window.location.pathname.replace(/\/+$/, ''); // trailing slash remove panna
+    let curPage = path.split('/').pop() || 'index.html';
 
+    curPage = curPage.split('?')[0].split('#')[0];
+    if (!curPage.includes('.') && curPage !== '') {
+      curPage = curPage + '.html';
+    }
+    if (curPage === '' || curPage === '/') {
+      curPage = 'index.html';
+    }
+
+    // Aliases
     if (curPage === 'home2.html') curPage = 'home-2.html';
     if (curPage === 'service.html') curPage = 'services.html';
 
@@ -314,12 +323,13 @@
     const topNavLinks = document.querySelectorAll('#navbar-placeholder nav .hidden.lg\\:flex > a[href]');
     topNavLinks.forEach(link => {
       const href = link.getAttribute('href');
-      const isMatch = (curPage === href);
-      if (isMatch) {
-        link.className = 'inline-flex items-center py-1 text-[11px] xl:text-xs 2xl:text-sm text-emerald-700 dark:text-emerald-400 font-bold border-0 border-b-2 border-emerald-600 dark:border-emerald-400 pb-0.5 outline-none focus:outline-none focus:ring-0 focus-visible:outline-none transition-colors duration-200';
-      } else {
-        link.className = 'inline-flex items-center py-1 text-[11px] xl:text-xs 2xl:text-sm text-stone-700 dark:text-stone-300 hover:text-emerald-700 dark:hover:text-emerald-400 font-medium border-0 border-b-2 border-transparent pb-0.5 outline-none focus:outline-none focus:ring-0 focus-visible:outline-none transition-colors duration-200';
-      }
+      const normalizePath = (url) => (url || '').split('?')[0].split('#')[0].replace(/^\//, '');
+
+const cleanCur = normalizePath(curPage);
+const cleanHref = normalizePath(href);
+
+const isMatch = (cleanCur === cleanHref) || 
+                (cleanCur === 'index.html' && (cleanHref === '' || cleanHref === 'index.html'));
     });
 
     // 2. Desktop Dropdown Items (Home 1, Home 2 in #nav-home-menu)
@@ -506,12 +516,20 @@
       return;
     }
 
-    let curPage = window.location.pathname.split('/').filter(Boolean).pop() || 'index.html';
-    curPage = curPage.split('?')[0].split('#')[0]; // Query params & hash strip panna
+    let path = window.location.pathname.replace(/\/+$/, ''); // trailing slash remove panna
+    let curPage = path.split('/').pop() || 'index.html';
 
+    curPage = curPage.split('?')[0].split('#')[0];
+    if (!curPage.includes('.') && curPage !== '') {
+      curPage = curPage + '.html';
+    }
+    if (curPage === '' || curPage === '/') {
+      curPage = 'index.html';
+    }
+
+    // Aliases
     if (curPage === 'home2.html') curPage = 'home-2.html';
     if (curPage === 'service.html') curPage = 'services.html';
-
     const isLinkActive = (page) => {
       const match = (curPage === page || (curPage === '' && page === 'index.html'));
       return match
